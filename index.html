@@ -1154,6 +1154,23 @@
     <div class="footer-container">
       <div><strong>Research Prototype:</strong> Adaptive Cybersecurity Awareness Training Framework for University Students</div>
       <div>Designed for Master's Dissertation Research Evaluation | Vercel &amp; Offline Compatible</div>
+      <div style="margin-top: 8px;">
+        <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('syncConfigPanel').style.display = (document.getElementById('syncConfigPanel').style.display === 'block' ? 'none' : 'block')">
+          ⚙️ Google Sheet Sync Status &amp; Tester
+        </button>
+      </div>
+      <div id="syncConfigPanel" style="display: none; max-width: 650px; margin: 16px auto 0; padding: 16px; background: #fff; border: 1px solid var(--border-strong); border-radius: var(--radius-md); text-align: left; box-shadow: var(--shadow-md);">
+        <h4 style="margin-top: 0; margin-bottom: 8px; color: var(--primary);">Google Sheet Live Connection Tester</h4>
+        <p style="font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 12px;">
+          If configured in Vercel, submissions automatically route to your Google Sheet via <code>GOOGLE_SHEET_WEBAPP_URL</code>. You can also paste your Google Apps Script URL below to test or override directly:
+        </p>
+        <div style="display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap;">
+          <input type="url" id="customSheetUrlInput" placeholder="https://script.google.com/macros/s/.../exec" style="flex: 1; min-width: 260px; padding: 8px 12px; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); font-size: 0.875rem;">
+          <button type="button" class="btn btn-primary btn-sm" onclick="app.saveCustomSheetUrl()">Save URL</button>
+          <button type="button" class="btn btn-success btn-sm" onclick="app.testSheetConnection()">Test Connection Now</button>
+        </div>
+        <div id="syncTestResult" style="font-size: 0.8125rem; padding: 8px; border-radius: var(--radius-sm); display: none;"></div>
+      </div>
     </div>
   </footer>
 
@@ -1463,8 +1480,10 @@
         try {
           const ordered = getOrderedModules();
           const pathwayString = ordered.map(m => `${m.title} (P${m.priority})`).join(' > ');
+          const storedUrl = typeof localStorage !== 'undefined' ? (localStorage.getItem('GOOGLE_SHEET_URL') || '') : '';
 
           const payload = {
+            endpointUrl: storedUrl,
             participantCode: state.participantCode || 'Anonymous',
             eventType: eventType,
             q1_password: state.assessmentAnswers ? state.assessmentAnswers['q1_password'] || '' : '',
@@ -1483,23 +1502,128 @@
             updatedPathwayOrder: additionalData.updatedPathwayOrder || pathwayString
           };
 
+          const ind = document.getElementById('syncIndicator');
+          if (ind) {
+            ind.style.display = 'inline-flex';
+            ind.style.color = '#0284c7';
+            ind.innerHTML = '⏳ Syncing...';
+          }
+
           const response = await fetch('/api/submit', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
           });
 
-          if (response.ok) {
-            const ind = document.getElementById('syncIndicator');
-            if (ind) {
+          const resData = await response.json().catch(() => ({}));
+          console.log('[Prototype Telemetry Response]:', resData);
+
+          if (ind) {
+            if (resData.status === 'success') {
               ind.style.display = 'inline-flex';
               ind.style.color = '#166534';
-              ind.innerHTML = '&#10003; Logged';
-              setTimeout(() => { ind.style.display = 'none'; }, 3000);
+              ind.innerHTML = '&#10003; Logged to Sheet';
+              setTimeout(() => { ind.style.display = 'none'; }, 4000);
+            } else if (resData.status === 'received_local_only') {
+              ind.style.display = 'inline-flex';
+              ind.style.color = '#b45309';
+              ind.innerHTML = '&#9679; Vercel: Sheet URL not configured';
+              console.warn('Vercel received the data but GOOGLE_SHEET_WEBAPP_URL is not set in Vercel environment variables.');
+            } else {
+              ind.style.display = 'inline-flex';
+              ind.style.color = '#b91c1c';
+              ind.innerHTML = '&#9888; Sync Error';
             }
           }
         } catch (e) {
-          console.log('[Offline / Local Mode] Response stored in session RAM only.');
+          console.log('[Offline / Local Mode] Response stored in session RAM only.', e);
+          const ind = document.getElementById('syncIndicator');
+          if (ind) {
+            ind.style.display = 'inline-flex';
+            ind.style.color = '#64748b';
+            ind.innerHTML = '&#9679; Local RAM only';
+          }
+        }
+      }
+
+      function saveCustomSheetUrl() {
+        const input = document.getElementById('customSheetUrlInput');
+        const resBox = document.getElementById('syncTestResult');
+        if (!input || !resBox) return;
+        const val = input.value.trim();
+        if (val) {
+          localStorage.setItem('GOOGLE_SHEET_URL', val);
+          resBox.style.display = 'block';
+          resBox.style.backgroundColor = '#dcfce7';
+          resBox.style.color = '#166534';
+          resBox.innerHTML = '✓ Google Apps Script URL saved in browser storage.';
+        } else {
+          localStorage.removeItem('GOOGLE_SHEET_URL');
+          resBox.style.display = 'block';
+          resBox.style.backgroundColor = '#f1f5f9';
+          resBox.style.color = '#475569';
+          resBox.innerHTML = 'Reset to default Vercel environment variable.';
+        }
+      }
+
+      async function testSheetConnection() {
+        const input = document.getElementById('customSheetUrlInput');
+        const resBox = document.getElementById('syncTestResult');
+        if (!resBox) return;
+
+        const customUrl = input ? input.value.trim() : '';
+        const targetUrl = customUrl || localStorage.getItem('GOOGLE_SHEET_URL') || '';
+
+        resBox.style.display = 'block';
+        resBox.style.backgroundColor = '#e0f2fe';
+        resBox.style.color = '#0369a1';
+        resBox.innerHTML = '⏳ Sending test entry to Google Sheet...';
+
+        try {
+          const payload = {
+            endpointUrl: targetUrl,
+            participantCode: 'TEST_PING_' + Math.floor(Math.random() * 1000),
+            eventType: 'Live_Connection_Test',
+            q1_password: 'Test',
+            q2_phishing: 'Test',
+            q3_privacy: 'Test',
+            q4_updates: 'Test',
+            q5_susceptibility: 'Test',
+            q6_reporting: 'Test',
+            initialPathwayOrder: 'Test Mode',
+            activeModule: 'Diagnostic_Check',
+            scenarioChoice: 'OK',
+            followupChoice: 'OK',
+            followupResult: 'Connection Verified',
+            oldPriority: 2,
+            newPriority: 1,
+            updatedPathwayOrder: 'Test Passed'
+          };
+
+          const res = await fetch('/api/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          const data = await res.json();
+          if (data.status === 'success') {
+            resBox.style.backgroundColor = '#dcfce7';
+            resBox.style.color = '#166534';
+            resBox.innerHTML = '<strong>✓ SUCCESS!</strong> Test row added to your Google Sheet! Check your spreadsheet.';
+          } else if (data.status === 'received_local_only') {
+            resBox.style.backgroundColor = '#fef3c7';
+            resBox.style.color = '#b45309';
+            resBox.innerHTML = '<strong>⚠️ Notice:</strong> ' + data.message + '<br><em>Tip: Paste your Google Script URL above and click "Save URL" to test immediately.</em>';
+          } else {
+            resBox.style.backgroundColor = '#fee2e2';
+            resBox.style.color = '#b91c1c';
+            resBox.innerHTML = '<strong>❌ Error:</strong> ' + (data.message || JSON.stringify(data));
+          }
+        } catch (err) {
+          resBox.style.backgroundColor = '#fee2e2';
+          resBox.style.color = '#b91c1c';
+          resBox.innerHTML = '<strong>❌ Fetch Failed:</strong> ' + err.message;
         }
       }
 
@@ -2088,7 +2212,9 @@
         submitModuleAndEvaluate: submitModuleAndEvaluate,
         continueToNextModule: continueToNextModule,
         restartSession: restartSession,
-        logToSheet: logToSheet
+        logToSheet: logToSheet,
+        saveCustomSheetUrl: saveCustomSheetUrl,
+        testSheetConnection: testSheetConnection
       };
 
     })();
