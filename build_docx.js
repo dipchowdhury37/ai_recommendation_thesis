@@ -159,7 +159,8 @@ function createDocx(targetDocxPath, mdContent) {
 const files = [
   'Prototype_Design_and_Adaptation',
   'Prototype_Evaluation_Guide',
-  'Prototype_Test_Report'
+  'Prototype_Test_Report',
+  'Prototype_Evaluation_Data_15_Responses'
 ];
 
 files.forEach(name => {
