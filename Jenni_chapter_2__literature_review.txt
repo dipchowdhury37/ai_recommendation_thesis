@@ -1,0 +1,715 @@
+
+
+
+
+
+
+
+CHAPTER 2: LITERATURE REVIEW
+
+
+
+
+
+2.1 Introduction
+
+
+
+The literature survey is conducted in this chapter to provide background to the analysis, profiling and design efforts in this dissertation. It brings together four areas: cybersecurity awareness among university students, adaptive and 
+
+personalised
+
+ learning, current cybersecurity trainings systems and data-driven learner profiling. The areas are examined as part of Objectives 1 to 3 and Research Questions 1 to 3 and in Chapter 3 as part of the evaluation process. The chapter starts by exploring the 
+
+conceptualisation
+
+ and measurement of awareness, knowledge, attitudes and 
+
+behaviour
+
+ with students, and then moves on to adaptive learning techniques, current training provision, and profiling. The chapter concludes with an integrated conceptual framework, and the resulting research gap.
+
+
+
+
+
+2.2 Adaptive Learning and 
+
+Personalised
+
+ Learning Systems
+
+
+
+
+
+Personalisation
+
+ and adaptation are two different concepts. 
+
+Personalised
+
+ learning is where a learner is given an initial pathway based on information which is collected at one point in time, for example, a diagnostic test given at the start of training. Adaptive learning, however, adapts the content, sequence and difficulty as more evidence about the learner is collected throughout the learning process CITATION DziubanC18 \p 9 \l 1033 (Dziuban et al., 2018). An adaptive system is thus dependent upon a continuous interplay between what the system 
+
+has of the learner
+
+ and what it provides for the learner next.
+
+
+
+The architectures of most adaptive systems are similar. A learner model keeps information for a learner, including diagnostic information and/or more recent performance. Content model: Describes what is available, the organization of content by topics and difficulty. Adaptation rules link the two, determining what evidence the current model of the learner should infer for the next piece of content that the learner should view. The learners' model is updated based on feedback from subsequent activity, thus closing the loop and letting the path take on a trajectory that evolves over time, not just determined at the beginning CITATION WangT25 \p 5 \l 1033 (Wang et al., 2025).
+
+
+
+There are two general methods of building adaptation rules. The specific conditions are explicitly set by transparent, rule-based logic, such as 'if you show weak 
+
+behaviour
+
+ but strong knowledge, then recommend 
+
+practising
+
+ on passwords. Machine-learning methods, in turn, are used to learn rules statistically from data; these may be more complex but generally require more 
+
+large labelled
+
+ data 
+
+sets, and
+
+ are more difficult for the learner or designer to examine  CITATION SarkerI22 \p 1491 \l 1033 (Sarker, 2022). In the field of education, this distinction is particularly relevant, as opaque algorithms may demoralize learners and institutions and can be considered as a feature of an AI design rather than an optional one, in terms of its ability to explain itself, according to Khosravi et al. (2022).
+
+
+
+It was more suitable for this dissertation to use a transparent, rule-based approach rather than a machine-learning approach. Size of the available dataset is small and not collected specifically for the purposes of model training, explanations must be provided so that recommendations can be explained to students and reviewers, and a low fidelity prototype needs to be accessible within the limited timeframe of an MSc project CITATION ChazetteL20 \p 510 \l 1033 (Chazette & Schneider, 2020). This was a pragmatic decision due to the constraints of the project, and not a statement that 
+
+rule based
+
+ adaptation is better overall.
+
+
+
+
+
+2.3 Cybersecurity Awareness Among University Students
+
+
+
+There are differences between awareness, knowledge, attitudes and 
+
+behaviour
+
+. Knowledge relates to what people are able to say correctly about a risk or safeguard; attitude relates to people's evaluation of a risk or safeguard; 
+
+behaviour
+
+ refers to what people do; and awareness is often considered as a fourth construct, but in practice is the combination of knowledge, attitude and 
+
+behaviour
+
+. Survey research generally does not record self-reported 
+
+behaviour
+
+ – so, a high 
+
+behaviour
+
+ score does not mean that the respondent did what they reported they did CITATION StikvoortB17 \p 1612 \l 1033 (Stikvoort et al., 2017). Self-confidence, of course, does not equal knowledge that has been demonstrated and tested and the two are not interchangeable in the evaluation of results.
+
+
+
+The Knowledge-Attitude-
+
+Behaviour
+
+ paradigm has played a significant role in the structuring of this area, for example, the Human Aspects of Information Security Questionnaire (HAIS-Q). Initially developed and tested with employees in 
+
+organisational
+
+ environments, HAIS-Q covers aspects such as password usage, email usage, social media usage, mobile device use and incident reporting. It is not a direct replication, but rather an extension of the instrument, when used with students CITATION McCormacA17 \p 3 \l 1033 (McCormac et al., 2017). For instance, Xu et al. (2024) modified HAIS-Q for Chinese college students and found a correlation between the students' scores on Attitude and 
+
+Behaviour
+
+ in which Attitude was higher, while 
+
+Behaviour
+
+ was lower, as the students completed their studies. Likewise, the results in South Africa by Goliath, 
+
+Tsibolane
+
+ and Snyman (2025) indicated that postgraduates had better awareness than the undergraduate students, this indicating that the academic stage rather than discipline affects awareness.
+
+
+
+The results of these studies cannot be directly compared due to varying countries, sample composition, adaptation of HAIS-Q and analysis methods. Generalizations regarding the attitude-
+
+behaviour
+
+ patterns of Chinese undergraduates should not be made without supporting evidence for other groups, such as South African and Indian student groups CITATION IslamiR23 \p 9 \l 1033 (Islami et al., 2023). However, what is consistent 
+
+at
+
+ all settings is the awareness-
+
+behaviour
+
+ gap, that is, that high and even high knowledge and attitude scores are not consistently correlated with safer reported 
+
+behaviour
+
+. In a similar study, Ahamed et al. (2024) discovered that students' knowledge and practices around the password were related to their attitude, which was in turn correlated with overall awareness, in this case separating the constructs from the overall outcome. Setiawan and Rizal (2024) also note that 
+
+awareness levels
+
+ experienced after significant disruption (such as the Covid-19 pandemic) are context and time-sensitive, and not just the individual.
+
+
+
+From a practical point of view, the use of training that focuses only on knowledge is unlikely to be sufficient to close the gap between knowledge and 
+
+behaviour
+
+; training that requires the student to 
+
+practise
+
+ specific activities related to the domain of the phishing attack, including phishing recognition, password practices, privacy settings, software updates, device protection and incident reporting, is more likely to achieve a desired 
+
+behaviour
+
+ change than further factual content.
+
+
+
+
+
+2.4 Existing Cybersecurity Awareness Training Systems
+
+
+
+There are a variety of types of university and 
+
+organisational
+
+ cybersecurity training including: awareness raising courses, self-paced e-learning courses, simulated phishing training, hands-on technical training and gamified training. 
+
+Prümmer
+
+, van Steen and van den Berg (2024) concluded that, after 
+
+analysing
+
+ 142 studies on workplace cybersecurity training, most interventions showed some positive outcomes, regardless of the training content or the training method adopted (most often a game-based method), and that most evaluation studies were based on small samples and pre-test and post-test designs CITATION PrmmerJ23 \l 1033 (Prümmer et al., 2023). This suggests real potential in 
+
+training as a whole, and
+
+ it also suggests that there is less evidence to support claims of effectiveness in the field than might appear from the fact that they are so common CITATION ShewchukS23 \p 1 \l 1033 (Shewchuk et al., 2023).
+
+
+
+One pathway taken with this training has been seen 
+
+in
+
+ commercial platforms. 
+
+Hoxhunt
+
+ creates a profile for each user based on information provided during onboarding and subsequent simulated-phishing work and then makes the simulated phishing and 
+
+microtraining
+
+ progressively more difficult. KnowBe4's Risk Score incorporates a percentage from both the training results and 
+
+simulated-phishing
+
+ to target additional training to individuals or groups with the highest risk. Microsoft Attack Simulation Training is a simulated attack campaign that is run in Microsoft 365 and automatically assigns follow-up training to users who are tricked by a simulated attack CITATION HydariM26 \l 1033 (Hydari et al., 2026). These are descriptions of a product published by the vendor and not independently peer-reviewed assessments, so statements about the effectiveness of these products should be interpreted as the vendors' own and not as proven effectiveness. From the three platforms, 2.1 
+
+summarises
+
+ them.
+
+
+
+Table 2.1. Comparison of employee-focused 
+
+personalised
+
+ phishing and awareness training platforms
+
+
+
+Platform
+
+
+
+
+
+Personalisation
+
+ basis
+
+
+
+Adaptation transparency
+
+
+
+Target context
+
+
+
+
+
+Hoxhunt
+
+
+
+
+
+Individual profile built from onboarding information and ongoing simulated-phishing performance
+
+
+
+Proprietary; adaptation logic not published
+
+
+
+Employees within a managed 
+
+organisation
+
+
+
+
+
+KnowBe4
+
+
+
+Aggregated Risk Score combining training completion and phishing-simulation results
+
+
+
+Proprietary; scoring method not fully published
+
+
+
+Employees within a managed 
+
+organisation
+
+
+
+
+
+Microsoft Attack Simulation Training
+
+
+
+Follow-up training assigned automatically to users who fail a simulation
+
+
+
+Rule-based pass/fail trigger, partially visible to administrators
+
+
+
+Employees within a Microsoft 365 tenant
+
+
+
+Source: compiled by the author from 
+
+Hoxhunt
+
+ (2026), KnowBe4 (2026) and Microsoft (2026).
+
+
+
+The constraints for these systems apply to this dissertation. They are designed for employees within an 
+
+organisation
+
+ where accounts are provided centrally, not students; they do not provide open access for inspection of their adaptation logic; they focus mainly on phishing, not the wider range of domains covered by instruments like HAIS-Q; and they do not raise consent issues like running simulated attacks on students, which they would do in an employer-employee context CITATION DistlerV21 \p 26 \l 1033 (Distler et al., 2021). Nevertheless, despite this mismatch, NIST SP 800-50 Revision 1 is a relevant source of learning-
+
+programme
+
+ guidance: it applies to federal agencies which develop 
+
+organisation
+
+-wide learning 
+
+programmes
+
+ for their own employees, but its principles of lifecycle planning, role-appropriate content and continuous measurement are quite generic and readily adapted to a university training framework, provided they are not introduced uncritically. University cybersecurity courses that integrate virtual laboratories, gamification and simulation have been reviewed and these are the tools that enable hands-on and motivating learning, primarily in computing courses, but in some cases in the context of awareness provision throughout the university CITATION ArduinP26 \l 1033 (Arduin & Costé, 2026).
+
+
+
+
+
+2.5 Data-Driven Learner Profiling
+
+
+
+In differentiated training, there 
+
+has to
+
+ be some method of categorizing students with similar needs. There are two general strategies. The main advantage of rule-based profiling is that it assigns a learner to a category in a transparent and easy to justify manner based on pre-established thresholds on construct 
+
+scores, but
+
+ requires the thresholds to be set sensibly ahead of time CITATION BenabbesK22 \p 65 \l 1033 (Benabbes et al., 2022). Clustering is alternative to grouping respondents according to their answers, in the sense that patterns are not imposed on the 
+
+data, but
+
+ emerge from the data.
+
+
+
+However, clustering always produces clusters, 
+
+whether or not
+
+ there is any structure in the data, of course: if the data are random, then the algorithm will generate random clusters. It cannot be assumed that the quality and stability of a clustering solution is good, but must be checked, for instance by comparing the solution for different numbers of clusters and the extent to which each cluster is separated and consistent, as well as by checking that similar clusters reoccur between multiple runs or resampling CITATION MontiS03 \p 114 \l 1033 (Monti et al., 2003). There are also issues with how the variables are constructed: scores that are built by combining several of the survey items must have a defensible and consistent scoring method, and categorical versus continuous variables might call for clustering approaches that are appropriate to that type of data as opposed to those that assume the numerical distance CITATION HorneE20 \p 14 \l 1033 (Horne et al., 2020).
+
+
+
+Any profile that is created is affected by the variables selected. Profiles are indicators of learning need, based on the specific items used for the analysis (rather than fixed descriptions of ability or fixed types of 
+
+student
+
+) and a learner's profile may vary 
+
+if
+
+ different items, or a different clustering method, were used. This dissertation also did not include demographic characteristics (e.g., gender or discipline) in its clustering nor in subsequent recommendations. The aim of this was to limit one obvious source of demographic bias to the system, but it did not make it clear that resulting profiles and recommendations were fair, as bias may also be introduced indirectly via factors that are correlated with demographic characteristics. Table 3 and Chapter 3 describe the detailed procedure, the construction of variables and the outcomes of the clustering in this chapter.
+
+
+
+
+
+2.6 Integrated Conceptual Framework
+
+
+
+Through the literature reviewed above it is possible to combine the two ideas in one single conceptual framework that will guide the rest of this dissertation (Figure 2.1). An exploratory learner profile is fed by four awareness related indicators, based on the Knowledge-Attitude-
+
+Behaviour
+
+ approach in which the approach was extended by adding an exposure indicator, reflecting the platform and risk context of students CITATION PopoolaO24 \p 821 \l 1033 (Popoola et al., 2024). This evidence, combined with the adaptive learning literature reviewed in Section 2.2, is used to inform each profile 
+
+with
+
+ training requirements. 
+
+Personalised
+
+ module recommendations and ordering of content are based on requirements and represent a learning path. Short checks embedded in that pathway give feedback that can change the learner profile so that the pathway can change over time, not just once it has been made.
+
+
+
+
+
+
+
+
+
+
+
+Figure 2.1. Integrated conceptual framework linking awareness indicators, learner profiles, training requirements and 
+
+personalised
+
+ recommendations
+
+
+
+Source: Author's own, drawing on Parsons et al. (2014) and Tan et al. (2025).
+
+
+
+The arrows in Figure 2.1 are not necessarily indicative of a tested causal sequence but are proposed informational and design relationships that are used to structure data analysis and prototype design that will not necessarily change the actual security 
+
+behaviour
+
+ of a student. The elements of the framework align with the dissertation's goals, as the awareness indicators and profile correspond to Objective 2, the derivation of requirements and path design to Objective 3, and the training elements considered in Sections 2.2 to 2.4 to Objective 1. The framework was used as the initial theory within the Design Science Research methodology used in this project, which is outlined in detail in Chapter 3, and from which the requirements were derived, the training framework was 
+
+created
+
+ and the prototype was developed and subsequently evaluated.
+
+
+
+
+
+2.7 Research Gap and Positioning of the Study
+
+
+
+The problem identified in the literature reviewed above is summed up in three points. Learner awareness research, including HAIS-Q and adaptations, does not only inform the measurement of learners' awareness, but also rarely informs the design of training CITATION Tond18 \p 3 \l 1033 (Ton et al., 2018). Research on adaptive learning is more advanced in 
+
+the general
+
+ education than in 
+
+cybersecurity, and
+
+ is used only infrequently for university-wide awareness training. Current 
+
+personalised
+
+ training platforms are more well developed for employees than for students, and their adaptation logic is not open to academic investigation, but proprietary CITATION edaP21 \p 2 \l 1033 (Šeda et al., 2021).
+
+
+
+This is not a statement that there is no research about, but instead a reflection of the lack of supporting specific combination of secondary-data analysis, learner profiling and training design for university students. Individual components (such as HAIS-Q validation studies or adaptive cybersecurity exercises) are generally reasonably well established on their own CITATION IfenthalerD20 \p 2141 \l 1033 (Ifenthaler et al., 2020). What is relatively undeveloped is a single, identifiable process that takes students from secondary evidence to exploratory profiling to documented design requirements to evaluated prototype, done in such an open manner that they can be studied and repeated by other researchers CITATION WilsonN17 \p 504 \l 1033 (Wilson et al., 2017).
+
+
+
+This gap directly relates to the aims and questions of the dissertation. The lack of a feature review specifically aimed at 
+
+University
+
+ students instead of employees is addressed by Objective 1 and RQ1. The lack of profiling work done on this specific data set is addressed by Objective 2 and RQ2. Objective 3, RQ3 and RQ4 address the lack of documentation from profiles to requirements to a tested low fidelity design. The following aspects were considered in the evaluation of usability, relevance and design quality within the scope of this project: Does this artefact function as expected? Does it meet the expectations of the intended users and domain experts? Does the 
+
+personalised
+
+ training lead to a change in 
+
+behaviour
+
+, which becomes apparent over time, in the real world? This question is left open for future 
+
+research..
+
+
+
+
+
+
+
+ References
+
+
+
+
+
+Arduin, P., & 
+
+Costé
+
+, B. (2026). Learning to Hack, Playing to Learn: Gamification in Cybersecurity Courses. Journal of Cybersecurity and Privacy, 6(1), 16. https://doi.org/10.3390/jcp6010016 
+
+
+
+
+
+
+
+Benabbes
+
+, K., 
+
+Hmedna
+
+, B., Housni, K., Zellou, A., & 
+
+Mezouary
+
+, A. E. (2022). New Automatic Hybrid Approach for Tracking Learner Comprehension Progress in the LMS. International Journal of Interactive Mobile Technologies (
+
+iJIM
+
+), 16(19), 61–80. https://doi.org/10.3991/ijim.v16i19.33733 
+
+
+
+
+
+
+
+Chazette
+
+, L., & Schneider, K. (2020). Explainability as a non-functional requirement: challenges and recommendations. Requirements Engineering, 25(4), 493–514. https://doi.org/10.1007/s00766-020-00333-1 
+
+
+
+
+
+Distler, V., Fassl, M., Habib, H., 
+
+Krombholz
+
+, K., Lenzini, G., Lallemand, C., Cranor, L. F., & Koenig, V. (2021). A Systematic Literature Review of Empirical Methods and Risk Representation in Usable Privacy and Security Research. ACM Transactions on Computer-Human Interaction, 28(6), 1–50. https://doi.org/10.1145/3469845 
+
+
+
+
+
+Dziuban, C. D., Howlin, C., Moskal, P., Johnson, C., Parker, L., & Campbell, M. (2018). Adaptive Learning: A Stabilizing Influence Across Disciplines and Universities. Online Learning, 22(3). https://doi.org/10.24059/olj.v22i3.1465 
+
+
+
+
+
+Horne, E., Tibble, H., Sheikh, A., & 
+
+Tsanas
+
+, A. (2020). Challenges of Clustering Multimodal Clinical Data: Review of Applications in Asthma Subtyping. JMIR Medical Informatics, 8(5). https://doi.org/10.2196/16452 
+
+
+
+
+
+Hydari, M. Z., 
+
+Adjerid
+
+, I., Lu, Y., & Woodard, C. J. (2026). Breaking Bad Email Habits: Bounding the Impact of Simulated Phishing Campaigns. In 
+
+arXiv
+
+ (Cornell University). Cornell University. https://doi.org/10.48550/arxiv.2603.04324 
+
+
+
+
+
+
+
+Ifenthaler
+
+, D., Gibson, D., Prasse, D., Shimada, A., & Yamada, M. (2020). Putting learning back into learning analytics: actions for policy makers, researchers, and practitioners. Educational Technology Research and Development, 69(4), 2131–2150. https://doi.org/10.1007/s11423-020-09909-8 
+
+
+
+
+
+Islami, R. A. Z. E., 
+
+Ramulumo
+
+, M., Sari, I. J., & Mnguni, L. (2023). COVID-19 prevention intentions of pre-science science teachers from South African and Indonesian universities. Eurasia Journal of Mathematics Science and Technology Education, 19(8). https://doi.org/10.29333/ejmste/13426 
+
+
+
+
+
+McCormac, A., 
+
+Calic
+
+, D., 
+
+Butavicius
+
+, M., Parsons, K., 
+
+Zwaans
+
+, T., & Pattinson, M. (2017). A Reliable Measure of Information Security Awareness and the Identification of Bias in Responses. AJIS. Australasian Journal of Information Systems/AJIS. Australian Journal of Information Systems/Australian Journal of Information Systems, 21. https://doi.org/10.3127/ajis.v21i0.1697 
+
+
+
+
+
+Monti, S., Tamayo, P., Mesirov, J. P., & Golub, T. R. (2003). Consensus Clustering: A Resampling-Based Method for Class Discovery and Visualization of Gene Expression Microarray Data. Machine Learning, 52, 91–118. https://doi.org/10.1023/a:1023949509487 
+
+
+
+
+
+Popoola, O. A., Akinsanya, M. O., Nzeako, G., Chukwurah, E. G., & Okeke, C. D. (2024). Exploring theoretical constructs of cybersecurity awareness and training programs: comparative analysis of African and U.S. Initiatives. International Journal of Applied Research in Social Sciences, 6(5), 819–827. https://doi.org/10.51594/ijarss.v6i5.1104 
+
+
+
+
+
+
+
+Prümmer
+
+, J., Steen, T. van, & Berg, B. van den. (2023). A systematic review of current cybersecurity training methods. Leiden Repository (Leiden University), 136, 103585. https://doi.org/10.1016/j.cose.2023.103585 
+
+
+
+
+
+Sarker, I. H. (2022). Machine Learning for Intelligent Data Analysis and Automation in Cybersecurity: Current and Future Prospects. Annals of Data Science, 10(6), 1473–1498. https://doi.org/10.1007/s40745-022-00444-2 
+
+
+
+
+
+Šeda, P., 
+
+Vykopal
+
+, J., 
+
+Švábenský
+
+, V., & 
+
+Čeleda
+
+, P. (2021). Reinforcing Cybersecurity Hands-on Training 
+
+With
+
+ Adaptive Learning. 
+
+arXiv
+
+ (Cornell University), 1–9. https://doi.org/10.1109/fie49875.2021.9637252 
+
+
+
+
+
+Shewchuk, S., Wallace, J. A., & Seibold, M. (2023). Evaluations of training programs to improve capacity in K*: a systematic scoping review of methods applied and outcomes assessed. Humanities and Social Sciences Communications, 10(1). https://doi.org/10.1057/s41599-023-02403-5 
+
+
+
+
+
+Stikvoort, B., 
+
+Juslin
+
+, P., & Bartusch, C. (2017). Good things come in small packages: is there a common set of motivators for energy 
+
+behaviour
+
+? Energy Efficiency, 11(7), 1599–1615. https://doi.org/10.1007/s12053-017-9537-0 
+
+
+
+
+
+
+
+Ton,  de
+
+ J., Ard, L., Margus, P., Zacharias, Z., Frank, F., E., H.-S., Cindy, R., G., Susan, & Peter, R. (2018). International Handbook of the Learning Sciences. In University of Twente Research Information. https://doi.org/10.4324/9781315617572 
+
+
+
+
+
+Wang, T., Zhan, Y., Lian, J., Hu, Z., Yuan, N. J., Zhang, Q., Xie, X. H., & Xiong, H. (2025). LLM-powered Multi-agent Framework for Goal-oriented Learning in Intelligent Tutoring System. In ArXiv.org. https://doi.org/10.48550/arxiv.2501.15749 
+
+
+
+
+
+Wilson, N., Thomson, A., & Riches, P. (2017). Development and presentation of the first design process model for sports equipment design. Research in Engineering Design, 28(4), 495–509. https://doi.org/10.1007/s00163-017-0257-4 
+
+
+

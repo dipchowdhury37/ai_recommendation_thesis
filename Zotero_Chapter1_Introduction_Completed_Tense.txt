@@ -1,0 +1,319 @@
+
+
+
+
+
+
+
+Chapter 1: Introduction
+
+
+
+
+
+1.1 Background and Context
+
+
+
+Today, students at the university use numerous digital tools for learning and everyday life, such as learning management systems, institutional e-mail, cloud storage, social network and mobile applications—often on their own devices, outside the university's security perimeter. This dependency increases the attack surface for malicious parties and is part of the reason why higher education is a constant target for cyber incidents  ADDIN ZOTERO_ITEM CSL_CITATION {"citationID":"xZQShTSY","properties":{"unsorted":false,"formattedCitation":"(Kourtesis, 2024)","plainCitation":"(Kourtesis, 2024)","noteIndex":0},"citationItems":[{"id":402,"uris":["http://zotero.org/users/19525561/items/YVMLLBWH"],"itemData":{"id":402,"type":"article-journal","abstract":"This scoping review examines the broad applications, risks, and ethical challenges associated with Extended Reality (XR) technologies, including Virtual Reality (VR), Augmented Reality (AR), and Mixed Reality (MR), within the context of Metaverse. XR is revolutionizing fields such as immersive learning in education, medical and professional training, neuropsychological assessment, therapeutic interventions, arts, entertainment, retail, e-commerce, remote work, sports, architecture, urban planning, and cultural heritage preservation. The integration of multimodal technologies—haptics, eye-, face-, and body tracking, and brain–computer interfaces—enhances user engagement and interactivity, playing a key role in shaping the immersive experiences in the Metaverse. However, XR’s expansion raises serious concerns, including data privacy risks, cybersecurity vulnerabilities, cybersickness, addiction, dissociation, harassment, bullying, and misinformation. These psychological, social, and security challenges are further complicated by intense advertising, manipulation of public opinion, and social inequality, which could disproportionately affect vulnerable individuals and social groups. This review emphasizes the urgent need for robust ethical frameworks and regulatory guidelines to address these risks while promoting equitable access, privacy, autonomy, and mental well-being. As XR technologies increasingly integrate with artificial intelligence, responsible governance is essential to ensure the safe and beneficial development of the Metaverse and the broader application of XR in enhancing human development.","container-title":"Multimodal Technologies and Interaction","DOI":"10.3390/mti8110098","journalAbbreviation":"Multimodal Technologies and Interaction","page":"98","source":"ResearchGate","title":"A Comprehensive Review of Multimodal XR Applications, Risks, and Ethical Challenges in the Metaverse","volume":"8","author":[{"family":"Kourtesis","given":"Panagiotis"}],"issued":{"date-parts":[["2024",11,6]]}}}],"schema":"https://github.com/citation-style-language/schema/raw/master/csl-citation.json"} (Kourtesis, 2024). The great majority of the 500 universities surveyed by sector have suffered a breach or attack over the past year, with phishing the most frequently reported means of attack, according to recent reports, although the sample size was relatively small and the reported figure is not definitive. Larger breach investigations also credit a significant portion of breaches to 
+
+human
+
+, rather than technical, error, and phishing often is the primary means of initial entry. Students generally have the same types of accounts, credentials and communication mechanisms as staff and the general public, and are equally vulnerable  ADDIN ZOTERO_ITEM CSL_CITATION {"citationID":"u4mdwOJ6","properties":{"unsorted":false,"formattedCitation":"(Pr\\uc0\\u252{}mmer et al., 2024)","plainCitation":"(Prümmer et al., 2024)","noteIndex":0},"citationItems":[{"id":365,"uris":["http://zotero.org/users/19525561/items/RFN2HKUS"],"itemData":{"id":365,"type":"article-journal","container-title":"Computers & Security","DOI":"10.1016/j.cose.2023.103585","ISSN":"01674048","journalAbbreviation":"Computers & Security","language":"en","page":"103585","source":"DOI.org (Crossref)","title":"A systematic review of current cybersecurity training methods","volume":"136","author":[{"family":"Prümmer","given":"Julia"},{"family":"Van Steen","given":"Tommy"},{"family":"Van Den Berg","given":"Bibi"}],"issued":{"date-parts":[["2024",1]]}}}],"schema":"https://github.com/citation-style-language/schema/raw/master/csl-citation.json"} (Prümmer et al., 2024). Cybersecurity awareness is therefore an important and partly actionable line of 
+
+defence
+
+ in the university setting, defined as the result of knowledge, attitudes and repetitive 
+
+behaviours
+
+ influencing how a person should make security decisions  ADDIN ZOTERO_ITEM CSL_CITATION {"citationID":"osg0yshR","properties":{"unsorted":false,"formattedCitation":"(Rana & Chicone, 2025)","plainCitation":"(Rana & Chicone, 2025)","noteIndex":0},"citationItems":[{"id":408,"uris":["http://zotero.org/users/19525561/items/S58Z83NF"],"itemData":{"id":408,"type":"chapter","abstract":"This chapter explores the integration of artificial intelligence with virtual reality (VR) and augmented reality (AR) technologies to revolutionize cybersecurity training. Through examination of key applications such as realistic threat simulations, immersive learning environments, and AI-driven adaptivity, the chapter demonstrates how these technologies can create more engaging and effective training experiences. The discussion encompasses the development of intelligent interaction mechanisms, automated assessment tools, and the design of effective training modules while addressing critical security concerns inherent in VR/AR systems, including hardware vulnerabilities and data privacy issues. Particular attention is given to real-world incidents, such as the Meta Quest headset exploit, to illustrate potential risks and necessary safeguards. The chapter concludes by examining future trends and innovations, including integration with emerging technologies like IoT and 5G, while acknowledging current limitations in hardware, haptic feedback, and standardization that must be overcome to fully realize the potential of AI-enhanced VR/AR in cybersecurity training.","DOI":"10.1007/978-3-031-81780-9_5","ISBN":"978-3-031-81779-3","page":"101-131","source":"ResearchGate","title":"AI-Enhanced Virtual and Augmented Reality for Cybersecurity Training","author":[{"family":"Rana","given":"Shaila"},{"family":"Chicone","given":"Rhonda"}],"issued":{"date-parts":[["2025",1,1]]}}}],"schema":"https://github.com/citation-style-language/schema/raw/master/csl-citation.json"} (Rana & Chicone, 2025).
+
+
+
+
+
+1.2 Problem Statement
+
+
+
+Most universities provide cybersecurity awareness training in the form of a standardized training program that is provided to all students  ADDIN ZOTERO_ITEM CSL_CITATION {"citationID":"6JP2ADfx","properties":{"unsorted":false,"formattedCitation":"(Hariyanto et al., 2025)","plainCitation":"(Hariyanto et al., 2025)","noteIndex":0},"citationItems":[{"id":380,"uris":["http://zotero.org/users/19525561/items/NQDSJVCD"],"itemData":{"id":380,"type":"article-journal","container-title":"Discover Education","DOI":"10.1007/s44217-025-00908-6","ISSN":"2731-5525","issue":"1","journalAbbreviation":"Discov Educ","language":"en","page":"458","source":"DOI.org (Crossref)","title":"Artificial intelligence in adaptive education: a systematic review of techniques for personalized learning","title-short":"Artificial intelligence in adaptive education","volume":"4","author":[{"literal":"Hariyanto"},{"family":"Kristianingsih","given":"Francisca Xaveria Diah"},{"family":"Maharani","given":"Rizqona"}],"issued":{"date-parts":[["2025",10,28]]}}}],"schema":"https://github.com/citation-style-language/schema/raw/master/csl-citation.json"} (Hariyanto et al., 2025). Though convenient from an administrative perspective, this assumes that students are a 
+
+fairly homogeneous
+
+ group, with similar initial knowledge, 
+
+behaviour
+
+ and learning needs. There's no evidence of that. Students have very different levels of existing cybersecurity knowledge that is influenced by prior exposure and background in their disciplines of study or their own personal experiences. Amongst people, even when there is sufficient knowledge, there is no guarantee that it will be translated into safe 
+
+behaviour
+
+ as documented rules are not followed in practice  ADDIN ZOTERO_ITEM CSL_CITATION {"citationID":"9w86rjhV","properties":{"unsorted":false,"formattedCitation":"(Tan et al., 2025)","plainCitation":"(Tan et al., 2025)","noteIndex":0},"citationItems":[{"id":369,"uris":["http://zotero.org/users/19525561/items/A42Y96A8"],"itemData":{"id":369,"type":"article-journal","container-title":"Computers and Education: Artificial Intelligence","DOI":"10.1016/j.caeai.2025.100429","ISSN":"2666920X","journalAbbreviation":"Computers and Education: Artificial Intelligence","language":"en","page":"100429","source":"DOI.org (Crossref)","title":"Artificial intelligence-enabled adaptive learning platforms: A review","title-short":"Artificial intelligence-enabled adaptive learning platforms","volume":"9","author":[{"family":"Tan","given":"Le Ying"},{"family":"Hu","given":"Shiyu"},{"family":"Yeo","given":"Darren J."},{"family":"Cheong","given":"Kang Hao"}],"issued":{"date-parts":[["2025",12]]}}}],"schema":"https://github.com/citation-style-language/schema/raw/master/csl-citation.json"} (Tan et al., 2025). Pupils are also exposed to varying levels of risk as a result of the devices, platforms and online activity in which they engage on a regular basis and they have different learning needs in different subject areas and at different points in their learning  ADDIN ZOTERO_ITEM CSL_CITATION {"citationID":"vpO09yyW","properties":{"unsorted":false,"formattedCitation":"(Gerges, 2024)","plainCitation":"(Gerges, 2024)","noteIndex":0},"citationItems":[{"id":410,"uris":["http://zotero.org/users/19525561/items/BEBAZZMX"],"itemData":{"id":410,"type":"chapter","abstract":"Despite the robust evidence supporting active learning, it is quite surprising that students complete weeks of lectures before an assignment, the product of their learning, is due. In such classes, learning is assumed to occur as students complete the assigned readings and attend classes without demonstrating their understanding. Alternatively, courses designed based on an active learning approach require students to showcase their learning in various tasks in a collaborative environment. The literature provides a wealth of research studies with empirical evidence of the effectiveness of active learning strategies in enhancing student achievement shifting from didactic teaching to a student-centered environment. This chapter will introduce the Flipped Learning Model as an active learning pedagogy in an online classroom. The flipped learning model aligns with the social constructivist approach as a theoretical framework that underpins active learning. Two active learning strategies will be explored in the flipped classroom context: Jigsaw Groups and Active Reading.","DOI":"10.4018/979-8-3693-4407-1.ch005","ISBN":"979-8-3693-4407-1","page":"133-166","source":"ResearchGate","title":"Beyond Lectures: The Flipped Learning Model","title-short":"Beyond Lectures","author":[{"family":"Gerges","given":"Elissar"}],"issued":{"date-parts":[["2024",12,6]]}}}],"schema":"https://github.com/citation-style-language/schema/raw/master/csl-citation.json"} (Gerges, 2024). A single undifferentiated 
+
+programme
+
+ is therefore ill-suited 
+
+to
+
+ this diversity: it runs the risk of being repetitive for those who are more advanced and resetting 
+
+the standards
+
+ for others who are less advanced. One possible alternative is adaptive learning, where content, sequencing and difficulty is customized to evidence of the individual learner. Little guidance, however, currently exists with regard to the design of such personalization for university students, or evidence that should inform such personalization  ADDIN ZOTERO_ITEM CSL_CITATION {"citationID":"9pUOxOek","properties":{"unsorted":false,"formattedCitation":"(Mathunjwa et al., 2025)","plainCitation":"(Mathunjwa et al., 2025)","noteIndex":0},"citationItems":[{"id":397,"uris":["http://zotero.org/users/19525561/items/XTHUFLCE"],"itemData":{"id":397,"type":"chapter","DOI":"10.2991/978-94-6463-630-7_31","ISBN":"978-94-6463-629-1","page":"560-580","source":"ResearchGate","title":"Beyond the Classroom: The Social Benefits of Informal Sports for First-Year Students","title-short":"Beyond the Classroom","author":[{"family":"Mathunjwa","given":"Musa"},{"family":"Shandu","given":"N."},{"family":"Ndwandwe","given":"N."},{"family":"Shongwe","given":"N."},{"family":"Linda","given":"Nompumelelo"}],"issued":{"date-parts":[["2025",1,1]]}}}],"schema":"https://github.com/citation-style-language/schema/raw/master/csl-citation.json"} (Mathunjwa et al., 2025). This dissertation focused on that design challenge as well as not trying to show behavioral change.
+
+
+
+
+
+1.3 Evidence from Cybersecurity Industry and Research
+
+
+
+Today, industry practice already shows that there is a clear shift towards personalized security training. Commercial platforms dynamically set the level of difficulty of simulated phishing based on the user's performance, create a personal risk score that determines the recommended content, and automatically assign follow-up training based on the results of the simulated attacks  ADDIN ZOTERO_ITEM CSL_CITATION {"citationID":"OpXIUn24","properties":{"unsorted":false,"formattedCitation":"(Hansche et al., 2024)","plainCitation":"(Hansche et al., 2024)","noteIndex":0},"citationItems":[{"id":385,"uris":["http://zotero.org/users/19525561/items/T5J5DYQL"],"itemData":{"id":385,"type":"report","abstract":"This publication provides guidance for federal agencies and organizations to develop and manage a life cycle approach to building a Cybersecurity and Privacy Learning Program (CPLP). The approach is intended to address the needs of large and small organizations as well as those building an entirely new program. The information leverages broadly accepted standards, regulations, legislation, and best practices. The recommendations are customizable and may be implemented as part of an organization-wide process that manages awareness, training, and education programs for a diverse set of federal employee audiences. The program should encourage behavior change as part of risk management and lead to developing a privacy and security culture in the organization. The guidance also includes suggested metrics and evaluation methods to regularly improve and update the program as needs evolve.","DOI":"10.6028/NIST.SP.800-50r1","number":"NIST SP 800-50r1","page":"NIST SP 800-50r1","publisher":"National Institute of Standards and Technology (U.S.)","publisher-place":"Gaithersburg, MD","source":"DOI.org (Crossref)","title":"Building a cybersecurity and privacy learning program","URL":"https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-50r1.pdf","author":[{"family":"Hansche","given":"Susan"},{"family":"Ellis","given":"Brenda"},{"family":"Sanchez-Cherry","given":"Kevin"},{"family":"Snyder","given":"Julie Nethery"},{"family":"Walden","given":"Donald"}],"accessed":{"date-parts":[["2026",10,4]]},"issued":{"date-parts":[["2024",9,12]]}}}],"schema":"https://github.com/citation-style-language/schema/raw/master/csl-citation.json"} (Hansche et al., 2024). The research on directly engaging in cybersecurity exercises also indicates that the difficulty of tasks can be adjusted to the learner's prior knowledge, and it can be done with a positive impact. However, these systems are intended to be used by employees in a controlled 
+
+organisational
+
+ environment and do not include the full 
+
+range of dimensions
+
+ of awareness in their adaptation logic, are largely proprietary, and do not consider consent issues when testing the systems on students. Existing training methods are also 
+
+reviewed
+
+ and it is found that inconsistent evaluation methods exist in the field. There are no current provision means that an open design approach which is evidence-based and specifically for university students is missing  ADDIN ZOTERO_ITEM CSL_CITATION {"citationID":"Oib5tlQC","properties":{"unsorted":false,"formattedCitation":"(Poliak, 1975)","plainCitation":"(Poliak, 1975)","noteIndex":0},"citationItems":[{"id":370,"uris":["http://zotero.org/users/19525561/items/H59JIPTS"],"itemData":{"id":370,"type":"article-journal","container-title":"Akusherstvo I Ginekologiia","ISSN":"0300-9092","issue":"10","journalAbbreviation":"Akush Ginekol (Mosk)","language":"rus","page":"29-31","PMID":"2026","source":"PubMed","title":"[Changes in the indicators of immunologic reactivity in patients with juvenile uterine hemorrhages in different methods of therapy]","author":[{"family":"Poliak","given":"S. Sh"}],"issued":{"date-parts":[["1975",10]]}}}],"schema":"https://github.com/citation-style-language/schema/raw/master/csl-citation.json"} (Poliak, 1975).
+
+
+
+
+
+1.4 Research Objectives and Research Questions
+
+
+
+
+
+1.4.1 Research Objectives
+
+
+
+This aim was pursued through three objectives. 
+
+
+
+
+
+Objective 1 was to review adaptive learning approaches and existing cybersecurity awareness training systems to identify relevant features, limitations and design requirements for university students. 
+
+
+
+
+
+Objective 2 was to 
+
+analyse
+
+ a publicly available cybersecurity awareness dataset using Python-based techniques to identify knowledge gaps, 
+
+behavioural
+
+ patterns and learner profiles. 
+
+
+
+
+
+Objective 3 was to develop and evaluate a 
+
+personalised
+
+ adaptive training framework and prototype based on the 
+
+learner
+
+ profiles and identified requirements.
+
+
+
+
+
+1.4.2 Research Question
+
+
+
+
+
+RQ1 asked what adaptive learning and cybersecurity awareness training features are relevant for university students, supporting Objective 1. 
+
+
+
+
+
+RQ2 asked what awareness and 
+
+behavioural
+
+ patterns can be identified in the dataset, and how they can support learner profiling, supporting Objective 2. 
+
+
+
+
+
+RQ3 asked how learner profiles can be translated into requirements for an adaptive training framework, bridging Objectives 2 and 3. 
+
+
+
+
+
+RQ4 asked how suitable the resulting framework and prototype are in terms of usability, relevance and design quality, supporting the evaluative strand of Objective 3. 
+
+
+
+
+
+1.5 Justification and Significance
+
+
+
+This dissertation has two key contributions. Academically, it links three fields that are not often explored in parallel: secondary analysis of a cybersecurity awareness dataset, data-driven learner profiling, and design of an adaptive training framework, in a single acknowledged Design Science Research process, specific to university learners  ADDIN ZOTERO_ITEM CSL_CITATION {"citationID":"IjyAJvAT","properties":{"unsorted":false,"formattedCitation":"(Zwilling et al., 2022)","plainCitation":"(Zwilling et al., 2022)","noteIndex":0},"citationItems":[{"id":375,"uris":["http://zotero.org/users/19525561/items/YCN3893Q"],"itemData":{"id":375,"type":"article-journal","container-title":"Journal of Computer Information Systems","DOI":"10.1080/08874417.2020.1712269","ISSN":"0887-4417, 2380-2057","issue":"1","journalAbbreviation":"Journal of Computer Information Systems","language":"en","page":"82-97","source":"DOI.org (Crossref)","title":"Cyber Security Awareness, Knowledge and Behavior: A Comparative Study","title-short":"Cyber Security Awareness, Knowledge and Behavior","volume":"62","author":[{"family":"Zwilling","given":"Moti"},{"family":"Klien","given":"Galit"},{"family":"Lesjak","given":"Dušan"},{"family":"Wiechetek","given":"Łukasz"},{"family":"Cetin","given":"Fatih"},{"family":"Basim","given":"Hamdullah Nejat"}],"issued":{"date-parts":[["2022",1,2]]}}}],"schema":"https://github.com/citation-style-language/schema/raw/master/csl-citation.json"} (Zwilling et al., 2022). From a practical perspective, it provides universities with a framework and an example system that can be used to guide the design of more responsive awareness provision, while being neither expensive nor ethically complex or time consuming to deploy  ADDIN ZOTERO_ITEM CSL_CITATION {"citationID":"fwtZq4YJ","properties":{"unsorted":false,"formattedCitation":"(Jain, 2010)","plainCitation":"(Jain, 2010)","noteIndex":0},"citationItems":[{"id":383,"uris":["http://zotero.org/users/19525561/items/TP2Q7ZT8"],"itemData":{"id":383,"type":"article-journal","container-title":"Pattern Recognition Letters","DOI":"10.1016/j.patrec.2009.09.011","ISSN":"01678655","issue":"8","journalAbbreviation":"Pattern Recognition Letters","language":"en","license":"https://www.elsevier.com/tdm/userlicense/1.0/","page":"651-666","source":"DOI.org (Crossref)","title":"Data clustering: 50 years beyond K-means","title-short":"Data clustering","volume":"31","author":[{"family":"Jain","given":"Anil K."}],"issued":{"date-parts":[["2010",6]]}}}],"schema":"https://github.com/citation-style-language/schema/raw/master/csl-citation.json"} (Jain, 2010). The project was also accessible and ethically manageable within the scope of an MSc dissertation due to its focus on the adult participants and the use of an existing and properly licensed dataset.
+
+
+
+
+
+1.6 Dataset and Data Availability
+
+
+
+This study was conducted using the empirical data from the Data Set Cyber Security Issues in University and College Students in India, where the data has been posted on Mendeley Data by NIT Srinagar, 
+
+Ravesa
+
+ (2024) under CC BY 4.0 license, which allows reuse with attribution. The data includes 615 non-empty rows of respondents, in a total of 63 named columns, that were gathered through an online questionnaire which encompasses personal information, skill information, cybersecurity activities, cybercrime awareness, and cybercrime case reports. There are missing values and inconsistencies in several variables, and age is reported as a banded variable (17 to 25 years), so the respondents should not be assumed as being uniformly aged 18 or older, and a cleaning procedure and Python secondary interpretation were necessary. These items were not presented as a validated instrument, like the Human Aspects of Information Security Questionnaire, but instead were used here as indicative measures only. The use of this existing openly licensed dataset meant there was no need for additional data collection and allowed Objective 2 to be met.
+
+
+
+
+
+1.7 Scope and Boundaries
+
+
+
+There were 
+
+a number of
+
+ boundaries that were set during the research. This population of interest is the university student group from the secondary data and results should not be extrapolated to other settings or populations of students in the university unless validated  ADDIN ZOTERO_ITEM CSL_CITATION {"citationID":"HthoobQA","properties":{"unsorted":false,"formattedCitation":"(Jain, 2010)","plainCitation":"(Jain, 2010)","noteIndex":0},"citationItems":[{"id":383,"uris":["http://zotero.org/users/19525561/items/TP2Q7ZT8"],"itemData":{"id":383,"type":"article-journal","container-title":"Pattern Recognition Letters","DOI":"10.1016/j.patrec.2009.09.011","ISSN":"01678655","issue":"8","journalAbbreviation":"Pattern Recognition Letters","language":"en","license":"https://www.elsevier.com/tdm/userlicense/1.0/","page":"651-666","source":"DOI.org (Crossref)","title":"Data clustering: 50 years beyond K-means","title-short":"Data clustering","volume":"31","author":[{"family":"Jain","given":"Anil K."}],"issued":{"date-parts":[["2010",6]]}}}],"schema":"https://github.com/citation-style-language/schema/raw/master/csl-citation.json"} (Jain, 2010). All knowledge, attitude, 
+
+behaviour
+
+ and exposure data were self-reported, and the learner profiles created were exploratory groupings based on existing survey items and were not definitive or clinically validated profiles. Only a low fidelity artefact, consisting of a user journey, interface wireframes and documented recommendation rules, was created and not a complete software platform was constructed and deployed  ADDIN ZOTERO_ITEM CSL_CITATION {"citationID":"39oGZDrT","properties":{"unsorted":false,"formattedCitation":"(NIT Srinagar, 2025)","plainCitation":"(NIT Srinagar, 2025)","noteIndex":0},"citationItems":[{"id":366,"uris":["http://zotero.org/users/19525561/items/NE3GXK7B"],"itemData":{"id":366,"type":"dataset","abstract":"A questionnaire technique \nthrough Google Forms to collect the data from June to December 2023 from university\nstudents 615 participants; 267 females and 348 males completed the survey\nquestionnaire. The dataset presented the report of Indian University\nstudents’ awareness level of cybercrime. The supplemental dataset in this study,\nutilized to assess the level of cybersecurity knowledge among Indian university students,\nis reported in detail. Personal and skill information, Cybersecurity Activities,\nCybercrime Consciousness, and Case Reports are the four primary sections of the\nstudy. Two different methods are used to recruit subjects: the individual has to be\nof Indian descent, and their age should be over 17. Participants are gathered using\nselective and snowball methods via institutional mail from 7 Indian universities and\nWhatsApp messaging to persons who met the criteria.","DOI":"10.17632/C88WYCRDZY.1","license":", Creative Commons Attribution 4.0 International","publisher":"Mendeley Data","source":"DOI.org (Datacite)","title":"Data Set Cyber security Issues in University and College Students in India","URL":"https://data.mendeley.com/datasets/c88wycrdzy/1","author":[{"family":"NIT Srinagar","given":"Ravesa"}],"accessed":{"date-parts":[["2026",10,3]]},"issued":{"date-parts":[["2025"]]}}}],"schema":"https://github.com/citation-style-language/schema/raw/master/csl-citation.json"} (NIT Srinagar, 2025). Evaluation was limited to usability, relevance and design quality (small scale walkthroughs and expert feedback) and not to measuring real-life 
+
+behavioural
+
+ change.
+
+
+
+
+
+1.8 Dissertation Structure
+
+
+
+This dissertation continues in the following way: The literature review of this study is presented in Chapter 2, focusing on adaptive learning, cyber security awareness and learner profiling and the conceptual framework. Chapter 3 details the Design Science Research methodology, including the data analysis approach, prototype development and evaluation plan. The findings will be presented in the subsequent chapters, along with the framework and prototype developed, their assessment, and reflections.
+
+
+
+
+
+
+
+
+
+References
+
+
+
+
+
+ ADDIN ZOTERO_BIBL {"uncited":[],"omitted":[],"custom":[]} CSL_BIBLIOGRAPHY Gerges, E. (2024). Beyond Lectures: The Flipped Learning Model (pp. 133–166). https://doi.org/10.4018/979-8-3693-4407-1.ch005
+
+
+
+
+
+Hansche, S., Ellis, B., Sanchez-Cherry, K., Snyder, J. N., & Walden, D. (2024). Building a cybersecurity and privacy learning program (NIST SP 800-50r1; p. NIST SP 800-50r1). National Institute of Standards and Technology (U.S.). https://doi.org/10.6028/NIST.SP.800-50r1
+
+
+
+
+
+Hariyanto, Kristianingsih, F. X. D., & Maharani, R. (2025). Artificial intelligence in adaptive education: A systematic review of techniques for personalized learning. Discover Education, 4(1), 458. https://doi.org/10.1007/s44217-025-00908-6
+
+
+
+
+
+Jain, A. K. (2010). Data clustering: 50 years beyond K-means. Pattern Recognition Letters, 31(8), 651–666. https://doi.org/10.1016/j.patrec.2009.09.011
+
+
+
+
+
+Kourtesis, P. (2024). A Comprehensive Review of Multimodal XR Applications, Risks, and Ethical Challenges in the Metaverse. Multimodal Technologies and Interaction, 8, 98. https://doi.org/10.3390/mti8110098
+
+
+
+
+
+Mathunjwa, M., Shandu, N., Ndwandwe, N., Shongwe, N., & Linda, N. (2025). Beyond the Classroom: The Social Benefits of Informal Sports for First-Year Students (pp. 560–580). https://doi.org/10.2991/978-94-6463-630-7_31
+
+
+
+
+
+NIT Srinagar, R. (2025). Data Set Cyber security Issues in University and College Students in India [Dataset]. Mendeley Data. https://doi.org/10.17632/C88WYCRDZY.1
+
+
+
+
+
+Poliak, S. S. (1975). [Changes in the indicators of immunologic reactivity in patients with juvenile uterine hemorrhages in different methods of therapy]. Akusherstvo I Ginekologiia, (10), 29–31.
+
+
+
+
+
+Prümmer, J., Van Steen, T., & Van Den Berg, B. (2024). A systematic review of current cybersecurity training methods. Computers & Security, 136, 103585. https://doi.org/10.1016/j.cose.2023.103585
+
+
+
+
+
+Rana, S., & Chicone, R. (2025). AI-Enhanced Virtual and Augmented Reality for Cybersecurity Training (pp. 101–131). https://doi.org/10.1007/978-3-031-81780-9_5
+
+
+
+
+
+Tan, L. Y., Hu, S., Yeo, D. J., & Cheong, K. H. (2025). Artificial intelligence-enabled adaptive learning platforms: A review. Computers and Education: Artificial Intelligence, 9, 100429. https://doi.org/10.1016/j.caeai.2025.100429
+
+
+
+
+
+Zwilling, M., Klien, G., Lesjak, D., Wiechetek, Ł., Cetin, F., & Basim, H. N. (2022). Cyber Security Awareness, Knowledge and Behavior: A Comparative Study. Journal of Computer Information Systems, 62(1), 82–97. https://doi.org/10.1080/08874417.2020.1712269
+
+
+
+
+
+
+
+
+
+
+

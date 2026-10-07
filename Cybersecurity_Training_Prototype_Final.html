@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybersecurity Awareness Training Prototype | Research Artefact</title>
+  <style>
+    /* -------------------------------------------------------------
+       Design System & Tokens - Calm University Training Theme
+       High contrast, clean typography, accessible focus outlines
+       ------------------------------------------------------------- */
+    :root {
+      --bg-canvas: #f4f6f9;
+      --bg-surface: #ffffff;
+      --bg-surface-alt: #eef2f6;
+      --bg-banner: #1b2a4a;
+      --text-main: #1d2530;
+      --text-muted: #4a5568;
+      --text-inverse: #ffffff;
+      
+      --primary: #0f4c81;
+      --primary-hover: #0a365c;
+      --primary-focus: #072540;
+      --primary-light: #e8f1f8;
+      
+      --secondary: #475569;
+      --secondary-hover: #334155;
+      
+      --accent-high: #991b1b;
+      --accent-high-bg: #fef2f2;
+      --accent-high-border: #f87171;
+      
+      --accent-med: #92400e;
+      --accent-med-bg: #fffbeb;
+      --accent-med-border: #fcd34d;
+      
+      --accent-refresher: #166534;
+      --accent-refresher-bg: #f0fdf4;
+      --accent-refresher-border: #86efac;
+      
+      --border-subtle: #d1d5db;
+      --border-strong: #9ca3af;
+      
+      --focus-ring: #0284c7;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-full: 9999px;
+      
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-main);
+      background-color: var(--bg-canvas);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Accessibility Focus Outline */
+    a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-visible {
+      outline: 3px solid var(--focus-ring);
+      outline-offset: 2px;
+    }
+
+    /* Header & Research Banner */
+    .research-banner {
+      background-color: var(--bg-banner);
+      color: var(--text-inverse);
+      padding: 8px 16px;
+      font-size: 0.875rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .research-banner-tag {
+      background-color: #3b82f6;
+      color: #ffffff;
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    .site-header {
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 16px 24px;
+    }
+
+    .header-container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .header-title-group h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.3;
+    }
+
+    .header-title-group p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* Stepper & Progress Indicator */
+    .progress-section {
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 24px;
+    }
+
+    .progress-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .stepper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      list-style: none;
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .stepper::before {
+      content: "";
+      position: absolute;
+      top: 14px;
+      left: 20px;
+      right: 20px;
+      height: 2px;
+      background-color: var(--border-subtle);
+      z-index: 1;
+    }
+
+    .step-item {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+    }
+
+    .step-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-full);
+      background-color: var(--bg-surface);
+      border: 2px solid var(--border-strong);
+      color: var(--text-muted);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .step-item.active .step-circle {
+      border-color: var(--primary);
+      background-color: var(--primary);
+      color: var(--text-inverse);
+    }
+
+    .step-item.completed .step-circle {
+      border-color: var(--primary);
+      background-color: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .step-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .step-item.active .step-label {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Main Content Container */
+    main {
+      flex: 1;
+      max-width: 900px;
+      width: 100%;
+      margin: 24px auto;
+      padding: 0 16px;
+    }
+
+    .screen-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .screen-header {
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 16px;
+    }
+
+    .screen-header h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .screen-header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* Typography & Content Elements */
+    p {
+      margin-bottom: 16px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .callout {
+      padding: 16px;
+      border-radius: var(--radius-md);
+      margin: 16px 0;
+      border-left: 4px solid var(--primary);
+      background-color: var(--bg-surface-alt);
+    }
+
+    .callout-info {
+      border-left-color: var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    .callout-warning {
+      border-left-color: var(--accent-med);
+      background-color: var(--accent-med-bg);
+    }
+
+    .callout h3, .callout h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    /* Questions & Options */
+    .question-block {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s ease;
+    }
+
+    .question-block:focus-within {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px var(--primary);
+    }
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      gap: 12px;
+    }
+
+    .question-number {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .question-type-badge {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      background-color: var(--bg-surface-alt);
+      color: var(--text-muted);
+      font-weight: 600;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .question-stem {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .scenario-box {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-size: 0.9375rem;
+      margin-bottom: 14px;
+      border-left: 3px solid #64748b;
+      font-style: italic;
+    }
+
+    .options-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-size: 0.9375rem;
+    }
+
+    .option-label:hover {
+      background-color: var(--bg-surface-alt);
+      border-color: var(--border-strong);
+    }
+
+    .option-label.selected {
+      background-color: var(--primary-light);
+      border-color: var(--primary);
+      font-weight: 500;
+    }
+
+    .option-input {
+      margin-top: 4px;
+      accent-color: var(--primary);
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    /* Pathway Cards */
+    .pathway-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .module-card {
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      background-color: var(--bg-surface);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .module-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .module-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .module-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .priority-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .priority-badge.priority-high {
+      background-color: var(--accent-high-bg);
+      color: var(--accent-high);
+      border: 1px solid var(--accent-high-border);
+    }
+
+    .priority-badge.priority-med {
+      background-color: var(--accent-med-bg);
+      color: var(--accent-med);
+      border: 1px solid var(--accent-med-border);
+    }
+
+    .priority-badge.priority-refresher {
+      background-color: var(--accent-refresher-bg);
+      color: var(--accent-refresher);
+      border: 1px solid var(--accent-refresher-border);
+    }
+
+    .module-card-body p {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .module-reason {
+      font-size: 0.875rem;
+      background-color: var(--bg-surface-alt);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--primary);
+    }
+
+    .module-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+      padding-top: 12px;
+      border-top: 1px solid var(--bg-surface-alt);
+    }
+
+    .status-indicator {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-indicator.not-started { color: var(--text-muted); }
+    .status-indicator.needs-review { color: var(--accent-med); }
+    .status-indicator.completed { color: var(--accent-refresher); }
+
+    /* Button System */
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+      text-decoration: none;
+      min-height: 44px;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--text-inverse);
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+      border-color: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background-color: var(--bg-surface);
+      color: var(--secondary);
+      border-color: var(--border-strong);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-surface-alt);
+      color: var(--secondary-hover);
+    }
+
+    .btn-warning {
+      background-color: var(--accent-med);
+      color: var(--text-inverse);
+      border-color: var(--accent-med);
+    }
+
+    .btn-warning:hover {
+      background-color: #78350f;
+    }
+
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 0.875rem;
+      min-height: 36px;
+    }
+
+    /* Feedback Cards */
+    .feedback-box {
+      padding: 16px;
+      border-radius: var(--radius-md);
+      margin: 16px 0;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .feedback-correct {
+      background-color: var(--accent-refresher-bg);
+      border-color: var(--accent-refresher-border);
+      color: var(--text-main);
+    }
+
+    .feedback-incorrect {
+      background-color: var(--accent-high-bg);
+      border-color: var(--accent-high-border);
+      color: var(--text-main);
+    }
+
+    .feedback-uncertain {
+      background-color: var(--accent-med-bg);
+      border-color: var(--accent-med-border);
+      color: var(--text-main);
+    }
+
+    .feedback-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Validation Alert */
+    .validation-alert {
+      display: none;
+      background-color: var(--accent-high-bg);
+      border: 1px solid var(--accent-high-border);
+      color: var(--accent-high);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .validation-alert.visible {
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--bg-surface);
+      border-top: 1px solid var(--border-subtle);
+      padding: 24px 16px;
+      margin-top: auto;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .footer-container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 640px) {
+      .screen-card {
+        padding: 20px 16px;
+      }
+      .stepper {
+        display: none;
+      }
+      .mobile-stepper-text {
+        display: block !important;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--primary);
+        text-align: center;
+        padding: 6px 0;
+      }
+      .btn-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-group .btn {
+        width: 100%;
+      }
+    }
+
+    .mobile-stepper-text {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Research Artefact Banner -->
+  <aside class="research-banner" aria-label="Research Prototype Notice">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span class="research-banner-tag">Research Prototype</span>
+      <span>MSc Dissertation Artefact | Personalised Cybersecurity Training</span>
+    </div>
+    <div style="font-size: 0.8125rem; opacity: 0.9;">
+      Recommendations are provisional &amp; intended for research evaluation.
+    </div>
+  </aside>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="header-title-group">
+        <h1>Personalised Adaptive Cybersecurity Awareness Training</h1>
+        <p>University Student Learning &amp; Assessment Framework</p>
+      </div>
+      <div>
+        <button type="button" class="btn btn-secondary btn-sm" id="globalRestartBtn" onclick="app.restartSession()">
+          Restart Session
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Stepper / Progress Bar -->
+  <nav class="progress-section" aria-label="Progress">
+    <div class="progress-container">
+      <div class="mobile-stepper-text" id="mobileStepText">Step 1 of 5: Welcome</div>
+      <ol class="stepper" id="desktopStepper">
+        <li class="step-item active" id="step-nav-1">
+          <div class="step-circle">1</div>
+          <span class="step-label">Welcome</span>
+        </li>
+        <li class="step-item" id="step-nav-2">
+          <div class="step-circle">2</div>
+          <span class="step-label">Initial Assessment</span>
+        </li>
+        <li class="step-item" id="step-nav-3">
+          <div class="step-circle">3</div>
+          <span class="step-label">Personalised Pathway</span>
+        </li>
+        <li class="step-item" id="step-nav-4">
+          <div class="step-circle">4</div>
+          <span class="step-label">Training Module</span>
+        </li>
+        <li class="step-item" id="step-nav-5">
+          <div class="step-circle">5</div>
+          <span class="step-label">Feedback &amp; Adaptation</span>
+        </li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Main Application Area -->
+  <main id="app-root" role="main">
+    
+    <!-- ==============================================================
+         SCREEN 1: WELCOME & OVERVIEW
+         ============================================================== -->
+    <section class="screen-card" id="screen-welcome" aria-labelledby="welcome-title">
+      <div class="screen-header">
+        <h2 id="welcome-title">Welcome to Your Personalised Cybersecurity Training</h2>
+        <p>A tailored, evidence-informed learning platform designed for university students.</p>
+      </div>
+
+      <p>
+        University students face distinctive online risks, from targeted phishing emails to account credential compromise. 
+        Traditional awareness programmes often deliver generic, one-size-fits-all materials that can be unengaging or misaligned with individual needs.
+      </p>
+
+      <p>
+        This prototype tailors your training pathway based on a brief initial diagnostic. Instead of requiring you to complete every module in a fixed order, it prioritises topics where supportive guidance is most beneficial.
+      </p>
+
+      <div class="callout callout-info">
+        <h3>How It Works</h3>
+        <ul style="margin-left: 20px; margin-top: 8px;">
+          <li><strong>Step 1: Initial Assessment</strong> — 6 short questions covering core cyber safety topics.</li>
+          <li><strong>Step 2: Recommended Pathway</strong> — An adapted order of 6 concise training modules based on your answers.</li>
+          <li><strong>Step 3: Interactive Learning</strong> — Scenario-based practice and authoritative security guidance.</li>
+          <li><strong>Step 4: Adaptation</strong> — Dynamic reassessment updates your pathway as you complete modules.</li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        <h4>Privacy &amp; Data Protection Statement</h4>
+        <p style="font-size: 0.9375rem; margin-bottom: 0;">
+          This research prototype operates entirely inside your local web browser. It does not ask for your name, student ID, university, email address, passwords, or demographic details. All answers remain in temporary session memory and are immediately cleared when you restart or close the window. No data is transmitted across the network.
+        </p>
+      </div>
+
+      <p style="font-size: 0.875rem; color: var(--text-muted); font-style: italic;">
+        Note: Starting this assessment begins a training session within the prototype. Participant information and consent for the research evaluation are administered separately.
+      </p>
+
+      <div class="btn-group" style="justify-content: flex-end;">
+        <button type="button" class="btn btn-primary" id="startAssessmentBtn" onclick="app.goToScreen('assessment')">
+          Start Assessment &rarr;
+        </button>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         SCREEN 2: INITIAL ASSESSMENT
+         ============================================================== -->
+    <section class="screen-card" id="screen-assessment" style="display: none;" aria-labelledby="assessment-title">
+      <div class="screen-header">
+        <h2 id="assessment-title">Initial Cybersecurity Diagnostic</h2>
+        <p>Please answer the 6 questions below. Your answers will generate your personalised learning pathway.</p>
+      </div>
+
+      <div class="callout callout-info">
+        <p style="margin-bottom: 0; font-size: 0.9375rem;">
+          <strong>Proposed Research Instrument:</strong> This short diagnostic is an exploratory assessment tool. It does not calculate a single "security ability score". Where you are uncertain, please select "I am not sure" so appropriate support can be recommended.
+        </p>
+      </div>
+
+      <div class="validation-alert" id="assessmentValidationAlert" role="alert">
+        Please provide an answer for all 6 questions before proceeding to your pathway.
+      </div>
+
+      <form id="assessmentForm" onsubmit="event.preventDefault(); app.submitAssessment();">
+        
+        <!-- Question 1: Passwords -->
+        <fieldset class="question-block" id="qblock-q1_password">
+          <legend class="question-header" style="width: 100%;">
+            <span class="question-number">Question 1 of 6</span>
+            <span class="question-type-badge">Self-Reported Practice</span>
+          </legend>
+          <div class="question-stem">
+            How do you typically manage and create passwords for your university and personal online accounts?
+          </div>
+          <div class="options-group">
+            <label class="option-label" for="q1_opt1">
+              <input type="radio" class="option-input" id="q1_opt1" name="q1_password" value="q1_risky" onchange="app.onOptionSelected('q1_password')">
+              <span>I use memorable personal details (such as names, birthdays, or pet names) or reuse similar passwords across multiple accounts.</span>
+            </label>
+            <label class="option-label" for="q1_opt2">
+              <input type="radio" class="option-input" id="q1_opt2" name="q1_password" value="q1_partial" onchange="app.onOptionSelected('q1_password')">
+              <span>I create different passwords for my main accounts, but I do not use a password manager or multi-factor authentication everywhere.</span>
+            </label>
+            <label class="option-label" for="q1_opt3">
+              <input type="radio" class="option-input" id="q1_opt3" name="q1_password" value="q1_protective" onchange="app.onOptionSelected('q1_password')">
+              <span>I use unique, strong passphrases or a password manager, and enable two-step verification / MFA where available.</span>
+            </label>
+            <label class="option-label" for="q1_opt4">
+              <input type="radio" class="option-input" id="q1_opt4" name="q1_password" value="q1_unsure" onchange="app.onOptionSelected('q1_password')">
+              <span>I am not sure what constitutes a secure password management strategy.</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Question 2: Phishing Scenario -->
+        <fieldset class="question-block" id="qblock-q2_phishing">
+          <legend class="question-header" style="width: 100%;">
+            <span class="question-number">Question 2 of 6</span>
+            <span class="question-type-badge">Scenario Decision</span>
+          </legend>
+          <div class="question-stem">
+            You receive an unexpected email marked "URGENT: Verify Your Student Portal Account within 24 Hours to Prevent Suspension".
+          </div>
+          <div class="scenario-box">
+            The email contains a button linking to <code>http://portal-verify.example.com/login</code> asking you to sign in with your university credentials immediately.
+          </div>
+          <div class="options-group">
+            <label class="option-label" for="q2_opt1">
+              <input type="radio" class="option-input" id="q2_opt1" name="q2_phishing" value="q2_risky" onchange="app.onOptionSelected('q2_phishing')">
+              <span>Click the button immediately and enter your student credentials so your account is not suspended.</span>
+            </label>
+            <label class="option-label" for="q2_opt2">
+              <input type="radio" class="option-input" id="q2_opt2" name="q2_phishing" value="q2_partial" onchange="app.onOptionSelected('q2_phishing')">
+              <span>Reply directly to the email asking the sender to confirm if the message is authentic.</span>
+            </label>
+            <label class="option-label" for="q2_opt3">
+              <input type="radio" class="option-input" id="q2_opt3" name="q2_phishing" value="q2_protective" onchange="app.onOptionSelected('q2_phishing')">
+              <span>Do not click the link. Navigate independently to the university portal via your usual bookmark or official website to verify your status.</span>
+            </label>
+            <label class="option-label" for="q2_opt4">
+              <input type="radio" class="option-input" id="q2_opt4" name="q2_phishing" value="q2_unsure" onchange="app.onOptionSelected('q2_phishing')">
+              <span>I am not sure how to verify whether this message is genuine.</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Question 3: Privacy Settings -->
+        <fieldset class="question-block" id="qblock-q3_privacy">
+          <legend class="question-header" style="width: 100%;">
+            <span class="question-number">Question 3 of 6</span>
+            <span class="question-type-badge">Self-Reported Practice</span>
+          </legend>
+          <div class="question-stem">
+            How frequently do you review privacy settings and permissions on your social media and mobile apps?
+          </div>
+          <div class="options-group">
+            <label class="option-label" for="q3_opt1">
+              <input type="radio" class="option-input" id="q3_opt1" name="q3_privacy" value="q3_risky" onchange="app.onOptionSelected('q3_privacy')">
+              <span>Rarely or never; I usually accept default permissions and public visibility.</span>
+            </label>
+            <label class="option-label" for="q3_opt2">
+              <input type="radio" class="option-input" id="q3_opt2" name="q3_privacy" value="q3_partial" onchange="app.onOptionSelected('q3_privacy')">
+              <span>Occasionally, but only if an app specifically prompts me or after hearing about a news incident.</span>
+            </label>
+            <label class="option-label" for="q3_opt3">
+              <input type="radio" class="option-input" id="q3_opt3" name="q3_privacy" value="q3_protective" onchange="app.onOptionSelected('q3_privacy')">
+              <span>Regularly; I actively restrict profile visibility, location tracking, and third-party data sharing.</span>
+            </label>
+            <label class="option-label" for="q3_opt4">
+              <input type="radio" class="option-input" id="q3_opt4" name="q3_privacy" value="q3_unsure" onchange="app.onOptionSelected('q3_privacy')">
+              <span>I am not sure where to locate or adjust app privacy permissions.</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Question 4: Software Updates -->
+        <fieldset class="question-block" id="qblock-q4_updates">
+          <legend class="question-header" style="width: 100%;">
+            <span class="question-number">Question 4 of 6</span>
+            <span class="question-type-badge">Self-Reported Practice</span>
+          </legend>
+          <div class="question-stem">
+            When your laptop or smartphone prompts you to install an operating system or security update, what do you usually do?
+          </div>
+          <div class="options-group">
+            <label class="option-label" for="q4_opt1">
+              <input type="radio" class="option-input" id="q4_opt1" name="q4_updates" value="q4_risky" onchange="app.onOptionSelected('q4_updates')">
+              <span>Postpone or ignore the update for weeks or months because it is inconvenient.</span>
+            </label>
+            <label class="option-label" for="q4_opt2">
+              <input type="radio" class="option-input" id="q4_opt2" name="q4_updates" value="q4_partial" onchange="app.onOptionSelected('q4_updates')">
+              <span>Delay it for several days, but eventually install it when forced to restart.</span>
+            </label>
+            <label class="option-label" for="q4_opt3">
+              <input type="radio" class="option-input" id="q4_opt3" name="q4_updates" value="q4_protective" onchange="app.onOptionSelected('q4_updates')">
+              <span>Install it promptly or have automatic updates enabled for operating systems and key apps.</span>
+            </label>
+            <label class="option-label" for="q4_opt4">
+              <input type="radio" class="option-input" id="q4_opt4" name="q4_updates" value="q4_unsure" onchange="app.onOptionSelected('q4_updates')">
+              <span>I am not sure whether software updates provide meaningful security protection.</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Question 5: Susceptibility Belief -->
+        <fieldset class="question-block" id="qblock-q5_susceptibility">
+          <legend class="question-header" style="width: 100%;">
+            <span class="question-number">Question 5 of 6</span>
+            <span class="question-type-badge">Attitude &amp; Belief</span>
+          </legend>
+          <div class="question-stem">
+            Which statement best reflects your perspective on whether cybercriminals would target university students?
+          </div>
+          <div class="options-group">
+            <label class="option-label" for="q5_opt1">
+              <input type="radio" class="option-input" id="q5_opt1" name="q5_susceptibility" value="q5_risky" onchange="app.onOptionSelected('q5_susceptibility')">
+              <span>Cybercriminals only target banks and large companies; an ordinary student has nothing of value to steal.</span>
+            </label>
+            <label class="option-label" for="q5_opt2">
+              <input type="radio" class="option-input" id="q5_opt2" name="q5_susceptibility" value="q5_partial" onchange="app.onOptionSelected('q5_susceptibility')">
+              <span>Students might be targeted occasionally, but only if they have significant personal savings or high-profile roles.</span>
+            </label>
+            <label class="option-label" for="q5_opt3">
+              <input type="radio" class="option-input" id="q5_opt3" name="q5_susceptibility" value="q5_protective" onchange="app.onOptionSelected('q5_susceptibility')">
+              <span>Any student account can be targeted for identity fraud, credential harvesting, or as a gateway into university networks.</span>
+            </label>
+            <label class="option-label" for="q5_opt4">
+              <input type="radio" class="option-input" id="q5_opt4" name="q5_susceptibility" value="q5_unsure" onchange="app.onOptionSelected('q5_susceptibility')">
+              <span>I am not sure why a cybercriminal would be interested in my accounts or devices.</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Question 6: Incident Reporting Scenario -->
+        <fieldset class="question-block" id="qblock-q6_reporting">
+          <legend class="question-header" style="width: 100%;">
+            <span class="question-number">Question 6 of 6</span>
+            <span class="question-type-badge">Scenario &amp; Reporting Action</span>
+          </legend>
+          <div class="question-stem">
+            If you entered your university password into a suspicious web page by mistake, what would be your immediate course of action?
+          </div>
+          <div class="options-group">
+            <label class="option-label" for="q6_opt1">
+              <input type="radio" class="option-input" id="q6_opt1" name="q6_reporting" value="q6_risky" onchange="app.onOptionSelected('q6_reporting')">
+              <span>Do nothing and hope nothing happens, or keep quiet to avoid getting into trouble with the university.</span>
+            </label>
+            <label class="option-label" for="q6_opt2">
+              <input type="radio" class="option-input" id="q6_opt2" name="q6_reporting" value="q6_partial" onchange="app.onOptionSelected('q6_reporting')">
+              <span>Try to fix the problem myself by closing the browser tab, without alerting anyone or changing the password.</span>
+            </label>
+            <label class="option-label" for="q6_opt3">
+              <input type="radio" class="option-input" id="q6_opt3" name="q6_reporting" value="q6_protective" onchange="app.onOptionSelected('q6_reporting')">
+              <span>Immediately change the compromised password and report the incident via the university's verified IT or security reporting channel.</span>
+            </label>
+            <label class="option-label" for="q6_opt4">
+              <input type="radio" class="option-input" id="q6_opt4" name="q6_reporting" value="q6_unsure" onchange="app.onOptionSelected('q6_reporting')">
+              <span>I would not know how or where to report a cybersecurity incident at university.</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary" onclick="app.goToScreen('welcome')">
+            &larr; Back to Welcome
+          </button>
+          <button type="submit" class="btn btn-primary" id="generatePathwayBtn">
+            Generate Personalised Pathway &rarr;
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ==============================================================
+         SCREEN 3: PERSONALISED LEARNING PATHWAY
+         ============================================================== -->
+    <section class="screen-card" id="screen-pathway" style="display: none;" aria-labelledby="pathway-title">
+      <div class="screen-header">
+        <h2 id="pathway-title">Your Personalised Learning Pathway</h2>
+        <p>Modules are arranged in order of priority based on your diagnostic responses.</p>
+      </div>
+
+      <div class="callout callout-info" id="pathwayOverviewNotice">
+        <h3>Pathway Structure</h3>
+        <p style="margin-bottom: 0; font-size: 0.9375rem;">
+          Modules are ordered from highest to lowest recommended priority. You can begin with the top-ranked recommendation, or select any module you wish to explore.
+        </p>
+      </div>
+
+      <div class="pathway-list" id="pathwayModuleList" role="list">
+        <!-- Rendered dynamically by JS -->
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary" onclick="app.goToScreen('assessment')">
+          &larr; Revisit Assessment Answers
+        </button>
+        <button type="button" class="btn btn-primary" id="startTopModuleBtn" onclick="app.startTopRecommendedModule()">
+          Begin Top Recommended Module &rarr;
+        </button>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         SCREEN 4: TRAINING ACTIVITIES & REASSESSMENT
+         ============================================================== -->
+    <section class="screen-card" id="screen-training" style="display: none;" aria-labelledby="training-module-title">
+      <div class="screen-header">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+          <h2 id="training-module-title">Training Module</h2>
+          <span class="priority-badge" id="trainingModulePriorityBadge">Priority</span>
+        </div>
+        <p id="trainingModuleSubtitle">Interactive concept review, scenario practice, and follow-up reassessment.</p>
+      </div>
+
+      <!-- Educational Core Explanation -->
+      <article class="callout callout-info" id="trainingEducationContent">
+        <!-- Injected via JS -->
+      </article>
+
+      <!-- Scenario Practice Section -->
+      <section style="margin: 24px 0;">
+        <h3 style="font-size: 1.15rem; margin-bottom: 8px;">1. Scenario Decision Practice</h3>
+        <p style="font-size: 0.9375rem; color: var(--text-muted);">
+          Read the scenario below and choose the most secure response.
+        </p>
+        
+        <fieldset class="question-block" id="moduleScenarioBlock">
+          <legend class="question-header" style="width: 100%;">
+            <span class="question-number">Practice Task</span>
+            <span class="question-type-badge">Practical Application</span>
+          </legend>
+          <div class="scenario-box" id="scenarioPromptText">
+            <!-- Injected via JS -->
+          </div>
+          <div class="options-group" id="scenarioOptionsContainer">
+            <!-- Injected via JS -->
+          </div>
+          <div class="btn-group" style="padding-top: 12px; margin-top: 12px; border-top: 1px solid var(--border-subtle);">
+            <button type="button" class="btn btn-secondary btn-sm" id="submitScenarioBtn" onclick="app.checkScenarioAnswer()">
+              Check Scenario Answer
+            </button>
+          </div>
+          <div id="scenarioFeedbackContainer" style="display: none;"></div>
+        </fieldset>
+      </section>
+
+      <!-- Follow-Up Reassessment Section -->
+      <section style="margin: 24px 0;" id="reassessmentSection">
+        <h3 style="font-size: 1.15rem; margin-bottom: 8px;">2. Follow-Up Reassessment Question</h3>
+        <p style="font-size: 0.9375rem; color: var(--text-muted);">
+          Answer this follow-up question to test your understanding and adapt your learning pathway.
+        </p>
+
+        <fieldset class="question-block" id="moduleFollowupBlock">
+          <legend class="question-header" style="width: 100%;">
+            <span class="question-number">Reassessment Task</span>
+            <span class="question-type-badge">Diagnostic Follow-up</span>
+          </legend>
+          <div class="question-stem" id="followupPromptText">
+            <!-- Injected via JS -->
+          </div>
+          <div class="options-group" id="followupOptionsContainer">
+            <!-- Injected via JS -->
+          </div>
+        </fieldset>
+      </section>
+
+      <div class="validation-alert" id="trainingValidationAlert" role="alert">
+        Please complete the follow-up question before proceeding to the adaptation feedback screen.
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary" onclick="app.goToScreen('pathway')">
+          &larr; Back to Pathway
+        </button>
+        <button type="submit" class="btn btn-primary" id="submitModuleBtn" onclick="app.submitModuleAndEvaluate()">
+          Submit &amp; View Adaptation Feedback &rarr;
+        </button>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         SCREEN 5: FEEDBACK & ADAPTATION
+         ============================================================== -->
+    <section class="screen-card" id="screen-feedback" style="display: none;" aria-labelledby="feedback-screen-title">
+      <div class="screen-header">
+        <h2 id="feedback-screen-title">Module Feedback &amp; Pathway Adaptation</h2>
+        <p>See how your follow-up response has dynamically adjusted your learning priorities.</p>
+      </div>
+
+      <!-- Reassessment Result Callout -->
+      <div id="adaptationResultBox" class="feedback-box">
+        <!-- Injected via JS -->
+      </div>
+
+      <!-- Visible Adaptation Summary -->
+      <div class="callout callout-info">
+        <h3>How Your Learning Pathway Changed</h3>
+        <div id="adaptationExplanationText" style="font-size: 0.9375rem;">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+
+      <!-- Updated Pathway Preview -->
+      <h3 style="font-size: 1.15rem; margin-top: 24px; margin-bottom: 12px;">Updated Module Ordering</h3>
+      <div class="pathway-list" id="feedbackPathwayList" role="list">
+        <!-- Injected via JS -->
+      </div>
+
+      <div class="callout" style="background-color: var(--bg-surface-alt); border-left-color: var(--secondary);">
+        <h4>Research Note on Learning Gain</h4>
+        <p style="font-size: 0.875rem; margin-bottom: 0; color: var(--text-muted);">
+          A single correct follow-up response reduces the immediate training priority within this prototype, but is not treated as proof of complete mastery or permanent real-world behaviour change. Periodic review remains essential for secure habits.
+        </p>
+      </div>
+
+      <div class="btn-group" id="feedbackButtonGroup">
+        <!-- Injected via JS based on result -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer>
+    <div class="footer-container">
+      <div><strong>Research Prototype:</strong> Adaptive Cybersecurity Awareness Training Framework for University Students</div>
+      <div>Designed for Master's Dissertation Research Evaluation | Standalone Offline Implementation</div>
+    </div>
+  </footer>
+
+  <!-- ==============================================================
+       JAVASCRIPT APPLICATION LOGIC
+       Deterministic Rule Engine, State Management, Educational Content
+       ============================================================== -->
+  <script>
+    (function() {
+      'use strict';
+
+      /* -----------------------------------------------------------
+         1. Module Definitions & Authoritative Content (NCSC / NIST / CISA)
+         Evidence-checked against Chapter 4 findings and guidance
+         ----------------------------------------------------------- */
+      const MODULE_DEFINITIONS = {
+        password: {
+          id: 'password',
+          title: 'Password Security & Account Protection',
+          canonicalRank: 1, // Chapter 4 tie-breaking rank 1 (R1 - Must)
+          tagline: 'Creating strong unique passphrases and using multi-factor authentication.',
+          learningContent: `
+            <p><strong>Authoritative Guidance (NCSC UK &amp; NIST SP 800-50r1):</strong></p>
+            <p>Using memorable personal details (such as names, dates of birth, or pet names) makes passwords vulnerable to automated guessing and dictionary attacks. Cybercriminals frequently search open social media profiles to identify personal keywords.</p>
+            <p><strong>Key Principles:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 4px; margin-bottom: 8px;">
+              <li><strong>Three Random Words:</strong> Create long, memorable passwords by combining three unrelated words (e.g. <code>pencil-curtain-sunset</code>).</li>
+              <li><strong>Never Reuse Passwords:</strong> If an external service suffers a data breach, attackers use automated credential stuffing to unlock other accounts using identical credentials.</li>
+              <li><strong>Enable 2-Step Verification (MFA):</strong> Two-factor authentication provides an essential second security barrier even if a password is breached.</li>
+              <li><strong>Password Managers:</strong> Use an encrypted password manager to generate and securely store complex, unique passwords for every service.</li>
+            </ul>
+          `,
+          practiceScenario: {
+            prompt: 'You are setting up credentials for a new online research library account required for your university course. What is the most secure password practice?',
+            options: [
+              { id: 'opt1', text: 'Use your standard university password with "123!" added to the end so it is easy to remember.', correct: false, reason: 'Password reuse and simple predictable suffixes make accounts vulnerable to automated credential stuffing.' },
+              { id: 'opt2', text: 'Combine three random, memorable words to create a unique passphrase and save it in a password manager.', correct: true, reason: 'Combining three random words creates high entropy while remaining memorable; storing it in a password manager prevents reuse.' },
+              { id: 'opt3', text: 'Use your student ID number combined with your birth year so you never forget it.', correct: false, reason: 'Personal details and student IDs are semi-public information that attackers easily guess.' }
+            ]
+          },
+          followup: {
+            prompt: 'Why is credential reuse across university and personal accounts considered a major security risk?',
+            options: [
+              { id: 'fol_corr', text: 'A data breach on an unrelated external website allows attackers to access your university account via credential stuffing.', correct: true },
+              { id: 'fol_inc1', text: 'Reusing passwords makes your internet browser run noticeably slower.', correct: false },
+              { id: 'fol_inc2', text: 'Universities automatically detect identical passwords and delete accounts.', correct: false },
+              { id: 'fol_unsure', text: 'I am not sure how credential reuse causes security risks.', correct: false }
+            ]
+          }
+        },
+
+        phishing: {
+          id: 'phishing',
+          title: 'Phishing & Suspicious Link Recognition',
+          canonicalRank: 2, // Chapter 4 tie-breaking rank 2 (R2 - Must)
+          tagline: 'Identifying deceptive emails, urgency triggers, and spoofed domains.',
+          learningContent: `
+            <p><strong>Authoritative Guidance (NCSC UK &amp; CISA):</strong></p>
+            <p>Phishing remains a primary initial attack vector against higher education institutions. Phishing messages often create a false sense of urgency (e.g. "Account suspended in 24 hours", "Overdue fee", or "Urgent student grant").</p>
+            <p><strong>Key Principles:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 4px; margin-bottom: 8px;">
+              <li><strong>Inspect Domain Names Carefully:</strong> Attackers register misleading domains (e.g. <code>portal-verify.example.com</code> instead of official university domains). Look at the root domain before the first slash.</li>
+              <li><strong>Resist Artificial Urgency:</strong> Threat actors use panic to pressure students into bypassing their usual critical checking.</li>
+              <li><strong>Verify Out-of-Band:</strong> If a message claims your account or funding is in jeopardy, do not click the email link. Open a clean browser window and navigate directly to the official university portal.</li>
+            </ul>
+          `,
+          practiceScenario: {
+            prompt: 'You receive an email from "IT-Support &lt;admin@student-portal-support.invalid&gt;" claiming your university mailbox is full and will be deleted in 2 hours unless you confirm your password via an attached link. What should you do?',
+            options: [
+              { id: 'opt1', text: 'Click the link immediately to prevent your emails from being deleted.', correct: false, reason: 'Urgent threats of account deletion are classic phishing tactics designed to induce panic.' },
+              { id: 'opt2', text: 'Do not click the link. Report the email to the university IT security team and check your mailbox quota directly via the official portal.', correct: true, reason: 'Navigating directly through official channels avoids malicious links and protects credentials.' },
+              { id: 'opt3', text: 'Forward the email to all your course classmates to ask if their mailboxes are also full.', correct: false, reason: 'Forwarding suspected phishing spreads the threat and risks other students accidentally clicking.' }
+            ]
+          },
+          followup: {
+            prompt: 'Which characteristic is the strongest indicator that an unexpected message may be a phishing attempt?',
+            options: [
+              { id: 'fol_corr', text: 'High-pressure urgency demanding immediate credential entry or payment via an unverified external link.', correct: true },
+              { id: 'fol_inc1', text: 'The email includes the official university logo in the header.', correct: false },
+              { id: 'fol_inc2', text: 'The message was sent during normal working hours.', correct: false },
+              { id: 'fol_unsure', text: 'I am not sure how to identify suspicious indicators.', correct: false }
+            ]
+          }
+        },
+
+        susceptibility: {
+          id: 'susceptibility',
+          title: 'Personal Susceptibility & Threat Exposure',
+          canonicalRank: 3, // Chapter 4 tie-breaking rank 3 (R3 - Should)
+          tagline: 'Understanding why student accounts and devices are targeted by cybercriminals.',
+          learningContent: `
+            <p><strong>Authoritative Guidance (ENISA &amp; NIST SP 800-50r1):</strong></p>
+            <p>A widespread misconception among university students is the "not-targeted" belief—assuming that because one is an ordinary student, cybercriminals have no interest in their accounts. Dataset analysis showed that 47.2% of surveyed students frequently held this belief.</p>
+            <p><strong>Why Student Accounts Are Targeted:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 4px; margin-bottom: 8px;">
+              <li><strong>Institutional Gateways:</strong> Compromised student credentials can allow attackers to access internal academic databases, library subscriptions, and university servers.</li>
+              <li><strong>Trusted Senders:</strong> Attackers abuse authentic student email accounts to send internal phishing messages that easily bypass spam filters.</li>
+              <li><strong>Financial &amp; Identity Theft:</strong> Student maintenance loans, identity records, and personal credit histories are targeted for fraud and monetisation.</li>
+            </ul>
+          `,
+          practiceScenario: {
+            prompt: 'A student colleague tells you: "I don\'t bother with 2FA or strong passwords because I don\'t have money in my student account, so hackers won\'t care about me." How should you explain the risk?',
+            options: [
+              { id: 'opt1', text: 'Agree with them, since attackers only focus on corporate executives and banks.', correct: false, reason: 'Attackers routinely target individual student credentials to gain gateways into institutional networks.' },
+              { id: 'opt2', text: 'Explain that student accounts provide attackers with institutional access and trusted email addresses to target other students and staff.', correct: true, reason: 'Student accounts are targeted for institutional access, academic resources, and internal phishing campaigns.' },
+              { id: 'opt3', text: 'Advise them that antivirus software completely replaces the need for passwords.', correct: false, reason: 'Antivirus software cannot protect an account whose password has been guessed or phished.' }
+            ]
+          },
+          followup: {
+            prompt: 'Why do cybercriminals target ordinary university student email accounts?',
+            options: [
+              { id: 'fol_corr', text: 'To abuse legitimate university email addresses for sending trusted internal phishing and gaining access to internal academic networks.', correct: true },
+              { id: 'fol_inc1', text: 'Because student email accounts are legally immune from international police monitoring.', correct: false },
+              { id: 'fol_inc2', text: 'Because universities store student grades directly inside unencrypted email headers.', correct: false },
+              { id: 'fol_unsure', text: 'I am not sure why student accounts are valuable targets.', correct: false }
+            ]
+          }
+        },
+
+        privacy: {
+          id: 'privacy',
+          title: 'Privacy Settings & Information Disclosure',
+          canonicalRank: 4, // Chapter 4 tie-breaking rank 4 (R4 - Should)
+          tagline: 'Managing digital footprint, app permissions, and social media exposure.',
+          learningContent: `
+            <p><strong>Authoritative Guidance (NCSC UK &amp; ICO):</strong></p>
+            <p>Oversharing personal information online provides threat actors with the intelligence needed for targeted spear-phishing and security question guessing.</p>
+            <p><strong>Key Principles:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 4px; margin-bottom: 8px;">
+              <li><strong>Audit App Permissions:</strong> Periodically review which apps have access to your contacts, camera, microphone, and precise geolocation.</li>
+              <li><strong>Limit Public Visibility:</strong> Restrict who can see your timetable, date of birth, home address, or real-time travel plans.</li>
+              <li><strong>Treat Security Questions as Passwords:</strong> For memorable security questions (e.g. "First pet's name" or "Mother's maiden name"), generate random answers stored in your password manager, because real answers can often be discovered from public profiles.</li>
+            </ul>
+          `,
+          practiceScenario: {
+            prompt: 'You install a new mobile timetable and study companion app. During setup, it requests permission to access your full contact list, precise GPS location, and photo library. The app only needs to display class schedules. What should you do?',
+            options: [
+              { id: 'opt1', text: 'Grant all permissions immediately to make sure the app works without errors.', correct: false, reason: 'Apps should only receive permissions strictly necessary for their core intended function.' },
+              { id: 'opt2', text: 'Deny unnecessary permissions (contacts, precise location, photos) and keep only essential access enabled.', correct: true, reason: 'Principle of least privilege: limiting unnecessary data access protects personal privacy.' },
+              { id: 'opt3', text: 'Post a public message on social media asking your friends if the app is safe.', correct: false, reason: 'Social media consensus is not a reliable security audit mechanism.' }
+            ]
+          },
+          followup: {
+            prompt: 'What is the primary security risk of sharing detailed personal life updates (e.g. birthdays, family names, location check-ins) on public social media profiles?',
+            options: [
+              { id: 'fol_corr', text: 'Attackers use these details to craft convincing spear-phishing messages and answer account security recovery questions.', correct: true },
+              { id: 'fol_inc1', text: 'Public posts cause your mobile phone battery to discharge significantly faster.', correct: false },
+              { id: 'fol_inc2', text: 'Social media companies will automatically deactivate public student accounts.', correct: false },
+              { id: 'fol_unsure', text: 'I am not sure how public information is exploited.', correct: false }
+            ]
+          }
+        },
+
+        updates: {
+          id: 'updates',
+          title: 'Software Updates & Device Protection',
+          canonicalRank: 5, // Chapter 4 tie-breaking rank 5 (R5 - Should)
+          tagline: 'Patching software vulnerabilities and maintaining device defences.',
+          learningContent: `
+            <p><strong>Authoritative Guidance (NCSC UK &amp; CISA):</strong></p>
+            <p>Operating systems, browsers, and mobile applications regularly contain security flaws that cybercriminals exploit. Applying updates promptly fixes ("patches") these known security vulnerabilities.</p>
+            <p><strong>Key Principles:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 4px; margin-bottom: 8px;">
+              <li><strong>Enable Automatic Updates:</strong> Set operating systems, web browsers, and security tools to update automatically during off-peak hours.</li>
+              <li><strong>Do Not Delay Critical Patches:</strong> When a device notifies you of a critical security patch, install it promptly rather than postponing for weeks.</li>
+              <li><strong>Only Install from Verified App Stores:</strong> Sideloading software or downloading unverified software from search ads frequently introduces malware or keyloggers.</li>
+            </ul>
+          `,
+          practiceScenario: {
+            prompt: 'Your laptop displays an official operating system notification stating that a critical security update is ready to install to patch a known remote vulnerability. You are writing an essay due in three days. What is the recommended action?',
+            options: [
+              { id: 'opt1', text: 'Dismiss the update and disable update notifications indefinitely so it does not interrupt your essay.', correct: false, reason: 'Disabling updates leaves your device exposed to known exploits and malware.' },
+              { id: 'opt2', text: 'Save your essay, back up your work to your university cloud storage, and restart the device to install the update during a short study break.', correct: true, reason: 'Backing up work and promptly applying patches protects your files and device without risking data loss.' },
+              { id: 'opt3', text: 'Download a third-party registry cleaner from an internet search ad to bypass the update.', correct: false, reason: 'Third-party cleaners from web ads are frequently bundled with adware or malware.' }
+            ]
+          },
+          followup: {
+            prompt: 'Why are software and operating system updates essential for cybersecurity defence?',
+            options: [
+              { id: 'fol_corr', text: 'They patch known security vulnerabilities that attackers actively scan for and exploit to compromise devices.', correct: true },
+              { id: 'fol_inc1', text: 'They permanently erase all previous browsing history and cookies from the device.', correct: false },
+              { id: 'fol_inc2', text: 'They increase the hardware processing speed of your computer processor.', correct: false },
+              { id: 'fol_unsure', text: 'I am not sure why software updates are needed for security.', correct: false }
+            ]
+          }
+        },
+
+        reporting: {
+          id: 'reporting',
+          title: 'Incident Recognition & Reporting',
+          canonicalRank: 6, // Chapter 4 tie-breaking rank 6 (R6 - Should)
+          tagline: 'Taking rapid, constructive action through verified university reporting channels.',
+          learningContent: `
+            <p><strong>Authoritative Guidance (NCSC UK &amp; NIST SP 800-50r1):</strong></p>
+            <p>Among the 144 victim respondents who answered the reporting question, 49 (34.0%) reported. Non-reporters frequently indicated not knowing how to describe the incident or attempting to resolve it themselves. Prompt reporting enables containment before threats spread.</p>
+            <p><strong>Key Principles:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 4px; margin-bottom: 8px;">
+              <li><strong>Report Promptly:</strong> If you accidentally click a suspicious link or enter credentials, alert university security immediately so containment measures can begin.</li>
+              <li><strong>Change Password Immediately:</strong> If you suspect your account has been compromised, change your password immediately from a secure, clean device.</li>
+              <li><strong>Use Verified Channels:</strong> Always report incidents via your university\'s verified IT Service Desk or official security reporting route.</li>
+              <li><strong>Preserve Evidence:</strong> Do not delete suspicious emails before reporting; reporting tools often capture email headers necessary for blocking attack campaigns.</li>
+            </ul>
+          `,
+          practiceScenario: {
+            prompt: 'You were tired and accidentally entered your university student portal password on a fake website linked from an SMS message. You realise your mistake 5 minutes later. What is your immediate priority?',
+            options: [
+              { id: 'opt1', text: 'Delete the SMS and keep silent to avoid speaking with university IT.', correct: false, reason: 'Silence allows an attacker unrestricted access to your account and university resources.' },
+              { id: 'opt2', text: 'Immediately change your student password via the official portal and report the compromised credential to your university\'s verified IT security team.', correct: true, reason: 'Rapid password change cuts off attacker access, while reporting enables security teams to contain the incident and protect other users.' },
+              { id: 'opt3', text: 'Turn off your Wi-Fi router for 24 hours and do nothing else.', correct: false, reason: 'Turning off Wi-Fi does not revoke stolen online credentials from attacker use.' }
+            ]
+          },
+          followup: {
+            prompt: 'What is the most effective immediate response if you suspect your university credentials have been entered into a phishing page?',
+            options: [
+              { id: 'fol_corr', text: 'Change your password immediately through the official university portal and alert the university IT security channel.', correct: true },
+              { id: 'fol_inc1', text: 'Wait 30 days to see if any unauthorised activity appears on your account.', correct: false },
+              { id: 'fol_inc2', text: 'Format your smartphone and purchase a new SIM card.', correct: false },
+              { id: 'fol_unsure', text: 'I am not sure what immediate steps to take.', correct: false }
+            ]
+          }
+        }
+      };
+
+      /* -----------------------------------------------------------
+         2. Explicit Answer Mapping Rules (Screen 2 -> Module Priorities)
+         Tone: "You reported..." / Measured, non-prescriptive language
+         ----------------------------------------------------------- */
+      const ANSWER_MAPPINGS = {
+        q1_password: {
+          q1_risky:      { moduleId: 'password', priority: 2, label: 'High Priority', reason: 'You reported using memorable personal details or reusing passwords across multiple accounts.' },
+          q1_partial:    { moduleId: 'password', priority: 1, label: 'Recommended Next', reason: 'You reported creating different passwords for main accounts without consistently using a password manager or MFA.' },
+          q1_protective: { moduleId: 'password', priority: 0, label: 'Refresher', reason: 'You reported protective password habits (using unique passphrases, a password manager, and MFA where available).' },
+          q1_unsure:     { moduleId: 'password', priority: 2, label: 'High Priority', reason: 'You indicated uncertainty about password creation and account protection strategies.' }
+        },
+        q2_phishing: {
+          q2_risky:      { moduleId: 'phishing', priority: 2, label: 'High Priority', reason: 'In the scenario, you selected clicking an unverified link, which exposes credentials to potential theft.' },
+          q2_partial:    { moduleId: 'phishing', priority: 1, label: 'Recommended Next', reason: 'In the scenario, you chose to reply directly to the suspicious sender rather than verifying independently.' },
+          q2_protective: { moduleId: 'phishing', priority: 0, label: 'Refresher', reason: 'In the scenario, you chose to verify account status independently via official university channels.' },
+          q2_unsure:     { moduleId: 'phishing', priority: 2, label: 'High Priority', reason: 'You indicated uncertainty about identifying and verifying suspicious messages.' }
+        },
+        q3_privacy: {
+          q3_risky:      { moduleId: 'privacy', priority: 2, label: 'High Priority', reason: 'You reported rarely or never reviewing app privacy permissions or restricting default public visibility.' },
+          q3_partial:    { moduleId: 'privacy', priority: 1, label: 'Recommended Next', reason: 'You reported occasionally reviewing privacy settings, but only when prompted or after news incidents.' },
+          q3_protective: { moduleId: 'privacy', priority: 0, label: 'Refresher', reason: 'You reported regularly restricting profile visibility, location tracking, and third-party data sharing.' },
+          q3_unsure:     { moduleId: 'privacy', priority: 2, label: 'High Priority', reason: 'You indicated uncertainty about where to locate or adjust application privacy permissions.' }
+        },
+        q4_updates: {
+          q4_risky:      { moduleId: 'updates', priority: 2, label: 'High Priority', reason: 'You reported postponing or ignoring security updates for weeks or months.' },
+          q4_partial:    { moduleId: 'updates', priority: 1, label: 'Recommended Next', reason: 'You reported delaying security updates for several days before applying them.' },
+          q4_protective: { moduleId: 'updates', priority: 0, label: 'Refresher', reason: 'You reported installing updates promptly or having automatic updates enabled.' },
+          q4_unsure:     { moduleId: 'updates', priority: 2, label: 'High Priority', reason: 'You indicated uncertainty regarding the security role of software updates.' }
+        },
+        q5_susceptibility: {
+          q5_risky:      { moduleId: 'susceptibility', priority: 2, label: 'High Priority', reason: 'You reported the perspective that hackers only target large organisations and that student accounts hold no value.' },
+          q5_partial:    { moduleId: 'susceptibility', priority: 1, label: 'Recommended Next', reason: 'You reported the perspective that students are only targeted if they have significant savings or high-profile roles.' },
+          q5_protective: { moduleId: 'susceptibility', priority: 0, label: 'Refresher', reason: 'You reported the perspective that student accounts can be targeted as gateways into university networks.' },
+          q5_unsure:     { moduleId: 'susceptibility', priority: 2, label: 'High Priority', reason: 'You indicated uncertainty about why cybercriminals would target university students.' }
+        },
+        q6_reporting: {
+          q6_risky:      { moduleId: 'reporting', priority: 2, label: 'High Priority', reason: 'In the scenario, you selected doing nothing or keeping quiet after entering credentials on a suspicious page.' },
+          q6_partial:    { moduleId: 'reporting', priority: 1, label: 'Recommended Next', reason: 'In the scenario, you selected attempting to fix the issue alone without reporting or changing your password.' },
+          q6_protective: { moduleId: 'reporting', priority: 0, label: 'Refresher', reason: 'In the scenario, you selected immediately changing the password and reporting via verified university channels.' },
+          q6_unsure:     { moduleId: 'reporting', priority: 2, label: 'High Priority', reason: 'You indicated uncertainty regarding where or how to report a cybersecurity incident at university.' }
+        }
+      };
+
+      /* -----------------------------------------------------------
+         3. Application State (Maintained in Memory Only)
+         ----------------------------------------------------------- */
+      const state = {
+        currentScreen: 'welcome',
+        activeModuleId: null,
+        assessmentAnswers: null,
+        modulePriorities: {
+          password: 2,
+          phishing: 2,
+          susceptibility: 2,
+          privacy: 2,
+          updates: 2,
+          reporting: 2
+        },
+        moduleReasons: {},
+        moduleStatuses: {
+          password: 'not-started', // 'not-started' | 'needs-review' | 'completed'
+          phishing: 'not-started',
+          susceptibility: 'not-started',
+          privacy: 'not-started',
+          updates: 'not-started',
+          reporting: 'not-started'
+        },
+        reassessmentReduced: {
+          password: false,
+          phishing: false,
+          susceptibility: false,
+          privacy: false,
+          updates: false,
+          reporting: false
+        },
+        lastReassessmentResult: null
+      };
+
+      /* -----------------------------------------------------------
+         4. Core Diagnostic & Navigation Logic
+         ----------------------------------------------------------- */
+      function onOptionSelected(questionName) {
+        const group = document.getElementsByName(questionName);
+        group.forEach(input => {
+          const parentLabel = input.closest('.option-label');
+          if (parentLabel) {
+            if (input.checked) parentLabel.classList.add('selected');
+            else parentLabel.classList.remove('selected');
+          }
+        });
+        document.getElementById('assessmentValidationAlert').classList.remove('visible');
+      }
+
+      function submitAssessment() {
+        const questions = ['q1_password', 'q2_phishing', 'q3_privacy', 'q4_updates', 'q5_susceptibility', 'q6_reporting'];
+        const missing = [];
+        const newAnswers = {};
+
+        questions.forEach(q => {
+          const selected = document.querySelector(`input[name="${q}"]:checked`);
+          if (!selected) {
+            missing.push(q);
+          } else {
+            newAnswers[q] = selected.value;
+          }
+        });
+
+        if (missing.length > 0) {
+          const alertBox = document.getElementById('assessmentValidationAlert');
+          if (alertBox) {
+            alertBox.textContent = `Please answer all 6 questions before proceeding. (Unanswered: ${missing.length} remaining)`;
+            alertBox.classList.add('visible');
+          }
+          
+          const firstUnanswered = document.getElementById(`qblock-${missing[0]}`);
+          if (firstUnanswered) {
+            firstUnanswered.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            firstUnanswered.focus();
+          }
+          return;
+        }
+
+        // Check if answers have changed compared to previous submission
+        if (state.assessmentAnswers !== null) {
+          let hasChanged = false;
+          questions.forEach(q => {
+            if (state.assessmentAnswers[q] !== newAnswers[q]) {
+              hasChanged = true;
+            }
+          });
+
+          if (hasChanged) {
+            const proceed = confirm(
+              "You have modified your assessment answers.\n\nGenerating a new pathway will reset your previous activity progress and reassessment history across all modules.\n\nDo you wish to proceed?"
+            );
+            if (!proceed) {
+              return;
+            }
+
+            state.moduleStatuses = {
+              password: 'not-started',
+              phishing: 'not-started',
+              susceptibility: 'not-started',
+              privacy: 'not-started',
+              updates: 'not-started',
+              reporting: 'not-started'
+            };
+            state.reassessmentReduced = {
+              password: false,
+              phishing: false,
+              susceptibility: false,
+              privacy: false,
+              updates: false,
+              reporting: false
+            };
+            state.lastReassessmentResult = null;
+          } else {
+            state.assessmentAnswers = newAnswers;
+            renderPathwayList();
+            goToScreen('pathway');
+            return;
+          }
+        }
+
+        state.assessmentAnswers = newAnswers;
+
+        questions.forEach(q => {
+          const ansKey = newAnswers[q];
+          const map = ANSWER_MAPPINGS[q][ansKey];
+          if (map) {
+            state.modulePriorities[map.moduleId] = map.priority;
+            state.moduleReasons[map.moduleId] = map.reason;
+          }
+        });
+
+        renderPathwayList();
+        goToScreen('pathway');
+      }
+
+      function getOrderedModules() {
+        const moduleList = Object.keys(MODULE_DEFINITIONS).map(id => {
+          return {
+            id: id,
+            title: MODULE_DEFINITIONS[id].title,
+            tagline: MODULE_DEFINITIONS[id].tagline,
+            canonicalRank: MODULE_DEFINITIONS[id].canonicalRank,
+            priority: state.modulePriorities[id],
+            reason: state.moduleReasons[id] || 'Standard pathway recommendation.',
+            status: state.moduleStatuses[id]
+          };
+        });
+
+        moduleList.sort((a, b) => {
+          if (b.priority !== a.priority) {
+            return b.priority - a.priority;
+          }
+          return a.canonicalRank - b.canonicalRank;
+        });
+
+        return moduleList;
+      }
+
+      function getPriorityLabelAndClass(priority) {
+        if (priority === 2) return { label: 'High Priority', cssClass: 'priority-high' };
+        if (priority === 1) return { label: 'Recommended Next', cssClass: 'priority-med' };
+        return { label: 'Refresher', cssClass: 'priority-refresher' };
+      }
+
+      function renderPathwayList() {
+        const ordered = getOrderedModules();
+        const container = document.getElementById('pathwayModuleList');
+        if (!container) return;
+        container.innerHTML = '';
+
+        const allProtective = ordered.every(m => m.priority === 0);
+        const overviewNotice = document.getElementById('pathwayOverviewNotice');
+        if (overviewNotice) {
+          if (allProtective) {
+            overviewNotice.innerHTML = `
+              <h3>Refresher Pathway Recommended</h3>
+              <p style="margin-bottom: 0; font-size: 0.9375rem;">
+                Your assessment answers indicate protective cybersecurity habits across all 6 topics. 
+                The modules below are organised as a refresher pathway to help you reinforce your knowledge.
+              </p>
+            `;
+          } else {
+            overviewNotice.innerHTML = `
+              <h3>Personalised Learning Pathway</h3>
+              <p style="margin-bottom: 0; font-size: 0.9375rem;">
+                Modules are prioritised based on your diagnostic answers. Topics with immediate learning needs are placed first.
+              </p>
+            `;
+          }
+        }
+
+        ordered.forEach((mod, index) => {
+          const badge = getPriorityLabelAndClass(mod.priority);
+          const card = document.createElement('article');
+          card.className = 'module-card';
+          card.setAttribute('role', 'listitem');
+          
+          let statusText = 'Not started';
+          let statusClass = 'not-started';
+          let buttonLabel = 'Begin Module &rarr;';
+          let buttonClass = 'btn-primary';
+
+          if (mod.status === 'completed') {
+            statusText = 'Completed';
+            statusClass = 'completed';
+            buttonLabel = 'Revisit Module &rarr;';
+            buttonClass = 'btn-secondary';
+          } else if (mod.status === 'needs-review') {
+            statusText = 'Needs review';
+            statusClass = 'needs-review';
+            buttonLabel = 'Review this module &rarr;';
+            buttonClass = 'btn-warning';
+          }
+
+          card.innerHTML = `
+            <div class="module-card-header">
+              <div class="module-title">
+                <span style="color: var(--primary); font-size: 0.95rem;">#${index + 1}</span>
+                <span>${mod.title}</span>
+              </div>
+              <span class="priority-badge ${badge.cssClass}">${badge.label}</span>
+            </div>
+            <div class="module-card-body">
+              <p>${mod.tagline}</p>
+              <div class="module-reason">
+                <strong>Recommendation basis:</strong> ${mod.reason}
+              </div>
+            </div>
+            <div class="module-card-footer">
+              <div class="status-indicator ${statusClass}">
+                <span>Status:</span> <strong>${statusText}</strong>
+              </div>
+              <button type="button" class="btn ${buttonClass} btn-sm" onclick="app.openModule('${mod.id}')">
+                ${buttonLabel}
+              </button>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+
+      function startTopRecommendedModule() {
+        const ordered = getOrderedModules();
+        if (ordered.length > 0) {
+          const topPending = ordered.find(m => m.status !== 'completed') || ordered[0];
+          openModule(topPending.id);
+        }
+      }
+
+      function openModule(moduleId) {
+        const mod = MODULE_DEFINITIONS[moduleId];
+        if (!mod) return;
+
+        state.activeModuleId = moduleId;
+
+        document.getElementById('training-module-title').textContent = mod.title;
+        const badge = getPriorityLabelAndClass(state.modulePriorities[moduleId]);
+        const badgeEl = document.getElementById('trainingModulePriorityBadge');
+        badgeEl.textContent = badge.label;
+        badgeEl.className = `priority-badge ${badge.cssClass}`;
+
+        document.getElementById('trainingEducationContent').innerHTML = `
+          <h3>Key Cybersecurity Principles</h3>
+          ${mod.learningContent}
+        `;
+
+        document.getElementById('scenarioPromptText').textContent = mod.practiceScenario.prompt;
+        const scenContainer = document.getElementById('scenarioOptionsContainer');
+        scenContainer.innerHTML = '';
+        mod.practiceScenario.options.forEach((opt, idx) => {
+          const optLabel = document.createElement('label');
+          optLabel.className = 'option-label';
+          optLabel.setAttribute('for', `scen_opt_${idx}`);
+          optLabel.innerHTML = `
+            <input type="radio" class="option-input" id="scen_opt_${idx}" name="scenarioOption" value="${opt.id}" onchange="app.onScenarioOptionSelected()">
+            <span>${opt.text}</span>
+          `;
+          scenContainer.appendChild(optLabel);
+        });
+        document.getElementById('scenarioFeedbackContainer').style.display = 'none';
+        document.getElementById('scenarioFeedbackContainer').innerHTML = '';
+
+        document.getElementById('followupPromptText').textContent = mod.followup.prompt;
+        const folContainer = document.getElementById('followupOptionsContainer');
+        folContainer.innerHTML = '';
+        mod.followup.options.forEach((opt, idx) => {
+          const folLabel = document.createElement('label');
+          folLabel.className = 'option-label';
+          folLabel.setAttribute('for', `fol_opt_${idx}`);
+          folLabel.innerHTML = `
+            <input type="radio" class="option-input" id="fol_opt_${idx}" name="followupOption" value="${opt.id}" onchange="app.onFollowupOptionSelected()">
+            <span>${opt.text}</span>
+          `;
+          folContainer.appendChild(folLabel);
+        });
+
+        document.getElementById('trainingValidationAlert').classList.remove('visible');
+        goToScreen('training');
+      }
+
+      function onScenarioOptionSelected() {
+        const opts = document.getElementsByName('scenarioOption');
+        opts.forEach(input => {
+          const parent = input.closest('.option-label');
+          if (parent) {
+            if (input.checked) parent.classList.add('selected');
+            else parent.classList.remove('selected');
+          }
+        });
+      }
+
+      function checkScenarioAnswer() {
+        const selected = document.querySelector('input[name="scenarioOption"]:checked');
+        const feedbackContainer = document.getElementById('scenarioFeedbackContainer');
+        
+        if (!selected) {
+          feedbackContainer.style.display = 'block';
+          feedbackContainer.innerHTML = `
+            <div class="feedback-box feedback-uncertain">
+              <div class="feedback-title">Please choose an answer option to receive feedback.</div>
+            </div>
+          `;
+          return;
+        }
+
+        const mod = MODULE_DEFINITIONS[state.activeModuleId];
+        const chosen = mod.practiceScenario.options.find(o => o.id === selected.value);
+        
+        feedbackContainer.style.display = 'block';
+        if (chosen.correct) {
+          feedbackContainer.innerHTML = `
+            <div class="feedback-box feedback-correct">
+              <div class="feedback-title">&#10003; Correct Response</div>
+              <p style="margin-bottom: 0;">${chosen.reason}</p>
+            </div>
+          `;
+        } else {
+          feedbackContainer.innerHTML = `
+            <div class="feedback-box feedback-incorrect">
+              <div class="feedback-title">&#10007; Not the Most Secure Practice</div>
+              <p style="margin-bottom: 0;">${chosen.reason}</p>
+            </div>
+          `;
+        }
+      }
+
+      function onFollowupOptionSelected() {
+        const opts = document.getElementsByName('followupOption');
+        opts.forEach(input => {
+          const parent = input.closest('.option-label');
+          if (parent) {
+            if (input.checked) parent.classList.add('selected');
+            else parent.classList.remove('selected');
+          }
+        });
+        document.getElementById('trainingValidationAlert').classList.remove('visible');
+      }
+
+      function submitModuleAndEvaluate() {
+        const selectedFollowup = document.querySelector('input[name="followupOption"]:checked');
+        if (!selectedFollowup) {
+          const alertBox = document.getElementById('trainingValidationAlert');
+          alertBox.textContent = 'Please select an answer for the follow-up reassessment question before submitting.';
+          alertBox.classList.add('visible');
+          document.getElementById('moduleFollowupBlock').scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+
+        const moduleId = state.activeModuleId;
+        const mod = MODULE_DEFINITIONS[moduleId];
+        const chosen = mod.followup.options.find(o => o.id === selectedFollowup.value);
+
+        const oldPriority = state.modulePriorities[moduleId];
+        let newPriority = oldPriority;
+        const isCorrect = (chosen && chosen.correct === true);
+        let reductionApplied = false;
+
+        if (isCorrect) {
+          state.moduleStatuses[moduleId] = 'completed';
+
+          if (!state.reassessmentReduced[moduleId]) {
+            if (oldPriority > 0) {
+              newPriority = oldPriority - 1;
+              state.modulePriorities[moduleId] = newPriority;
+              state.reassessmentReduced[moduleId] = true;
+              reductionApplied = true;
+            } else {
+              newPriority = 0;
+            }
+          }
+        } else {
+          state.moduleStatuses[moduleId] = 'needs-review';
+          newPriority = oldPriority;
+        }
+
+        state.lastReassessmentResult = {
+          moduleId: moduleId,
+          moduleTitle: mod.title,
+          oldPriority: oldPriority,
+          newPriority: newPriority,
+          isCorrect: isCorrect,
+          reductionApplied: reductionApplied,
+          chosenText: chosen.text
+        };
+
+        renderFeedbackScreen();
+        goToScreen('feedback');
+      }
+
+      function renderFeedbackScreen() {
+        const res = state.lastReassessmentResult;
+        if (!res) return;
+
+        const resultBox = document.getElementById('adaptationResultBox');
+        const explanationText = document.getElementById('adaptationExplanationText');
+        const feedbackPathway = document.getElementById('feedbackPathwayList');
+        const buttonGroup = document.getElementById('feedbackButtonGroup');
+
+        const oldBadge = getPriorityLabelAndClass(res.oldPriority);
+        const newBadge = getPriorityLabelAndClass(res.newPriority);
+
+        if (res.isCorrect) {
+          resultBox.className = 'feedback-box feedback-correct';
+          
+          let priorityMessage = '';
+          if (res.reductionApplied) {
+            priorityMessage = `<strong>Priority Adjustment:</strong> Topic priority was updated from 
+              <span class="priority-badge ${oldBadge.cssClass}">${oldBadge.label}</span> to 
+              <span class="priority-badge ${newBadge.cssClass}">${newBadge.label}</span>.`;
+          } else if (res.oldPriority === 0) {
+            priorityMessage = `<strong>Priority Status:</strong> Priority remains at refresher level (<span class="priority-badge ${newBadge.cssClass}">${newBadge.label}</span>).`;
+          } else {
+            priorityMessage = `<strong>Priority Status:</strong> Follow-up was previously completed. Priority remains at <span class="priority-badge ${newBadge.cssClass}">${newBadge.label}</span> (reassessment reduces priority once per session).`;
+          }
+
+          resultBox.innerHTML = `
+            <div class="feedback-title">&#10003; Follow-Up Question Answered Correctly</div>
+            <p>You selected the protective answer for <strong>${res.moduleTitle}</strong>.</p>
+            <p style="margin-bottom: 0; font-size: 0.9375rem;">${priorityMessage}</p>
+          `;
+        } else {
+          resultBox.className = 'feedback-box feedback-uncertain';
+          resultBox.innerHTML = `
+            <div class="feedback-title">&#9888; Follow-Up Response Needs Review</div>
+            <p>Your follow-up answer indicated uncertainty or an unprotective choice for <strong>${res.moduleTitle}</strong>.</p>
+            <p style="margin-bottom: 0; font-size: 0.9375rem;">
+              <strong>Priority Retained:</strong> Priority remains at 
+              <span class="priority-badge ${oldBadge.cssClass}">${oldBadge.label}</span>. This module is marked "Needs review" so you can revisit the concepts.
+            </p>
+          `;
+        }
+
+        const ordered = getOrderedModules();
+        const nextRecommended = ordered.find(m => m.status === 'not-started' || m.status === 'needs-review') || ordered[0];
+
+        if (res.isCorrect) {
+          explanationText.innerHTML = `
+            <p>Because your follow-up answer was correct, <strong>${res.moduleTitle}</strong> is marked as completed and its relative priority position has been updated.</p>
+            <p><strong>Next Recommended Module:</strong> <strong>${nextRecommended.title}</strong> (${getPriorityLabelAndClass(nextRecommended.priority).label}).</p>
+          `;
+          buttonGroup.innerHTML = `
+            <button type="button" class="btn btn-secondary" onclick="app.goToScreen('pathway')">
+              Return to Pathway
+            </button>
+            <button type="button" class="btn btn-primary" id="continueNextModuleBtn" onclick="app.continueToNextModule()">
+              Continue to Next Recommended Module &rarr;
+            </button>
+          `;
+        } else {
+          explanationText.innerHTML = `
+            <p>Because your follow-up answer was not protective, the priority for <strong>${res.moduleTitle}</strong> has been retained. Completing an activity without demonstrating correct reassessment does not lower its priority.</p>
+            <p>You can choose to review this module immediately to reinforce the material, or return to the pathway to explore other topics.</p>
+          `;
+          buttonGroup.innerHTML = `
+            <button type="button" class="btn btn-secondary" onclick="app.goToScreen('pathway')">
+              Return to Pathway
+            </button>
+            <button type="button" class="btn btn-warning" onclick="app.openModule('${res.moduleId}')">
+              Review this module &rarr;
+            </button>
+          `;
+        }
+
+        feedbackPathway.innerHTML = '';
+        ordered.forEach((mod, idx) => {
+          const b = getPriorityLabelAndClass(mod.priority);
+          const item = document.createElement('div');
+          item.className = 'module-card';
+          item.style.padding = '12px 16px';
+          
+          let statText = 'Not started';
+          if (mod.status === 'completed') statText = 'Completed';
+          else if (mod.status === 'needs-review') statText = 'Needs review';
+
+          item.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+              <div>
+                <strong>#${idx + 1} ${mod.title}</strong> 
+                <span style="font-size: 0.8125rem; color: var(--text-muted); margin-left: 8px;">(${statText})</span>
+              </div>
+              <span class="priority-badge ${b.cssClass}">${b.label}</span>
+            </div>
+          `;
+          feedbackPathway.appendChild(item);
+        });
+      }
+
+      function continueToNextModule() {
+        const ordered = getOrderedModules();
+        const nextIncomplete = ordered.find(m => m.status === 'not-started' || m.status === 'needs-review');
+        if (nextIncomplete) {
+          openModule(nextIncomplete.id);
+        } else {
+          renderPathwayList();
+          goToScreen('pathway');
+        }
+      }
+
+      function goToScreen(screenName) {
+        const screens = ['welcome', 'assessment', 'pathway', 'training', 'feedback'];
+        screens.forEach(s => {
+          const el = document.getElementById(`screen-${s}`);
+          if (el) el.style.display = (s === screenName) ? 'block' : 'none';
+        });
+
+        state.currentScreen = screenName;
+        
+        if (screenName === 'pathway') {
+          renderPathwayList();
+        }
+
+        updateStepper(screenName);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function updateStepper(screenName) {
+        const screenOrder = { 'welcome': 1, 'assessment': 2, 'pathway': 3, 'training': 4, 'feedback': 5 };
+        const stepNum = screenOrder[screenName] || 1;
+
+        const screenLabels = {
+          'welcome': 'Welcome',
+          'assessment': 'Initial Assessment',
+          'pathway': 'Personalised Pathway',
+          'training': 'Training Module',
+          'feedback': 'Feedback & Adaptation'
+        };
+
+        const mobileText = document.getElementById('mobileStepText');
+        if (mobileText) {
+          mobileText.textContent = `Step ${stepNum} of 5: ${screenLabels[screenName]}`;
+        }
+
+        for (let i = 1; i <= 5; i++) {
+          const navEl = document.getElementById(`step-nav-${i}`);
+          if (!navEl) continue;
+
+          navEl.classList.remove('active', 'completed');
+          if (i < stepNum) {
+            navEl.classList.add('completed');
+          } else if (i === stepNum) {
+            navEl.classList.add('active');
+          }
+        }
+      }
+
+      function restartSession() {
+        if (confirm('Are you sure you want to restart your training session? All temporary responses and pathway adaptations will be reset.')) {
+          state.currentScreen = 'welcome';
+          state.activeModuleId = null;
+          state.assessmentAnswers = null;
+          state.modulePriorities = { password: 2, phishing: 2, susceptibility: 2, privacy: 2, updates: 2, reporting: 2 };
+          state.moduleReasons = {};
+          state.moduleStatuses = { password: 'not-started', phishing: 'not-started', susceptibility: 'not-started', privacy: 'not-started', updates: 'not-started', reporting: 'not-started' };
+          state.reassessmentReduced = { password: false, phishing: false, susceptibility: false, privacy: false, updates: false, reporting: false };
+          state.lastReassessmentResult = null;
+
+          const form = document.getElementById('assessmentForm');
+          if (form) form.reset();
+
+          document.querySelectorAll('.option-label.selected').forEach(el => el.classList.remove('selected'));
+          document.getElementById('assessmentValidationAlert').classList.remove('visible');
+
+          goToScreen('welcome');
+        }
+      }
+
+      /* -----------------------------------------------------------
+         5. Public API Export
+         ----------------------------------------------------------- */
+      window.app = {
+        state: state,
+        MODULE_DEFINITIONS: MODULE_DEFINITIONS,
+        ANSWER_MAPPINGS: ANSWER_MAPPINGS,
+        goToScreen: goToScreen,
+        onOptionSelected: onOptionSelected,
+        submitAssessment: submitAssessment,
+        getOrderedModules: getOrderedModules,
+        renderPathwayList: renderPathwayList,
+        startTopRecommendedModule: startTopRecommendedModule,
+        openModule: openModule,
+        onScenarioOptionSelected: onScenarioOptionSelected,
+        checkScenarioAnswer: checkScenarioAnswer,
+        onFollowupOptionSelected: onFollowupOptionSelected,
+        submitModuleAndEvaluate: submitModuleAndEvaluate,
+        continueToNextModule: continueToNextModule,
+        restartSession: restartSession
+      };
+
+    })();
+  </script>
+</body>
+</html>

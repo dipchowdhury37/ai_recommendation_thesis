@@ -1,0 +1,4133 @@
+
+
+
+
+
+Adaptive Cybersecurity Awareness Training for University Students: A Data-Driven Framework for Personalised Learning Design
+
+
+
+CHAPTER 4: DATA ANALYSIS, FINDINGS AND DISCUSSION
+
+
+
+
+
+4.1 Introduction
+
+
+
+This chapter reports the analysis of the secondary dataset. It principally answers RQ2: which awareness and behavioural patterns the dataset shows, and how they can support learner profiling. It supports RQ3 by turning the findings into training requirements. It links the findings to the literature behind RQ1 and states what evidence for RQ4 is still missing. Section 4.2 audits and cleans the data. Section 4.3 describes the respondents. Sections 4.4 and 4.5 report practices, attitudes and associations. Section 4.6 identifies learner profiles, Section 4.7 derives requirements and Section 4.8 discusses the findings. Section 4.9 states the status of the framework, prototype and evaluation, and Section 4.10 summarises the chapter.
+
+
+
+
+
+4.2 Dataset Audit, Cleaning and Analytical Sample
+
+
+
+The workbook (Sheet1, A1:BM617) had 617 worksheet rows, but only 615 were respondents (Table 4.1). Row 1 held the headers, and the final row contained only a space, so it was removed. Two unnamed trailing columns held no data and were dropped, leaving 63 named questionnaire columns. Each respondent received an analytical identifier linked to the original Excel row. It is not an original participant ID.
+
+
+
+Table 4.1. Data audit: issues, actions and affected counts
+
+
+
+Issue
+
+
+
+Action
+
+
+
+Affected count
+
+
+
+Worksheet extent A1:BM617
+
+
+
+Row 1 treated as headers
+
+
+
+616 rows below header
+
+
+
+Whitespace-only final row (Excel row 617)
+
+
+
+Removed; not counted as a respondent
+
+
+
+1 row
+
+
+
+Unnamed trailing columns (BL, BM)
+
+
+
+Dropped; no substantive data
+
+
+
+2 columns
+
+
+
+Whitespace-only cells
+
+
+
+Set to missing
+
+
+
+19 cells
+
+
+
+Stray spaces; curly apostrophes
+
+
+
+Trimmed; standardised
+
+
+
+909; 239 cells
+
+
+
+Spelling variants (‘Somtimes’, ‘Chemsitry’)
+
+
+
+Corrected to existing categories
+
+
+
+84; 8 cells
+
+
+
+Literal answer ‘None’ to the security-tool question (Q12)
+
+
+
+Kept as an answer; tool use coded zero
+
+
+
+28 respondents
+
+
+
+Multiple-response options containing commas
+
+
+
+Parsed against listed options; residual text flagged
+
+
+
+0 unresolved cells
+
+
+
+Exact repeated records
+
+
+
+Retained and flagged; sensitivity analysis
+
+
+
+10 records, 5 groups (5 excess)
+
+
+
+Missing answers
+
+
+
+Available-case denominators
+
+
+
+Q14: 1 per item; demographics: 4–9
+
+
+
+Out-of-branch answers to conditional questions
+
+
+
+Retained and flagged; excluded from branch analyses
+
+
+
+141 non-victims (reporting); 159 victims (intention)
+
+
+
+Q15 ‘None’ but Q16 ‘Yes’
+
+
+
+Flagged
+
+
+
+6 respondents
+
+
+
+‘Northern Borders’ as university
+
+
+
+Retained and flagged; not changed
+
+
+
+1 respondent
+
+
+
+Missing clustering feature
+
+
+
+Excluded from clustering; no imputation
+
+
+
+1 respondent (Excel row 114)
+
+
+
+Source: Author’s analysis of the supplied dataset. The analytical sample is 615 respondents; 614 were clustered.
+
+
+
+Coding followed Chapter 3. Frequency and agreement items were coded 1–5, digital skill 1–3, and experience and concern items 0–2, with the original direction retained. Reversed versions were created as separate variables only for the password and not-targeted items. Multiple-response questions were converted to option indicators, with a missing value only where the whole question was unanswered. Missingness was low: each Q14 item lacked one answer, and the demographic items lacked between 4 and 9. One respondent (Excel row 114) lacked all Q14 answers, so 614 respondents were clustered, without imputation. The cleaned workbook keeps the cleaned text beside every coded column.
+
+
+
+Four kinds of problem were kept apart: missing answers, uncertain answers, structurally inapplicable answers and contradictory answers. ‘Do not know’ and ‘Not sure’ are substantive uncertainty categories, not zero scores. The five pairs of identical records may be repeat submissions or coincidence, so they were retained and a sensitivity analysis excluded the second copies (Section 4.6). The survey did not enforce its conditional questions. Branch-specific results therefore use eligible respondents only.
+
+
+
+
+
+4.3 Respondent Characteristics
+
+
+
+Table 4.2 summarises the sample. Men formed 60.6% of the 607 who stated a gender, and undergraduates formed 66.0%. Respondents spanned four age bands. The 17–25 band (37.1%) includes age 17, so adult status cannot be assumed. Most rated their digital skills as intermediate (58.1%). Use was intensive: 83.1% used the Internet throughout the day and 96.1% used a smartphone regularly. Mobile networks were the commonest connection (71.6%), and public Wi-Fi was uncommon (6.5%).
+
+
+
+Fields of study were varied, and the largest were computer science (146) and education (126). Patna University supplied 45.7% of respondents. 72.5% rated their devices somewhat or very secure, and 11.4% were not sure. These are perceptions, not verified security. The sample is non-probability and geographically narrow, so the percentages describe these respondents, not Indian students generally.
+
+
+
+Table 4.2. Respondent characteristics (percentages of valid responses)
+
+
+
+Characteristic
+
+
+
+n (%)
+
+
+
+Gender (valid n = 607; missing 8)
+
+
+
+
+
+
+
+   Male
+
+
+
+368 (60.6%)
+
+
+
+   Female
+
+
+
+239 (39.4%)
+
+
+
+Age band (valid n = 609; missing 6)
+
+
+
+
+
+
+
+   17–25 (may include age 17)
+
+
+
+226 (37.1%)
+
+
+
+   26–34
+
+
+
+210 (34.5%)
+
+
+
+   35–40
+
+
+
+125 (20.5%)
+
+
+
+   40+
+
+
+
+48 (7.9%)
+
+
+
+Education (valid n = 608; missing 7)
+
+
+
+
+
+
+
+   Undergraduate category
+
+
+
+401 (66.0%)
+
+
+
+   Postgraduate category
+
+
+
+207 (34.0%)
+
+
+
+Self-rated digital skill (valid n = 606; missing 9)
+
+
+
+
+
+
+
+   Beginner/basic
+
+
+
+152 (25.1%)
+
+
+
+   Intermediate
+
+
+
+352 (58.1%)
+
+
+
+   Expert
+
+
+
+102 (16.8%)
+
+
+
+Internet use (valid n = 610; missing 5)
+
+
+
+
+
+
+
+   Frequently throughout the day
+
+
+
+507 (83.1%)
+
+
+
+   Once or twice a day
+
+
+
+97 (15.9%)
+
+
+
+   Less frequently
+
+
+
+6 (1.0%)
+
+
+
+University (valid n = 611; missing 4)
+
+
+
+
+
+
+
+   Patna University, Patna
+
+
+
+279 (45.7%)
+
+
+
+   Veer Kunwar Singh University, Ara
+
+
+
+104 (17.0%)
+
+
+
+   IGNOU, India
+
+
+
+73 (11.9%)
+
+
+
+   Aryabhatta Knowledge University, Patna
+
+
+
+58 (9.5%)
+
+
+
+   B. R. Ambedkar Bihar University, Muzzafarpur
+
+
+
+48 (7.9%)
+
+
+
+   Magadh University, Bodh Gaya
+
+
+
+28 (4.6%)
+
+
+
+   Jai Prakash University, Chhapra
+
+
+
+20 (3.3%)
+
+
+
+   Northern Borders (flagged)
+
+
+
+1 (0.2%)
+
+
+
+Source: Author’s analysis of the supplied dataset.
+
+
+
+
+
+4.4 Awareness, Attitudes and Reported Practices
+
+
+
+Reported protective practices were frequent (Figure 4.1; Table 4.3). Often or Always was chosen by 86.6% for awareness of pop-up dangers, 85.0% for caution with links, 82.1% for privacy settings, 79.3% for checking websites and 77.9% for software updates. Risk-related items looked different. 48.5% reported Often or Always using personal information in passwords, and 47.2% held the belief that hackers would not target them. Only 28.8% felt safe on public Wi-Fi, and few used it.
+
+
+
+
+
+
+
+Figure 4.1. Reported practices and perceptions (Q14), percentage of valid responses (n = 614)
+
+
+
+Source: Author’s analysis of the supplied dataset. * Risk-related wording: a high value indicates more frequent agreement with the risky statement, not safer practice. Values below 7% are unlabelled.
+
+
+
+The contrast also occurs within individuals. Of 522 respondents reporting frequent link caution, 263 (50.4%) also reported frequent personal information in passwords. Of 326 respondents reporting all four selected practices (website checking, link caution, privacy attention and updating), 165 (50.6%) also did so. Separately, 159 of the 326 (48.8%) frequently held the not-targeted belief, and 114 (35.0%) reported all three conditions. Response style may contribute: 26 respondents (4.2%) chose one identical category for all eleven Q14 items.
+
+
+
+Table 4.3. Selected practice, perception and attitude items (percentages of valid responses)
+
+
+
+Item
+
+
+
+n
+
+
+
+Low %
+
+
+
+Middle %
+
+
+
+High %
+
+
+
+Median (IQR)
+
+
+
+Q14 frequency items (Never/Seldom | Sometimes | Often/Always)
+
+
+
+Check website legitimacy
+
+
+
+614
+
+
+
+5.0%
+
+
+
+15.6%
+
+
+
+79.3%
+
+
+
+4 (4–5)
+
+
+
+Careful with email/social-media links
+
+
+
+614
+
+
+
+5.2%
+
+
+
+9.8%
+
+
+
+85.0%
+
+
+
+5 (4–5)
+
+
+
+Aware of banner/pop-up danger
+
+
+
+614
+
+
+
+3.6%
+
+
+
+9.8%
+
+
+
+86.6%
+
+
+
+5 (4–5)
+
+
+
+Attention to privacy settings
+
+
+
+614
+
+
+
+4.2%
+
+
+
+13.7%
+
+
+
+82.1%
+
+
+
+5 (4–5)
+
+
+
+Regularly install updates
+
+
+
+614
+
+
+
+10.1%
+
+
+
+12.1%
+
+
+
+77.9%
+
+
+
+4 (4–5)
+
+
+
+Personal information in passwords*
+
+
+
+614
+
+
+
+40.7%
+
+
+
+10.7%
+
+
+
+48.5%
+
+
+
+3 (2–4)
+
+
+
+Belief hackers do not target me*
+
+
+
+614
+
+
+
+30.1%
+
+
+
+22.6%
+
+
+
+47.2%
+
+
+
+3 (2–4)
+
+
+
+Feel safe on public Wi-Fi*
+
+
+
+614
+
+
+
+49.5%
+
+
+
+21.7%
+
+
+
+28.8%
+
+
+
+3 (1–4)
+
+
+
+Social media protects my data*
+
+
+
+614
+
+
+
+24.6%
+
+
+
+35.5%
+
+
+
+39.9%
+
+
+
+3 (3–4)
+
+
+
+Read terms and conditions
+
+
+
+614
+
+
+
+27.0%
+
+
+
+20.5%
+
+
+
+52.4%
+
+
+
+4 (2–5)
+
+
+
+Change important passwords frequently
+
+
+
+614
+
+
+
+28.5%
+
+
+
+12.5%
+
+
+
+59.0%
+
+
+
+4 (2–5)
+
+
+
+Q18 agreement items (Disagree | Neutral | Agree)
+
+
+
+Feel informed about cybercrime threat
+
+
+
+615
+
+
+
+13.0%
+
+
+
+25.2%
+
+
+
+61.8%
+
+
+
+4 (3–5)
+
+
+
+Feel well protected against cybercrime
+
+
+
+615
+
+
+
+28.1%
+
+
+
+36.4%
+
+
+
+35.4%
+
+
+
+3 (2–4)
+
+
+
+Concerned personal information is not secure
+
+
+
+615
+
+
+
+13.3%
+
+
+
+17.2%
+
+
+
+69.4%
+
+
+
+4 (3–5)
+
+
+
+Should avoid disclosing personal information
+
+
+
+615
+
+
+
+12.5%
+
+
+
+6.8%
+
+
+
+80.7%
+
+
+
+5 (4–5)
+
+
+
+Source: Author’s analysis of the supplied dataset. Median and interquartile range use codes 1–5. * Risk-related wording. Full distributions are in Appendix A.
+
+
+
+Two further items need cautious reading. 59.0% reported changing important passwords often, and 52.4% reported reading terms and conditions. Frequent password change is not clearly protective, so neither item was treated as a safer-practice score. Respondents felt more informed than protected. 61.8% agreed that they felt informed about the cybercrime threat, but only 35.4% felt well protected. Privacy concern was strong: 69.4% were concerned that their personal information was not secure enough. Among the 40 public Wi-Fi users, 55.0% felt safe on it, compared with 26.9% of other respondents.
+
+
+
+Tool use was uneven (Figure 4.2). Anti-virus software was reported by 68.1%, authentication (password or PIN) by 54.8%, firewalls by 36.4% and encryption by only 11.2%. The median respondent used 2 tool types (IQR 1–4); 28 used none. The authentication option does not establish multifactor use. Updating of security software was uncertain: 9.6% did not know, and 14.5% chose a self-contradictory label.
+
+
+
+
+
+
+
+Figure 4.2. Reported use of security tools (Q12), percentage of respondents (n = 615)
+
+
+
+Source: Author’s analysis of the supplied dataset. Respondents could select several options, so percentages sum to more than 100%. The option ‘None’ was chosen by 28 respondents (4.6%).
+
+
+
+Experience was hard for respondents to judge (Table 4.4). 31.2% did not know whether they had received phishing emails, and 36.6% did not know about malware. Concern was high: 64.7% were always concerned about phishing. 159 respondents (25.9%) reported online fraud. Of 144 eligible victims who answered, 49 (34.0%) reported it. Among 91 non-reporters who gave reasons, 39 had fixed the problem themselves and 24 did not know how to describe it. These patterns suggest priorities in phishing recognition, password practice and reporting, without proving actual skill deficits.
+
+
+
+Table 4.4. Reported experience of, and concern about, selected incidents (percentages of all 615 respondents)
+
+
+
+Item
+
+
+
+n
+
+
+
+Never %
+
+
+
+Sometimes %
+
+
+
+Always %
+
+
+
+Do not know %
+
+
+
+Experienced: phishing emails (Q19)
+
+
+
+615
+
+
+
+15.8%
+
+
+
+24.7%
+
+
+
+28.3%
+
+
+
+31.2%
+
+
+
+Experienced: malware infection (Q19)
+
+
+
+615
+
+
+
+13.3%
+
+
+
+28.6%
+
+
+
+21.5%
+
+
+
+36.6%
+
+
+
+Experienced: identity theft (Q19)
+
+
+
+615
+
+
+
+33.8%
+
+
+
+11.1%
+
+
+
+10.1%
+
+
+
+45.0%
+
+
+
+Concerned about phishing emails (Q20)
+
+
+
+615
+
+
+
+11.7%
+
+
+
+17.6%
+
+
+
+64.7%
+
+
+
+6.0%
+
+
+
+Concerned about identity theft (Q20)
+
+
+
+615
+
+
+
+15.8%
+
+
+
+13.7%
+
+
+
+64.1%
+
+
+
+6.5%
+
+
+
+Source: Author’s analysis of the supplied dataset. ‘Do not know’ is kept as a separate category. Reporting branches are in Appendix C.
+
+
+
+
+
+4.5 Associations and Group Comparisons
+
+
+
+Five comparisons were declared in the analysis script before p-values were inspected (Table 4.5). Spearman correlation was used for ordered pairs and a chi-square test for skill and victimisation. Holm correction was applied across the five tests, with a 0.05 threshold. Self-rated skill was weakly and positively associated with perceived informedness (ρ = 0.19, n = 606) and website checking (ρ = 0.13). Perceived informedness was weakly associated with link caution (ρ = 0.15), as was phishing concern (ρ = 0.10, n = 577, excluding ‘Do not know’). All four remained below 0.05 after correction.
+
+
+
+These associations are weak. Knowing one rating tells a designer little about the other, so self-rated skill is a poor guide to what a student needs to learn. The median informedness rating was 3 for beginners and 4 for intermediate and expert respondents. Victimisation did not differ significantly by skill category (χ²(2) = 4.63, p = 0.099, Cramér’s V = 0.09). The direction was unexpected: 20.4% of beginners, 26.1% of intermediate and 32.4% of expert respondents reported victimisation.
+
+
+
+The tests rest on assumptions: independent observations, ordered categories treated as ranks, and adequate expected counts for the chi-square test. Non-probability sampling means the p-values cannot support conclusions about all students. They are exploratory guides, and the correlations show direction without showing cause. Excluding duplicate copies left every conclusion unchanged (Appendix C).
+
+
+
+Table 4.5. Declared exploratory tests (Holm-corrected across five tests)
+
+
+
+ID
+
+
+
+Comparison
+
+
+
+n
+
+
+
+Statistic
+
+
+
+p
+
+
+
+Holm p
+
+
+
+Effect [95% CI]
+
+
+
+T1
+
+
+
+Digital skill × perceived informedness (Spearman)
+
+
+
+606
+
+
+
+ρ = 0.19
+
+
+
+< 0.001
+
+
+
+< 0.001
+
+
+
+0.19 [0.11, 0.26]
+
+
+
+T2
+
+
+
+Digital skill × website checking (Spearman)
+
+
+
+606
+
+
+
+ρ = 0.13
+
+
+
+0.001
+
+
+
+0.004
+
+
+
+0.13 [0.05, 0.21]
+
+
+
+T3
+
+
+
+Perceived informedness × link caution (Spearman)
+
+
+
+614
+
+
+
+ρ = 0.15
+
+
+
+< 0.001
+
+
+
+< 0.001
+
+
+
+0.15 [0.07, 0.23]
+
+
+
+T4
+
+
+
+Phishing concern × link caution (Spearman; ‘Do not know’ excluded)
+
+
+
+577
+
+
+
+ρ = 0.10
+
+
+
+0.012
+
+
+
+0.024
+
+
+
+0.10 [0.02, 0.19]
+
+
+
+T5
+
+
+
+Digital skill category × fraud victimisation (chi-square, 3×2)
+
+
+
+606
+
+
+
+χ²(2) = 4.63
+
+
+
+0.099
+
+
+
+0.099
+
+
+
+V = 0.09
+
+
+
+Source: Author’s analysis of the supplied dataset. T5: smallest expected count = 26.3, so the asymptotic test was valid. Confidence intervals: 2,000 bootstrap resamples, seed 42.
+
+
+
+
+
+4.6 Learner Profiles
+
+
+
+Eight features were clustered (Appendix B, Table B1): website checking, safer password practice (reversed), pop-up awareness, privacy attention, software updating, link caution, perceived informedness and perceived susceptibility (reversed non-target belief). Chapter 3 planned eleven indicators, including tool breadth, security-update status, perceived device security and public Wi-Fi safety. Those four were left out of the main solution because their categories are uncertain, conditional or perceptual, and perceived informedness was added. The complete Chapter 3 plan was run separately as sensitivity analysis S2b (544 complete cases). It agreed only moderately with the main solution (adjusted Rand index 0.55; 83.1% agreement). The main analysis therefore departs from Chapter 3, and this departure is a limitation of the profiling.
+
+
+
+Features were standardised, and K-means (k = 2–6) used k-means++ starting points, 50 initialisations and seed 42 on the 614 complete respondents. Appendix C, Table C5 lists the stability procedures, software versions and label matching. Three feature pairs correlated at ρ ≥ 0.40, and five of the eight features are reported protective practices or awareness, so solutions mainly reflect overall reported caution.
+
+
+
+Table 4.6. K-means diagnostics for candidate solutions (n = 614)
+
+
+
+k
+
+
+
+Inertia
+
+
+
+Silhouette
+
+
+
+Cluster sizes
+
+
+
+Seed ARI
+
+
+
+Subsample ARI (SD)
+
+
+
+2
+
+
+
+3,997
+
+
+
+0.191
+
+
+
+373 / 241
+
+
+
+0.99
+
+
+
+0.89 (0.07)
+
+
+
+3
+
+
+
+3,461
+
+
+
+0.172
+
+
+
+230 / 222 / 162
+
+
+
+0.97
+
+
+
+0.88 (0.08)
+
+
+
+4
+
+
+
+3,200
+
+
+
+0.167
+
+
+
+199 / 160 / 156 / 99
+
+
+
+0.91
+
+
+
+0.82 (0.09)
+
+
+
+5
+
+
+
+2,995
+
+
+
+0.173
+
+
+
+190 / 153 / 142 / 84 / 45
+
+
+
+0.85
+
+
+
+0.72 (0.15)
+
+
+
+6
+
+
+
+2,832
+
+
+
+0.173
+
+
+
+173 / 144 / 101 / 78 / 73 / 45
+
+
+
+0.70
+
+
+
+0.63 (0.11)
+
+
+
+Source: Author’s analysis of the supplied dataset. ARI = adjusted Rand index against the reference solution: 20 re-seeded runs; 200 refits on 80% subsamples.
+
+
+
+
+
+
+
+Figure 4.3. Clustering diagnostics for k = 2 to 6
+
+
+
+Source: Author’s analysis of the supplied dataset.
+
+
+
+Separation was weak. Silhouette values were 0.17–0.19, and no elbow was evident (Figure 4.3). The k = 2 solution had the highest silhouette (0.191), but it mainly separated lower from higher reported caution. The k = 3 solution (0.172) was retained because it was stable (subsample ARI 0.88), every group exceeded 25%, and it separated a design-relevant pattern. Solutions with k ≥ 4 were less stable. Hierarchical clustering with Gower distance gave near-singleton groups under average linkage (604 / 6 / 4) and a different partition under complete linkage (ARI 0.41). K-means is therefore an exploratory approximation, not evidence of natural clusters.
+
+
+
+Table 4.7 and Figure 4.4 describe the profiles. Profile 1 (n = 222, 36.2%) reported consistently high practice, including safer passwords. Profile 2 (n = 230, 37.5%) reported high caution and informedness but frequent personal information in passwords (86.5% Often/Always) and low perceived susceptibility. Profile 3 (n = 162, 26.4%) reported moderate practice, lower informedness and more uncertainty. Silhouette values by profile were 0.17, 0.24 and 0.07, and 12.1% of respondents had negative values. The profiles are exploratory design aids with overlapping boundaries, and Profile 3 is the most diffuse. Outside the clustering features, Profile 3 had more beginners (37.7% against 16.9% in Profile 1) and more ‘Not sure’ device-security answers (21.6% against 7.2%). Identical Q14 answers occurred in 7.4% of Profile 2 and none of Profile 1, so response style may sharpen Profile 2.
+
+
+
+
+
+
+
+Figure 4.4. Profile means on the original 1–5 scales (k-means, k = 3, n = 614)
+
+
+
+Source: Author’s analysis of the supplied dataset. Safer password and perceived susceptibility are reversed (6 minus the original code); higher values mean less frequent risky practice and stronger perceived susceptibility.
+
+
+
+Table 4.7. Profile characteristics not used in clustering (descriptive only)
+
+
+
+Characteristic
+
+
+
+Profile 1
+
+
+
+Profile 2
+
+
+
+Profile 3
+
+
+
+Respondents, n (% of 614)
+
+
+
+222 (36.2%)
+
+
+
+230 (37.5%)
+
+
+
+162 (26.4%)
+
+
+
+Self-rated expert skill
+
+
+
+26.0%
+
+
+
+13.2%
+
+
+
+9.4%
+
+
+
+Self-rated beginner/basic skill
+
+
+
+16.9%
+
+
+
+24.1%
+
+
+
+37.7%
+
+
+
+‘Not sure’ about device security
+
+
+
+7.2%
+
+
+
+8.3%
+
+
+
+21.6%
+
+
+
+Mean number of security tool types
+
+
+
+3.4
+
+
+
+2.5
+
+
+
+2.0
+
+
+
+Use public Wi-Fi
+
+
+
+3.6%
+
+
+
+8.7%
+
+
+
+7.4%
+
+
+
+Feel safe on public Wi-Fi (Often/Always)
+
+
+
+11.7%
+
+
+
+44.3%
+
+
+
+30.2%
+
+
+
+Social media protects data (Often/Always)
+
+
+
+23.0%
+
+
+
+58.3%
+
+
+
+37.0%
+
+
+
+‘Do not know’ about phishing experience
+
+
+
+21.6%
+
+
+
+32.6%
+
+
+
+42.0%
+
+
+
+‘Do not know’ about malware experience
+
+
+
+26.6%
+
+
+
+34.3%
+
+
+
+53.7%
+
+
+
+Reported online fraud victimisation
+
+
+
+27.0%
+
+
+
+27.8%
+
+
+
+21.0%
+
+
+
+Same answer to all 11 Q14 items
+
+
+
+0.0%
+
+
+
+7.4%
+
+
+
+5.6%
+
+
+
+Source: Author’s analysis of the supplied dataset. Percentages use each characteristic’s valid denominator. These variables were not clustering features, but the table is descriptive and is not independent validation. Differences in the clustering features themselves are expected by construction and were not tested.
+
+
+
+The main interpretation was robust to duplicates and imputation but not to every analytical choice. Excluding duplicate copies gave ARI 0.98 (99.5% agreement), and median imputation gave identical assignments. Excluding the 26 respondents with identical Q14 answers gave ARI 0.78. Replacing informedness with public Wi-Fi safety (S2) gave ARI 0.64. The profiles are provisional indicators of learning need, not fixed labels of ability (Appendix C, Table C1).
+
+
+
+
+
+4.7 Translation into Adaptive Training Requirements
+
+
+
+Table 4.8 traces each requirement from evidence to a proposed feature, using the presentation, adaptation and data/content layers of the framework. Requirements are proposed, not implemented, and are prioritised with MoSCoW. The modules are not equally supported. Password practice and phishing recognition rest on the strongest evidence, while updating and incident reporting rest on thinner or more uncertain evidence.
+
+
+
+The survey is a design input, not a ready diagnostic. Likert self-reports and scenario performance are different measurements, so scenario scores cannot be treated as interchangeable with the survey features. A defensible approach has three steps. First, comparable self-report items could provisionally reuse the documented coding and standardisation parameters to suggest an initial profile. Second, scenario tasks could add evidence for choosing modules and difficulty. Third, matching profiles from scenario scores would need calibration and validation. Initial recommendations should remain provisional. Later reassessment would need new learner evidence, because this cross-sectional dataset cannot show updating.
+
+
+
+The profiles suggest starting hypotheses, not fixed paths. For Profile 2, password practice and perceived exposure could come first, because respondents reported frequent risky password habits. For Profile 3, foundation-level phishing recognition and updating could come first, with fuller explanations, because respondents reported lower informedness and more uncertainty. Profile 1 could receive short refreshers. Reported caution does not show high skill, so difficulty would be set from diagnostic performance. This is a design hypothesis to test. Because the profiles overlap, each recommendation should carry its reasons and allow another choice. Demographic attributes would not be used. R6 rests on a small base (49 reporters; 32 destination answers) and R3 on one belief item, so both are marked Should. NIST SP 800-50 Revision 1 was written for federal agencies and their staff. Its planning and role-based principles could still guide programme structure for students, provided its organisational detail is not imported unchanged.
+
+
+
+
+
+
+
+
+
+
+
+Table 4.8. Evidence-to-requirement traceability (requirements are proposed)
+
+
+
+ID
+
+
+
+Finding
+
+
+
+Supporting evidence
+
+
+
+Need and proposed module
+
+
+
+Illustrative adaptation rule
+
+
+
+MoSCoW
+
+
+
+RQ
+
+
+
+Source
+
+
+
+R1
+
+
+
+Risky password practice
+
+
+
+48.5% reported personal information in passwords Often/Always (Profile 2: 86.5%). 165 of 326 reporting four protective practices did so too
+
+
+
+Password creation and account protection module
+
+
+
+If the password item is Often/Always, offer the module early, with scenario rehearsal
+
+
+
+Must
+
+
+
+RQ2, RQ3
+
+
+
+Dataset; literature
+
+
+
+R2
+
+
+
+Reported caution with uncertainty about incidents
+
+
+
+85.0% reported link caution, but 31.2% did not know whether they had received phishing and 36.6% did not know about malware
+
+
+
+Phishing and suspicious-link recognition with graded scenarios
+
+
+
+Offer to all; set difficulty from diagnostic performance (hypothesis)
+
+
+
+Must
+
+
+
+RQ2, RQ3
+
+
+
+Dataset; literature
+
+
+
+R3
+
+
+
+Perceived susceptibility
+
+
+
+47.2% held the not-targeted belief; Profile 2 susceptibility mean 1.95 (Profile 1: 3.70)
+
+
+
+Exposure explainer
+
+
+
+Offer when the belief is Often/Always
+
+
+
+Should
+
+
+
+RQ2, RQ3
+
+
+
+Dataset; design judgement
+
+
+
+R4
+
+
+
+Privacy and disclosure
+
+
+
+Privacy attention 82.1% Often/Always; Profile 3 mean 3.65; 39.9% trusted social media
+
+
+
+Privacy settings and disclosure module
+
+
+
+Offer after R1–R2 where privacy answers are lower
+
+
+
+Should
+
+
+
+RQ2, RQ3
+
+
+
+Dataset; design judgement
+
+
+
+R5
+
+
+
+Updating and device protection
+
+
+
+Median 2 tool types; encryption 11.2%; 9.6% did not know about security-software updating
+
+
+
+Updating and device protection module
+
+
+
+Offer when updating is Sometimes or lower, or status is uncertain
+
+
+
+Should
+
+
+
+RQ2, RQ3
+
+
+
+Dataset
+
+
+
+R6
+
+
+
+Incident reporting
+
+
+
+49 of 144 victims who answered reported (34.0%); 24 of 91 non-reporters did not know how to describe it
+
+
+
+Incident recognition and reporting module
+
+
+
+Offer after core modules, with plain-language routes
+
+
+
+Should
+
+
+
+RQ2, RQ3
+
+
+
+Dataset (small base)
+
+
+
+R7
+
+
+
+Self-rated skill is a weak guide
+
+
+
+Skill–informedness ρ = 0.19; skill–website checking ρ = 0.13; victimisation 20.4%–32.4% across skill categories
+
+
+
+Initial diagnostic: coded self-report items plus scenario tasks
+
+
+
+Use practice items and scenario evidence, not self-rated skill; keep matching provisional until validated
+
+
+
+Must
+
+
+
+RQ3
+
+
+
+Dataset; literature
+
+
+
+R8
+
+
+
+Transparency and feedback
+
+
+
+Overlapping profiles (silhouette 0.17; 12.1% negative values)
+
+
+
+Plain-language explanations, feedback and reassessment
+
+
+
+Show the reason for each recommendation; update only from new learner evidence
+
+
+
+Must (explanations); Could (updating)
+
+
+
+RQ3, RQ4
+
+
+
+Dataset; literature
+
+
+
+Source: Author’s analysis of the supplied dataset. Demographic attributes are not used in any rule. Rules are illustrative and untested.
+
+
+
+
+
+
+
+
+
+
+
+
+
+4.8 Discussion of Findings
+
+
+
+Reported caution coexisted with risky password habits. Of 326 respondents reporting all four selected protective practices, 165 (50.6%) also reported Often/Always using personal information in passwords. Studies of undergraduates in other settings have likewise found reported attitudes stronger than reported behaviour, and awareness that did not reliably become protective behaviour. Other explanations also fit. Respondents may have read the password item loosely, answered ‘Always’ across items or given desirable answers, and 26 respondents gave one identical answer to all eleven items. The implication is that password practice needs rehearsal, not only information. The finding concerns self-reports, not observed passwords.
+
+
+
+A separate finding concerns perceived susceptibility. 47.2% frequently held the not-targeted belief, and 159 of the 326 respondents reporting four protective practices (48.8%) held it too. The belief was strongest in Profile 2. It may reflect low perceived exposure or acquiescent answering, and one item is a thin basis. It supports an exposure explainer, not a firm claim about risk perception. Uncertainty was a third finding: between 31.2% and 45.0% chose ‘Do not know’ for experiences. This may reflect difficulty recognising incidents or unfamiliar terms, and the data cannot separate them.
+
+
+
+Self-rated skill and informedness related only weakly to practice, and victimisation was not lower among expert respondents, possibly because experts detect more incidents. The HAIS-Q likewise measures knowledge, attitude and behaviour as separate dimensions, although it was developed for employees and this questionnaire is a different instrument. A diagnostic should therefore measure practice directly. Scenario items with known answers could also measure knowledge, which self-report cannot, but a quiz score would not show changed behaviour. Adaptive cybersecurity exercises elsewhere have used learner information to adjust difficulty, which supports the approach but not its effect in this setting.
+
+
+
+The profiles were stable but overlapping (silhouette 0.17). Clustering returns groups whether or not clear structure exists, and the partition changed with the feature set (adjusted Rand index 0.55–0.64) and the method. The profiles therefore suit transparent, rule-based starting points, which supports explainable adaptation, and they are not discovered learner types.
+
+
+
+Reporting results come from different respondents. Among victims who answered, 49 of 144 (34.0%) reported. Among non-victims, 431 of 456 (94.5%) said they would. The difference is not a measured intention–behaviour gap, because no respondent supplied both answers. The victim results show that many did not report, often because they fixed the problem themselves or did not know how to describe it. Destination results rest on 32 answers.
+
+
+
+Several limitations shape interpretation. All indicators are self-reported, so reported caution is not demonstrated ability. The dataset has no objective knowledge test, so ‘knowledge gaps’ means reported limitations and uncertainty. The sample is non-probability, drawn from India, dominated by Patna University (45.7%) and includes one unverifiable university entry. Missing, uncertain and repeated records changed little, but unenforced skip logic and ambiguous labels, such as ‘No, I think it is automatically updated’, weaken some items. K-means on ordinal items assumes equal spacing. The data are cross-sectional and there is no pre/post evidence, so associations are not causal and the study cannot show that training works, a limitation common in evaluations of cybersecurity training.
+
+
+
+
+
+4.9 Framework, Prototype and Evaluation Status
+
+
+
+For Objective 3, three outputs were completed: the conceptual framework in Chapters 2 and 3, eight evidence-derived requirements, and illustrative adaptation rules arranged in presentation, adaptation and data/content layers (Table 4.8). No wireframes, user journeys, diagnostic instrument or recommendation screens were supplied, so no prototype implementation is described. No walkthrough records, System Usability Scale responses, open comments or expert feedback were supplied either. The adaptation logic exists only as the rules in Table 4.8, and no diagnostic items have been written or tested. Usability, relevance and design quality have therefore not been assessed, and RQ4 has not been empirically answered. The sparse ‘Other’ survey responses concern cybercrime, not the prototype, and were not treated as feedback. Objective 1 was addressed in Chapter 2 and Objective 2 in this chapter. Objective 3 is partly achieved, and completing it requires the prototype and its evaluation.
+
+
+
+
+
+4.10 Chapter Summary
+
+
+
+The analysis showed frequent reported protective practices alongside frequent risky password habits, a recurring not-targeted belief and substantial uncertainty about incidents. Weak but stable exploratory analysis identified three overlapping profiles, best used as provisional design aids. The findings supported eight proposed requirements, led by password practice and phishing recognition. RQ2 is answered for the dataset, and RQ3 is supported by the traceability table. RQ1 is addressed through the literature, while RQ4 remains outstanding until the prototype is built and evaluated. The next chapter draws conclusions and recommendations.
+
+
+
+
+
+References
+
+
+
+Jain, A.K. (2010) 'Data clustering: 50 years beyond K-means', Pattern Recognition Letters, 31(8), pp. 651–666. Available at: https://doi.org/10.1016/j.patrec.2009.09.011.
+
+
+
+Khosravi, H., Shum, S.B., Chen, G., Conati, C., Tsai, Y.-S., Kay, J., Knight, S., Martinez-Maldonado, R., Sadiq, S. and Gašević, D. (2022) 'Explainable artificial intelligence in education', Computers and Education: Artificial Intelligence, 3, 100074. Available at: https://doi.org/10.1016/j.caeai.2022.100074.
+
+
+
+Merritt, M., Hansche, S., Ellis, B., Sanchez-Cherry, K., Nethery Snyder, J. and Walden, D. (2024) Building a cybersecurity and privacy learning program. NIST Special Publication 800-50 Rev. 1. Gaithersburg, MD: National Institute of Standards and Technology. Available at: https://doi.org/10.6028/NIST.SP.800-50r1.
+
+
+
+NIT Srinagar, Ravesa (2024) Data set cyber security issues in university and college students in India [Dataset]. Mendeley Data, Version 1. Available at: https://doi.org/10.17632/c88wycrdzy.1.
+
+
+
+Parsons, K., McCormac, A., Butavicius, M., Pattinson, M. and Jerram, C. (2014) 'Determining employee awareness using the Human Aspects of Information Security Questionnaire (HAIS-Q)', Computers & Security, 42, pp. 165–176. Available at: https://doi.org/10.1016/j.cose.2013.12.003.
+
+
+
+Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M. and Duchesnay, É. (2011) 'Scikit-learn: machine learning in Python', Journal of Machine Learning Research, 12, pp. 2825–2830.
+
+
+
+Prümmer, J., van Steen, T. and van den Berg, B. (2024) 'A systematic review of current cybersecurity training methods', Computers & Security, 136, 103585. Available at: https://doi.org/10.1016/j.cose.2023.103585.
+
+
+
+Rousseeuw, P.J. (1987) 'Silhouettes: a graphical aid to the interpretation and validation of cluster analysis', Journal of Computational and Applied Mathematics, 20, pp. 53–65. Available at: https://doi.org/10.1016/0377-0427(87)90125-7.
+
+
+
+Seda, P., Vykopal, J., Čeleda, P. and Ignác, I. (2022) 'Designing adaptive cybersecurity hands-on training', in 2022 IEEE Frontiers in Education Conference (FIE). Uppsala: IEEE, pp. 1–8. Available at: https://doi.org/10.1109/FIE56618.2022.9962663.
+
+
+
+Tan, L.Y., Hu, S., Yeo, D.J. and Cheong, K.H. (2025) 'Artificial intelligence-enabled adaptive learning platforms: a review', Computers and Education: Artificial Intelligence, 9, 100429. Available at: https://doi.org/10.1016/j.caeai.2025.100429.
+
+
+
+Xu, X.S., Hong, W.C.H., Kolletar-Zhu, K., Zhang, Y.F. and Chi, C.Y. (2024) 'Validation and application of the human aspects of information security questionnaire for undergraduates: effects of gender, discipline and grade level', Behaviour & Information Technology, 43(12), pp. 2799–2820. Available at: https://doi.org/10.1080/0144929X.2023.2260876.
+
+
+
+Zwilling, M., Klien, G., Lesjak, D., Wiechetek, Ł., Cetin, F. and Basim, H.N. (2022) 'Cyber security awareness, knowledge and behavior: a comparative study', Journal of Computer Information Systems, 62(1), pp. 82–97. Available at: https://doi.org/10.1080/08874417.2020.1712269.
+
+
+
+
+
+
+
+Appendix A: Full Response Distributions
+
+This appendix gives the complete category counts behind Tables 4.3 and 4.4 and Figure 4.1. Percentages use the valid denominator shown.
+
+
+
+Table A1. Q14 frequency items: counts and percentages of valid responses
+
+
+
+Item
+
+
+
+n
+
+
+
+Never
+
+
+
+Seldom
+
+
+
+Sometimes
+
+
+
+Often
+
+
+
+Always
+
+
+
+Check website legitimacy
+
+
+
+614
+
+
+
+9 (1.5%)
+
+
+
+22 (3.6%)
+
+
+
+96 (15.6%)
+
+
+
+263 (42.8%)
+
+
+
+224 (36.5%)
+
+
+
+Careful with email/social-media links
+
+
+
+614
+
+
+
+10 (1.6%)
+
+
+
+22 (3.6%)
+
+
+
+60 (9.8%)
+
+
+
+161 (26.2%)
+
+
+
+361 (58.8%)
+
+
+
+Aware of banner/pop-up danger
+
+
+
+614
+
+
+
+10 (1.6%)
+
+
+
+12 (2.0%)
+
+
+
+60 (9.8%)
+
+
+
+137 (22.3%)
+
+
+
+395 (64.3%)
+
+
+
+Attention to privacy settings
+
+
+
+614
+
+
+
+7 (1.1%)
+
+
+
+19 (3.1%)
+
+
+
+84 (13.7%)
+
+
+
+179 (29.2%)
+
+
+
+325 (52.9%)
+
+
+
+Regularly install updates
+
+
+
+614
+
+
+
+12 (2.0%)
+
+
+
+50 (8.1%)
+
+
+
+74 (12.1%)
+
+
+
+234 (38.1%)
+
+
+
+244 (39.7%)
+
+
+
+Personal information in passwords*
+
+
+
+614
+
+
+
+137 (22.3%)
+
+
+
+113 (18.4%)
+
+
+
+66 (10.7%)
+
+
+
+179 (29.2%)
+
+
+
+119 (19.4%)
+
+
+
+Belief hackers do not target me*
+
+
+
+614
+
+
+
+89 (14.5%)
+
+
+
+96 (15.6%)
+
+
+
+139 (22.6%)
+
+
+
+179 (29.2%)
+
+
+
+111 (18.1%)
+
+
+
+Feel safe on public Wi-Fi*
+
+
+
+614
+
+
+
+158 (25.7%)
+
+
+
+146 (23.8%)
+
+
+
+133 (21.7%)
+
+
+
+119 (19.4%)
+
+
+
+58 (9.4%)
+
+
+
+Social media protects my data*
+
+
+
+614
+
+
+
+76 (12.4%)
+
+
+
+75 (12.2%)
+
+
+
+218 (35.5%)
+
+
+
+144 (23.5%)
+
+
+
+101 (16.4%)
+
+
+
+Read terms and conditions
+
+
+
+614
+
+
+
+75 (12.2%)
+
+
+
+91 (14.8%)
+
+
+
+126 (20.5%)
+
+
+
+157 (25.6%)
+
+
+
+165 (26.9%)
+
+
+
+Change important passwords frequently
+
+
+
+614
+
+
+
+58 (9.4%)
+
+
+
+117 (19.1%)
+
+
+
+77 (12.5%)
+
+
+
+189 (30.8%)
+
+
+
+173 (28.2%)
+
+
+
+Source: Author’s analysis of the supplied dataset. * Risk-related wording.
+
+
+
+Table A2. Q18 and Q22 agreement items: counts and percentages of valid responses
+
+
+
+Item
+
+
+
+n
+
+
+
+Strongly disagree
+
+
+
+Disagree
+
+
+
+Neutral
+
+
+
+Agree
+
+
+
+Strongly agree
+
+
+
+Feel informed about cybercrime threat
+
+
+
+615
+
+
+
+17 (2.8%)
+
+
+
+63 (10.2%)
+
+
+
+155 (25.2%)
+
+
+
+222 (36.1%)
+
+
+
+158 (25.7%)
+
+
+
+Feel well protected against cybercrime
+
+
+
+615
+
+
+
+44 (7.2%)
+
+
+
+129 (21.0%)
+
+
+
+224 (36.4%)
+
+
+
+152 (24.7%)
+
+
+
+66 (10.7%)
+
+
+
+Concerned personal information is not secure
+
+
+
+615
+
+
+
+13 (2.1%)
+
+
+
+69 (11.2%)
+
+
+
+106 (17.2%)
+
+
+
+234 (38.0%)
+
+
+
+193 (31.4%)
+
+
+
+Should avoid disclosing personal information
+
+
+
+615
+
+
+
+21 (3.4%)
+
+
+
+56 (9.1%)
+
+
+
+42 (6.8%)
+
+
+
+107 (17.4%)
+
+
+
+389 (63.3%)
+
+
+
+Cybercrime risk has increased
+
+
+
+615
+
+
+
+2 (0.3%)
+
+
+
+14 (2.3%)
+
+
+
+109 (17.7%)
+
+
+
+199 (32.4%)
+
+
+
+291 (47.3%)
+
+
+
+Accept more surveillance
+
+
+
+615
+
+
+
+22 (3.6%)
+
+
+
+29 (4.7%)
+
+
+
+71 (11.5%)
+
+
+
+169 (27.5%)
+
+
+
+324 (52.7%)
+
+
+
+Laws are effective
+
+
+
+615
+
+
+
+21 (3.4%)
+
+
+
+61 (9.9%)
+
+
+
+161 (26.2%)
+
+
+
+204 (33.2%)
+
+
+
+168 (27.3%)
+
+
+
+Government responsible for awareness
+
+
+
+615
+
+
+
+9 (1.5%)
+
+
+
+16 (2.6%)
+
+
+
+50 (8.1%)
+
+
+
+162 (26.3%)
+
+
+
+378 (61.5%)
+
+
+
+Media responsible
+
+
+
+615
+
+
+
+5 (0.8%)
+
+
+
+33 (5.4%)
+
+
+
+50 (8.1%)
+
+
+
+142 (23.1%)
+
+
+
+385 (62.6%)
+
+
+
+Service providers responsible
+
+
+
+615
+
+
+
+5 (0.8%)
+
+
+
+10 (1.6%)
+
+
+
+59 (9.6%)
+
+
+
+158 (25.7%)
+
+
+
+383 (62.3%)
+
+
+
+Users responsible
+
+
+
+615
+
+
+
+6 (1.0%)
+
+
+
+10 (1.6%)
+
+
+
+64 (10.4%)
+
+
+
+187 (30.4%)
+
+
+
+348 (56.6%)
+
+
+
+Education system responsible
+
+
+
+615
+
+
+
+12 (2.0%)
+
+
+
+20 (3.3%)
+
+
+
+67 (10.9%)
+
+
+
+159 (25.9%)
+
+
+
+357 (58.0%)
+
+
+
+Source: Author’s analysis of the supplied dataset.
+
+
+
+
+
+Appendix B: Clustering Features and Coding
+
+
+
+Table B1. Features used in the main clustering
+
+
+
+Variable
+
+
+
+Source item
+
+
+
+Coding
+
+
+
+Missing
+
+
+
+website_check
+
+
+
+Q14 website legitimacy checking
+
+
+
+original (1-5)
+
+
+
+1
+
+
+
+safer_password
+
+
+
+Q14 personal information in passwords
+
+
+
+REVERSED: 6 - frequency
+
+
+
+1
+
+
+
+advert_risk_awareness
+
+
+
+Q14 awareness of banner/pop-up danger
+
+
+
+original (1-5)
+
+
+
+1
+
+
+
+privacy_attention
+
+
+
+Q14 attention to privacy settings
+
+
+
+original (1-5)
+
+
+
+1
+
+
+
+software_updates
+
+
+
+Q14 regular software updates
+
+
+
+original (1-5)
+
+
+
+1
+
+
+
+link_caution
+
+
+
+Q14 caution with email/social-media links
+
+
+
+original (1-5)
+
+
+
+1
+
+
+
+perceived_informedness
+
+
+
+Q18 feel informed about cybercrime
+
+
+
+original (1-5 agreement)
+
+
+
+0
+
+
+
+perceived_susceptibility
+
+
+
+Q14 belief of not being targeted
+
+
+
+REVERSED: 6 - agreement frequency
+
+
+
+1
+
+
+
+Source: Author’s analysis of the supplied dataset. Features were standardised. Demographics, conditional reporting items, tool breadth, update status and perceived device security were excluded from the main solution.
+
+
+
+Table B2. Comparison of the Chapter 3 plan with the clustered features
+
+
+
+Chapter 3 item
+
+
+
+Main solution
+
+
+
+Sensitivity S2b
+
+
+
+Reason or note
+
+
+
+P1 Tool breadth (Q12)
+
+
+
+No
+
+
+
+Yes
+
+
+
+‘None’ answers coded zero; breadth is not quality of protection
+
+
+
+P2 Security-update status (Q16)
+
+
+
+No
+
+
+
+Yes
+
+
+
+Contradictory labels; depends on Q15
+
+
+
+P3–P7 Website, pop-up, privacy, updates, links
+
+
+
+Yes
+
+
+
+Yes
+
+
+
+Core reported practice and awareness items
+
+
+
+P8 Personal information in passwords
+
+
+
+Yes (reversed)
+
+
+
+Yes (reversed)
+
+
+
+Reversal does not change K-means partitions
+
+
+
+B1 Perceived device security (Q13)
+
+
+
+No
+
+
+
+Yes (‘Not sure’ excluded)
+
+
+
+Perception; 70 ‘Not sure’ answers
+
+
+
+B2 Public Wi-Fi safety
+
+
+
+No
+
+
+
+Yes
+
+
+
+Perception; public Wi-Fi rarely used
+
+
+
+B3 Not-targeted belief
+
+
+
+Yes (reversed)
+
+
+
+Yes
+
+
+
+Reported as perceived susceptibility
+
+
+
+Perceived informedness (Q18)
+
+
+
+Yes
+
+
+
+No
+
+
+
+Added to represent self-assessed awareness
+
+
+
+Source: Author’s analysis of the supplied dataset. S2b used 11 features on complete cases only.
+
+
+
+Table B3. Spearman correlations among clustering features (n = 614)
+
+
+
+
+
+
+
+Website
+
+
+
+Safer pw
+
+
+
+Pop-ups
+
+
+
+Privacy
+
+
+
+Updates
+
+
+
+Links
+
+
+
+Informed
+
+
+
+Suscept.
+
+
+
+Website
+
+
+
+1.00
+
+
+
+0.06
+
+
+
+0.28
+
+
+
+0.20
+
+
+
+0.41
+
+
+
+0.26
+
+
+
+0.31
+
+
+
+0.06
+
+
+
+Safer pw
+
+
+
+0.06
+
+
+
+1.00
+
+
+
+0.07
+
+
+
+0.04
+
+
+
+0.18
+
+
+
+0.11
+
+
+
+-0.01
+
+
+
+0.35
+
+
+
+Pop-ups
+
+
+
+0.28
+
+
+
+0.07
+
+
+
+1.00
+
+
+
+0.42
+
+
+
+0.29
+
+
+
+0.42
+
+
+
+0.20
+
+
+
+0.08
+
+
+
+Privacy
+
+
+
+0.20
+
+
+
+0.04
+
+
+
+0.42
+
+
+
+1.00
+
+
+
+0.32
+
+
+
+0.28
+
+
+
+0.25
+
+
+
+0.04
+
+
+
+Updates
+
+
+
+0.41
+
+
+
+0.18
+
+
+
+0.29
+
+
+
+0.32
+
+
+
+1.00
+
+
+
+0.40
+
+
+
+0.19
+
+
+
+0.03
+
+
+
+Links
+
+
+
+0.26
+
+
+
+0.11
+
+
+
+0.42
+
+
+
+0.28
+
+
+
+0.40
+
+
+
+1.00
+
+
+
+0.15
+
+
+
+0.05
+
+
+
+Informed
+
+
+
+0.31
+
+
+
+-0.01
+
+
+
+0.20
+
+
+
+0.25
+
+
+
+0.19
+
+
+
+0.15
+
+
+
+1.00
+
+
+
+-0.04
+
+
+
+Suscept.
+
+
+
+0.06
+
+
+
+0.35
+
+
+
+0.08
+
+
+
+0.04
+
+
+
+0.03
+
+
+
+0.05
+
+
+
+-0.04
+
+
+
+1.00
+
+
+
+Source: Author’s analysis of the supplied dataset. Cronbach’s alpha: five protective practice items 0.66; all eight features 0.58. No composite score was built.
+
+
+
+
+
+Appendix C: Sensitivity, Reporting and Reproducibility Details
+
+
+
+Table C1. Clustering sensitivity analyses (k = 3)
+
+
+
+Analysis
+
+
+
+n
+
+
+
+Sizes
+
+
+
+Silhouette
+
+
+
+ARI
+
+
+
+Agreement
+
+
+
+S1 Excluding excess duplicate records
+
+
+
+609
+
+
+
+217 / 229 / 163
+
+
+
+0.171
+
+
+
+0.98
+
+
+
+99.5%
+
+
+
+S2 Alternative feature set: public Wi-Fi safety replaces perceived informedness
+
+
+
+614
+
+
+
+225 / 235 / 154
+
+
+
+0.191
+
+
+
+0.64
+
+
+
+87.0%
+
+
+
+S2b Complete applicable Chapter 3 plan (11 features: P1-P8, B1-B3; complete cases)
+
+
+
+544
+
+
+
+185 / 240 / 119
+
+
+
+0.148
+
+
+
+0.55
+
+
+
+83.1%
+
+
+
+S3 Median imputation (<=2 missing features)
+
+
+
+614
+
+
+
+222 / 230 / 162
+
+
+
+0.172
+
+
+
+1.00
+
+
+
+100.0%
+
+
+
+S4 Excluding respondents giving one identical answer to all 11 Q14 items
+
+
+
+588
+
+
+
+190 / 251 / 147
+
+
+
+0.165
+
+
+
+0.78
+
+
+
+92.7%
+
+
+
+S5 Hierarchical clustering, Gower distance, average linkage (same features)
+
+
+
+614
+
+
+
+604 / 6 / 4
+
+
+
+0.365
+
+
+
+0.01
+
+
+
+38.4%
+
+
+
+S6 Hierarchical clustering, Gower distance, complete linkage (same features)
+
+
+
+614
+
+
+
+236 / 222 / 156
+
+
+
+0.181
+
+
+
+0.41
+
+
+
+74.9%
+
+
+
+Source: Author’s analysis of the supplied dataset. ARI and agreement compare each solution with the main profiles (best one-to-one matching). Hierarchical silhouettes use Gower distance and are not comparable with K-means silhouettes.
+
+
+
+Table C2. Declared tests excluding excess duplicate records
+
+
+
+Test
+
+
+
+n
+
+
+
+Statistic
+
+
+
+Unadjusted p
+
+
+
+T1
+
+
+
+602
+
+
+
+ρ = 0.20
+
+
+
+< 0.001
+
+
+
+T2
+
+
+
+602
+
+
+
+ρ = 0.13
+
+
+
+0.001
+
+
+
+T3
+
+
+
+609
+
+
+
+ρ = 0.15
+
+
+
+< 0.001
+
+
+
+T4
+
+
+
+572
+
+
+
+ρ = 0.11
+
+
+
+0.009
+
+
+
+T5
+
+
+
+602
+
+
+
+χ² = 4.57; V = 0.09
+
+
+
+0.102
+
+
+
+Source: Author’s analysis of the supplied dataset. Largest change in any Often/Always percentage when duplicates were excluded: 0.18 percentage points.
+
+
+
+Table C3. Reporting branches: eligible, answered and missing respondents
+
+
+
+Question and eligibility
+
+
+
+Eligible n
+
+
+
+Answered n
+
+
+
+Missing n
+
+
+
+Results (% of answered)
+
+
+
+Actual reporting (eligible: answered Yes to victimisation)
+
+
+
+159
+
+
+
+144
+
+
+
+15
+
+
+
+Yes 49 (34.0%); No 95 (66.0%)
+
+
+
+Actual destination (eligible: victim who reported)
+
+
+
+49
+
+
+
+32
+
+
+
+17
+
+
+
+eGovernment portal 10 (31.2%); police 8 (25.0%); other free text 6 (18.8%); virtue committee 3 (9.4%); cyber crime portal 3 (9.4%); bank 3 (9.4%); do not remember 1 (3.1%)
+
+
+
+Actual reasons for not reporting (eligible: victim who did not report)
+
+
+
+95
+
+
+
+91
+
+
+
+4
+
+
+
+fixed it myself 39 (42.9%); did not know how to describe it 24 (26.4%); no value in reporting 20 (22.0%); did not know who to tell 16 (17.6%); did not know the crime 16 (17.6%); impact unknown 11 (12.1%); waste of time 6 (6.6%); no trust 6 (6.6%); not sure 5 (5.5%); my fault 1 (1.1%)
+
+
+
+Reporting intention (eligible: answered No to victimisation)
+
+
+
+456
+
+
+
+456
+
+
+
+0
+
+
+
+Yes 431 (94.5%); No 25 (5.5%)
+
+
+
+Intended destination (eligible: non-victim intending to report)
+
+
+
+431
+
+
+
+430
+
+
+
+1
+
+
+
+police 145 (33.7%); ask friends 144 (33.5%); national portal 77 (17.9%); eGovernment portal 73 (17.0%); cyber crime portal 64 (14.9%); virtue committee 3 (0.7%)
+
+
+
+Reasons for not intending to report (eligible: non-victim not intending)
+
+
+
+25
+
+
+
+25
+
+
+
+0
+
+
+
+not sure 7 (28.0%); impact unknown 7 (28.0%); did not know who to tell 4 (16.0%); fix it myself 3 (12.0%); no value 2 (8.0%); did not know the crime 2 (8.0%); did not know how to describe it 2 (8.0%); waste of time 1 (4.0%); no trust 1 (4.0%)
+
+
+
+Source: Author’s analysis of the supplied dataset. Multiple responses are allowed for destinations and reasons. Out-of-branch answers (141 non-victims answered actual reporting; 159 victims answered intention) are flagged in the cleaned data and excluded here. Actual reporting and hypothetical intention come from different respondents.
+
+
+
+Table C4. Option-aware parsing of multiple-response questions
+
+
+
+Question column
+
+
+
+Answered
+
+
+
+Unresolved cells
+
+
+
+Unresolved strings
+
+
+
+q08_devices
+
+
+
+611
+
+
+
+0
+
+
+
+none
+
+
+
+q09_connectivity
+
+
+
+613
+
+
+
+0
+
+
+
+none
+
+
+
+q12_security_tools
+
+
+
+615
+
+
+
+0
+
+
+
+none
+
+
+
+q15_security_on_devices
+
+
+
+615
+
+
+
+0
+
+
+
+none
+
+
+
+Source: Author’s analysis of the supplied dataset. Options containing commas, such as ‘Authentication (e.g. password, PIN)’, were matched as whole strings, longest first.
+
+
+
+Table C5. Reproducibility settings for the clustering analysis
+
+
+
+Item
+
+
+
+Setting
+
+
+
+Standardisation
+
+
+
+StandardScaler (mean 0, SD 1), fitted on the 614 clustered respondents
+
+
+
+K-means
+
+
+
+k-means++ starting points; 50 initialisations; seed 42; k = 2 to 6
+
+
+
+Seed stability
+
+
+
+20 re-seeded runs (seeds 1000–1019; 10 initialisations each); ARI against the reference solution
+
+
+
+Subsample stability
+
+
+
+200 refits on random 80% subsamples (seeds 2000–2199; 10 initialisations each); all respondents assigned to the nearest refitted centre
+
+
+
+Hierarchical comparison
+
+
+
+Gower distance (range-scaled mean absolute difference); average and complete linkage
+
+
+
+Missing data
+
+
+
+Complete cases in the main analysis; S3 imputed column medians for respondents missing up to two features
+
+
+
+Profile numbering
+
+
+
+Profiles ordered by mean reported-practice score (highest = Profile 1); sensitivity solutions matched to main profiles by best one-to-one overlap
+
+
+
+Bootstrap intervals
+
+
+
+2,000 resamples; seed 42; percentile 95% intervals
+
+
+
+Software
+
+
+
+Python 3.12.3; pandas 3.0.2; NumPy 2.4.4; SciPy 1.17.1; scikit-learn 1.8.0
+
+
+
+Source: Author’s analysis of the supplied dataset.
+
+
+

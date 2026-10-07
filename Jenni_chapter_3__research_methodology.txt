@@ -1,0 +1,1965 @@
+
+
+
+
+
+
+
+CHAPTER 3: RESEARCH METHODOLOGY
+
+
+
+
+
+3.1 Research Design and Methodological Rationale
+
+
+
+This research was conducted based on Design Science Research (DSR). DSR suits are used when constructing and testing artefacts to help solve a real-life problem. In this setting there is awareness training, but it is uniform, and it does not 
+
+take into account
+
+ the differences among students. The artifacts created were a set of exploratory learner profiles, requirements specification, adaptive training framework and a low fidelity prototype.
+
+
+
+There were two inputs to the design process. The first was quantitative secondary data analysis of which data analysis was descriptive and exploratory. It addressed RQ2 and provided evidence for RQ3. The second was a 
+
+small scale
+
+ formative evaluation of the prototype using the System Usability Scale (SUS) and open comments which addressed RQ4. It was not identified as a mixed methods project. The components studied a variety of phenomena at various points and did not triangulate one phenomenon. They were only connected by the artefact: the profile shaped the 
+
+requirements
+
+ and the requirements shaped the prototype, which was evaluated.
+
+
+
+There were three alternatives that were rejected. The platform is deployed and goes beyond MSc resources CITATION KarrenbauerC23 \p 2055 \l 1033 (Karrenbauer et al., 2023). A new primary survey would be a rehash of an existing public dataset and impose consent burdens. Sustained deployment and observed 
+
+behaviour
+
+ 
+
+is
+
+ outside of the scope of a controlled 
+
+behaviour
+
+-change experiment. The project does not provide evidence of 
+
+behaviour
+
+ change 
+
+as a result of
+
+ 
+
+personalised
+
+ training but rather provides evidence of design CITATION LeiteJ25 \p 22 \l 1033 (Leite et al., 2025).
+
+
+
+
+
+3.2 Conceptual Framework and 
+
+Operationalisation
+
+
+
+
+
+Based on the knowledge–attitude–
+
+behaviour
+
+ perspective and adaptive learning logic, the conceptual framework (see Figure 3.1) was developed. It provides an understanding of the concepts that 
+
+underlie
+
+ measurement and design. Order of activities is described in the workflow in Section 3.4. These are not to be mistaken for the other two.
+
+
+
+The knowledge was not applied in practice – no knowledge test was obtained. The closest items reflect self-reported awareness/confidence, like feeling informed about cybercrime, or knowing the dangers of pop-ups CITATION BrickleyJ26 \p 206 \l 1033 (Brickley et al., 2026). These are not known facts, but rather what is thought to be known. It also provides self-reported practices, security perceptions, concern, responsibility, context and exposure. There was no attempt to merge confidence and concern together and awareness and practice were retained as distinct constructs.
+
+
+
+Indicators are used in the framework to provide information on the learner profiles to be explored. Profiles 
+
+tell
+
+ about training needs, requirements 
+
+tell
+
+ about module selection, sequence and level. Short module checks provide feedback and can edit the profile. A better score on a quiz in the prototype might be related to 
+
+a feedback
+
+ on the knowledge area but would not indicate better everyday security 
+
+behaviours
+
+ CITATION UchenduB21 \p 102410 \l 1033 (Uchendu et al., 2021). The framework regulated the 
+
+variables selected
+
+, the indicators that profiled and the writing of the illustrative recommendation rules, and the qualities assessed of the prototype.
+
+
+
+
+
+
+
+
+
+
+
+Figure 3.1. Conceptual framework and 
+
+operationalisation
+
+ for 
+
+personalised
+
+ adaptive cybersecurity awareness training.
+
+
+
+
+
+3.3 Research Workflow and Objective Alignment
+
+
+
+
+
+
+
+There were 6 stages of the workflow. The literature and existing system review was conducted for Stage 1. This was a purposive narrative review and was not systematic. It started with the list of proposed bibliographies (approved by the supervisor
+
+)
+
+ and key sources were confirmed with the publisher or repository records; vendor documentation was read for three commercial platforms CITATION LivoreilB17 \p 6 \l 1033 (Livoreil et al., 2017). There is no record of any search strings or screening or selection tallies. Phases 2-6 involved preparation and analysis of secondary data, exploratory profiling, requirements identification and 
+
+prioritisation
+
+, framework and prototype design and evaluation and refinement. The output of each stage was passed to the following stage, providing a traceable design, where evidence is the system for tracking design. Table 3.1 is a correlation between stages, objectives and questions
+
+
+
+Table 3.1. Alignment of objectives, research questions, stages, methods, outputs and evaluation
+
+
+
+Objective (RQ)
+
+
+
+Stage
+
+
+
+Method
+
+
+
+Output
+
+
+
+Evaluation of the output
+
+
+
+O1 (RQ1)
+
+
+
+1
+
+
+
+Purposive narrative review; feature comparison of adaptive-learning approaches and training systems
+
+
+
+Feature analysis matrix; initial requirement candidates
+
+
+
+Each candidate requirement linked to a documented source
+
+
+
+O2 (RQ2)
+
+
+
+2–3
+
+
+
+Python-based audit, descriptive and association analysis; exploratory clustering or rule-based profiling
+
+
+
+Analysis file and preparation log; exploratory learner profiles
+
+
+
+Reproducibility; data-quality checks; stability and interpretability of profiles
+
+
+
+O3 (RQ3)
+
+
+
+4–5
+
+
+
+Requirements from literature, data and guidance; 
+
+MoSCoW
+
+; traceability matrix; framework and prototype design
+
+
+
+Requirements specification; adaptive training framework; low-fidelity prototype
+
+
+
+Traceability check: every Must requirement linked to a design feature and evaluation check
+
+
+
+O3 (RQ4)
+
+
+
+6
+
+
+
+Persona walkthrough; System Usability Scale; open comments; optional expert review
+
+
+
+Evaluation findings; refinement log
+
+
+
+Criteria fixed in advance (Section 3.10)
+
+
+
+Source: author’s own.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3.4 Dataset, Population and Data Selection
+
+
+
+We used the “Data Set Cyber 
+
+security
+
+ Issues in University and College Students in India” (Version 1, DOI 10.17632/c88wycrdzy.1) published in October 2024. Responses were gathered online, from June to December 2023, by the creator. The repository states there were 615 participants (267 female and 348 male) and the proposal states that the 
+
+licence
+
+ is CC BY 4.0 (reuse with attribution). There was no sampling frame or response rate 
+
+found,
+
+ thus it is considered as non-probability sampling CITATION HaymanR16 \p 97 \l 1033 (Hayman, 2016).
+
+
+
+The direct inspection of the workbook was carried out. It contains one worksheet, Sheet1 (range A1:BM617), where the worksheet heading is in the 1st row. 63 columns are named, and two unnamed columns (BL and BM) are empty. There are 616 rows in the data and one of them is only 
+
+a space
+
+; this leaves 615 rows of data. The description of the repository shows 368 male, 239 female and 8 who did not respond to the sex question in the repository, but the Workbook shows 368 male and 239 female. No adjustment 
+
+of
+
+ these values 
+
+were
+
+ made. Age is recorded in four bands: 17–25 (226), 26–34 (210), 35–40 (125) and 40+ (48), with six missing. Respondents may not necessarily be adults as the youngest band 
+
+has
+
+ age 17. The findings might not be 
+
+generalisable
+
+ to other regions or countries, because of the institutions being six Bihar universities and IGNOU.
+
+
+
+
+
+3.5 
+
+Analysis
+
+ Variables and Measurement
+
+
+
+
+
+
+
+Tables 3.2 and 3.3 provide a provisional list of 26 columns, which are currently being considered. Only an indicator that falls under a practice, perception, attitude, context or exposure that might influence a module was kept in a column. The sample was described and compared to previous samples using only the following: Gender (Q1), age band (Q2), education level (Q3), field of study (Q4) and university (Q5). They were not included in any profiling, and not in any recommendations. There were also 5 items from the remaining Q18-20 and Q22 items that were not included as they were not mapped to a trainable practice, belief or exposure, along with the 13-entry free-text field. In Q14, three categories were omitted: Terms and conditions of reading, frequent change of passwords and trust for use of social media services. The other two are not clearly practices a module could target, and change of passwords is not necessarily protective. A validated HAIS-Q instrument was not used for the questionnaire.
+
+
+
+
+
+
+
+Table 3.2. 
+
+Analysis
+
+ variable definitions (Table A)
+
+
+
+ID
+
+
+
+Questionnaire item (source header)
+
+
+
+Variable name
+
+
+
+Measurement
+
+
+
+Analytical role
+
+
+
+C1
+
+
+
+Q6: How often do you use the Internet and Internet-related services?
+
+
+
+Internet-use frequency
+
+
+
+Self-reported frequency of Internet use
+
+
+
+Context; profile description
+
+
+
+C2
+
+
+
+Q7: What 
+
+are
+
+ your Internet/ Digital devices skills level?
+
+
+
+Self-rated digital skill
+
+
+
+Self-rated competence, not tested skill
+
+
+
+Context; profile description
+
+
+
+C3
+
+
+
+Q8: Of the following, which digital devices do you use regularly? Tick all that apply
+
+
+
+Device types used
+
+
+
+Breadth of regularly used devices
+
+
+
+Exposure; profile description
+
+
+
+C4
+
+
+
+Q9: What type of connectivity services do you use in your daily activities? Tick all that apply
+
+
+
+Public Wi-Fi use
+
+
+
+Whether public Wi-Fi is among services used
+
+
+
+Exposure; module content
+
+
+
+E1
+
+
+
+Q19: [Received phishing emails (e.g. asking for money, personal information or bank account details)]
+
+
+
+Phishing-email experience
+
+
+
+Self-reported frequency of receiving phishing emails
+
+
+
+Exposure; association and description
+
+
+
+E2
+
+
+
+Q19: [Malware (e.g. virus) infection of a device]
+
+
+
+Malware experience
+
+
+
+Self-reported frequency of device infection
+
+
+
+Exposure; association and description
+
+
+
+E3
+
+
+
+Q24: Have you ever been a victim of online fraud?
+
+
+
+
+
+Victimisation
+
+
+
+
+
+Self-reported experience of online fraud
+
+
+
+Exposure; eligibility filter for R1 and R2
+
+
+
+R1
+
+
+
+Q24 A: If Yes, 
+
+When
+
+ you had been a victim of 
+
+cyber crime
+
+, did you report it?
+
+
+
+Reported 
+
+victimisation
+
+
+
+
+
+Reporting 
+
+behaviour
+
+ among self-reported victims
+
+
+
+Descriptive; module content
+
+
+
+R2
+
+
+
+Q24 B: If No, 
+
+If
+
+ you become a victim of 
+
+cyber crime
+
+ would you like to report it?
+
+
+
+Reporting intention
+
+
+
+Intention to report among non-victims
+
+
+
+Descriptive; module content
+
+
+
+P1
+
+
+
+Q12: Some of the 
+
+most commonly used
+
+ security tools and applications … Select which of these you have used on your digital devices. Tick all that apply.
+
+
+
+Security-tool breadth
+
+
+
+Number of tool types reported as used
+
+
+
+Profiling candidate; sensitivity analysis
+
+
+
+P2
+
+
+
+Q16: If you use Internet security (e.g. anti-virus), is this kept up to date in terms of threat filters and signatures?
+
+
+
+Security-software update status
+
+
+
+Self-reported updating of Internet security software
+
+
+
+Profiling candidate
+
+
+
+P3
+
+
+
+Q14: [I check the legitimacy of a website before accessing it .]
+
+
+
+Website checking
+
+
+
+Self-reported frequency of checking websites
+
+
+
+Profiling
+
+
+
+P4
+
+
+
+Q14: [I am aware of the danger when clicking on banners, advertisements or pop-up screens that appear when surfing the Internet]
+
+
+
+Pop-up awareness
+
+
+
+Self-reported awareness of a specific danger
+
+
+
+Profiling; perceived awareness
+
+
+
+P5
+
+
+
+Q14: [I give due attention to privacy settings on my social media account(s) (e.g. Facebook)]
+
+
+
+Privacy-settings attention
+
+
+
+Self-reported frequency of attending to privacy settings
+
+
+
+Profiling
+
+
+
+P6
+
+
+
+Q14: [I regularly install software 
+
+updates ]
+
+
+
+
+
+Software updating
+
+
+
+Self-reported frequency of installing updates
+
+
+
+Profiling
+
+
+
+P7
+
+
+
+Q14: [I am careful about clicking on links in an email or social media post]
+
+
+
+Link caution
+
+
+
+Self-reported frequency of caution with links
+
+
+
+Profiling
+
+
+
+P8
+
+
+
+Q14: [I 
+
+create
+
+ a password that contains my personal information (e.g. last name, date of birth)]
+
+
+
+Personal information in passwords
+
+
+
+Self-reported frequency of a risky password practice
+
+
+
+Profiling (reverse-scored)
+
+
+
+B1
+
+
+
+Q13: How secure do you feel your digital devices (e.g. computers and phones) are?
+
+
+
+Perceived device security
+
+
+
+Confidence in device security, not actual security
+
+
+
+Profiling; description
+
+
+
+B2
+
+
+
+Q14: [I feel safe when using public Wi-Fi]
+
+
+
+Safety on public Wi-Fi
+
+
+
+Risk perception
+
+
+
+Profiling
+
+
+
+B3
+
+
+
+Q14: [I feel my digital devices (computer, smartphones) 
+
+has
+
+ no value to hackers, they do not target me]
+
+
+
+Belief of not being targeted
+
+
+
+Low perceived susceptibility
+
+
+
+Profiling
+
+
+
+B4
+
+
+
+Q18: [I feel informed about the threat of 
+
+cyber crime
+
+]
+
+
+
+Feeling informed
+
+
+
+Perceived awareness of cybercrime threat
+
+
+
+Profiling; description
+
+
+
+B5
+
+
+
+Q18: [I feel that I am well protected against 
+
+cyber crime
+
+]
+
+
+
+Feeling protected
+
+
+
+Perceived protection
+
+
+
+Profiling; description
+
+
+
+A1
+
+
+
+Q18: [I think one should avoid disclosing personal information online]
+
+
+
+Disclosure caution
+
+
+
+Attitude towards disclosing personal information
+
+
+
+Profile description
+
+
+
+A2
+
+
+
+Q18: [I am concerned that my online personal information is not secure 
+
+enough ]
+
+
+
+
+
+Information-security concern
+
+
+
+Concern about personal information
+
+
+
+Profile description
+
+
+
+A3
+
+
+
+Q20: [I am concerned about receiving phishing emails (e.g. asking for money, personal information or bank account details]
+
+
+
+Phishing concern
+
+
+
+Concern about phishing
+
+
+
+Profile description
+
+
+
+A4
+
+
+
+Q22: [User itself] (responsible for raising awareness of 
+
+cyber crime
+
+)
+
+
+
+Own responsibility
+
+
+
+Belief that users are responsible for awareness
+
+
+
+Profile description
+
+
+
+Source: compiled by the author from the workbook headers. Item wording is reproduced as it appears in the workbook, shortened with an ellipsis where marked.
+
+
+
+Table 3.3. Coding and construct mapping (Table B)
+
+
+
+ID
+
+
+
+Original response categories
+
+
+
+Proposed coding
+
+
+
+Scoring direction
+
+
+
+Construct
+
+
+
+Justification or limitation
+
+
+
+C1
+
+
+
+Less frequently (once a week, once month); Once or twice a day; Frequently throughout the day
+
+
+
+1, 2, 3
+
+
+
+Higher = more frequent use
+
+
+
+Digital context
+
+
+
+Order follows frequency. Context, not a safety judgement.
+
+
+
+C2
+
+
+
+Beginner/Basic; Intermediate; Expert
+
+
+
+1, 2, 3
+
+
+
+Higher = higher self-rating
+
+
+
+Digital context
+
+
+
+Self-
+
+rated
+
+. Not a tested measure of skill or knowledge.
+
+
+
+C3
+
+
+
+Smartphone; Laptop; Desktop; Tablet; Smartwatch; 
+
+AppleTV
+
+ (multiple selection)
+
+
+
+Count of device types selected
+
+
+
+Higher = more device types
+
+
+
+Exposure
+
+
+
+Counts breadth only. Options parsed by matching strings.
+
+
+
+C4
+
+
+
+Public Wi-Fi; Private Wi-Fi; Mobile/cellular network; Broadband (wired); I don’t know
+
+
+
+1 if public Wi-Fi selected, else 0
+
+
+
+1 = public Wi-Fi used
+
+
+
+Exposure
+
+
+
+Use of public Wi-Fi is exposure, not unsafe 
+
+behaviour
+
+.
+
+
+
+E1, E2
+
+
+
+Never; Sometimes; Always; Do not know
+
+
+
+Never = 0, Sometimes = 1, Always = 2 for association tests; Do not know kept as its own category
+
+
+
+Higher = more frequent experience
+
+
+
+Exposure
+
+
+
+‘Do not know’ is common (192 and 225 of 615) so cannot be dropped. Excluded from distance-based clustering.
+
+
+
+E3
+
+
+
+Yes; No
+
+
+
+Yes = 1, No = 0
+
+
+
+1 = reports 
+
+victimisation
+
+
+
+
+
+Exposure
+
+
+
+Self-reported. Defines eligibility for R1 and R2.
+
+
+
+R1
+
+
+
+Yes; No (one ‘
+
+No ’
+
+ trimmed)
+
+
+
+Yes = 1, No = 0
+
+
+
+1 = reported
+
+
+
+Reporting 
+
+behaviour
+
+
+
+
+
+Answered by 144 of 159 victims 
+
+and also
+
+ by 141 of 456 non-victims. A skipped item is not unsafe practice.
+
+
+
+R2
+
+
+
+Yes, I would; No, I would not
+
+
+
+Yes = 1, No = 0
+
+
+
+1 = would report
+
+
+
+Reporting intention
+
+
+
+Answered by all respondents, so 
+
+skip
+
+ logic was not enforced. Intention is not 
+
+behaviour
+
+.
+
+
+
+P1
+
+
+
+Anti-virus; Authentication (e.g. password, PIN); Firewall; Software update; Encryption; Backup; Cloud storage (multiple selection)
+
+
+
+Number of distinct tools selected
+
+
+
+Higher = broader tool use
+
+
+
+Protective practice
+
+
+
+Cannot tell ‘none used’ from skipped. Counts breadth, not effectiveness.
+
+
+
+P2
+
+
+
+Yes, I believe it is automatically updated; Yes, I manually updated; No, I think it is automatically updated; I don’t know; No
+
+
+
+2 = both ‘Yes’ options; 1 = ‘No, I think it is automatically updated’ or ‘I don’t know’; 0 = ‘No’
+
+
+
+Higher = more confident updating
+
+
+
+Protective practice
+
+
+
+The label ‘No, I think it is automatically updated’ is contradictory. The ordering was a judgement and was tested in sensitivity analysis.
+
+
+
+P3, P5, P6, P7
+
+
+
+Never; Seldom; Sometimes; Often; Always
+
+
+
+1, 2, 3, 4, 5
+
+
+
+Higher = more frequent practice
+
+
+
+Protective practice
+
+
+
+Frequency is self-reported. Equal spacing is assumed only for descriptive summaries.
+
+
+
+P4
+
+
+
+Never; Seldom; Sometimes; Often; Always
+
+
+
+1, 2, 3, 4, 5
+
+
+
+Higher = more frequent awareness
+
+
+
+Perceived awareness
+
+
+
+Awareness is claimed, not tested.
+
+
+
+P8
+
+
+
+Never; Seldom; Sometimes; Often; Always
+
+
+
+Reversed: 6 minus 
+
+code
+
+
+
+
+
+Higher = safer practice after reversal
+
+
+
+Protective practice
+
+
+
+Reversed because the statement describes a risky practice.
+
+
+
+B1
+
+
+
+Not secure at all; Somewhat insecure; Neutral; Somewhat secure; Very secure; Not sure (difficult to determine)
+
+
+
+1–5; ‘Not sure’ kept as separate category
+
+
+
+Higher = greater perceived security
+
+
+
+Perceived security
+
+
+
+Confidence is not security. A high score is not rewarded as safer.
+
+
+
+B2
+
+
+
+Never; Seldom; Sometimes; Often; Always
+
+
+
+1, 2, 3, 4, 5; not reversed
+
+
+
+Higher = 
+
+feels
+
+ safer on public Wi-Fi
+
+
+
+Risk perception
+
+
+
+Direction retained and interpreted as comfort, not as a practice.
+
+
+
+B3
+
+
+
+Never; Seldom; Sometimes; Often; Always
+
+
+
+1, 2, 3, 4, 5; not reversed
+
+
+
+Higher = stronger belief of not being targeted
+
+
+
+Perceived susceptibility
+
+
+
+Higher values indicate lower perceived susceptibility.
+
+
+
+B4, B5, A1, A2, A4
+
+
+
+Strongly Disagree; Disagree; Neutral; Agree; Strongly Agree
+
+
+
+1, 2, 3, 4, 5
+
+
+
+Higher = stronger agreement
+
+
+
+Perceived awareness (B4); perceived protection (B5); attitude (A1, A2, A4)
+
+
+
+Agreement is not 
+
+behaviour
+
+. No composite is built from these items (Section 3.7).
+
+
+
+A3
+
+
+
+Never; Sometimes (‘
+
+Somtimes
+
+’ corrected); Always; Do not know
+
+
+
+1, 2, 3; Do not know kept as its own category
+
+
+
+Higher = more frequent concern
+
+
+
+Concern
+
+
+
+Frequency labels are used for an opinion statement, so interpretation is cautious.
+
+
+
+Source: author’s own. Counts are from 
+
+the 615
+
+ non-empty workbook rows. No variable is a composite score.
+
+
+
+
+
+
+
+
+
+
+
+
+
+3.6 Data Preparation and Quality Checks
+
+
+
+
+
+Mis-spellings
+
+ ('
+
+Somtimes
+
+' in Q20, 84 responses; ‘
+
+Chemsitry
+
+' in Q4) and stray spaces in labels were identified in the audit as well as 18 cells with only whitespace. Multiple-selection answers are recorded as a string of answers separated by commas; some answers include commas, so were matched to known strings of answers. Five pairs of exact repeated rows were found (workbook rows 135/136, 361/362, 471/476, 549/550 and 583/606). There are three pairs that are adjacent – this may be a sign of resubmission errors CITATION BrownP22 \p 1825 \l 1033 (Brown & Anderson, 2022). Repeated rows were marked (not removed
+
+)
+
+ and the results were compared to and without the second copy. No cleaning was applied at the audit stage meaning no retained record count was reported in this section.
+
+
+
+Logic of skipping was not enforced. One hundred and 
+
+forty four
+
+ (144) out of 159 (31%) respondents who reported 
+
+victimisation
+
+ answered Q24 A, while 141 out of 456 (31%) who did not report 
+
+victimisation
+
+ answered Q24 A. All the students answered Q24 B. No 
+
+one who
+
+ chose the answer in Q15 ‘None of the above’ did not answer Q16 CITATION HallidayS22 \p 115 \l 1033 (Halliday et al., 2022). Only those who could be counted as eligible respondents were used and out-of-scope answers were reported separately by denominators. The responses of 'do not know' and 'not applicable' were kept separate from the 'no' response and were not represented by zero. P8 was the only one that was reverse scored. The pretest of inter-item correlations and Cronbach's alpha indicated that the Q14 items were not one scale, as risk-related items (P8, B2, B3) were correlated, but negatively with the protective practices. There was no internal consistency of the seven Q18 items, so no Q18 composite was constructed. If 
+
+a reliability
+
+ was reported and judged to be satisfactory, then a composite P3 to P7 was considered CITATION GreenD24 \p 8 \l 1033 (Green et al., 2024). Otherwise, the indicators would have stayed as separate indicators.
+
+
+
+
+
+3.7 Data Analysis and Learner Profiling
+
+
+
+The preparation of data and summaries was done using Python: pandas and NumPy libraries, association tests were performed with the SciPy library, data pre-processing was performed with the scikit-learn library, and clustering was carried out with the scikit-learn library. Frequencies and percentages for categorical items and medians with interquartile ranges for ordinal items with denominators stated were reported for descriptive analysis. Spearman correlation was used to check for monotonic relationships among ordered indicators. Categorical associations were analyzed using chi-square tests; the Fisher exact test or merged categories for 
+
+small expected
+
+ counts CITATION WagnerJ19 \p 1968 \l 1033 (Wagner et al., 2019). These analyses were descriptive, in nature, showing associative relationships. For a non-probability sample, p-values 
+
+were considered to be
+
+ descriptive measures only, and not population inferences.
+
+
+
+
+
+The practice/
+
+practice perception (P1 to P8 & B1 to B3) indicators were used for profiling. A later description of the profiles was based on 
+
+the attitudes
+
+, context and exposure. The ordinal items were re-coded into a 0–1 scale based on the rank position with the directions provided in Table 3.3. There was no guarantee that numeric codes would be evenly distributed, and so one possible implementation was K-means using the 
+
+standardised
+
+ codes, rather than the default CITATION PhelpsN25 \l 1033 (Phelps, 2025). This was conducted in parallel with hierarchical clustering using a Gower-type distance and if the indicators were found to be primarily categorical, K-modes 
+
+was
+
+ considered. To compare the solutions for each method, the elbow method (K-means), average silhouette scores, repeated runs, bootstrap agreement (calculated by the adjusted Rand index) and agreement between methods were used CITATION YahyaM25 \l 1033 (Yahya et al., 2025). Only solutions that contained 5% or more of the records in each 
+
+cluster,
+
+ were stable and had coherent summaries of the items were retained. If not, the structure was documented as weak and rule-based profiles were utilized instead. Labels were only selected upon a visual inspection.
+
+
+
+
+
+3.8 Requirements and Prototype Development
+
+
+
+Requirements were derived from literature and system review, analysis of the dataset, and learning 
+
+programme
+
+ guidance (including NIST SP 800-50 Revision 1). 
+
+MoSCoW
+
+ (Must, Should, Could, Won't) was applied to 
+
+prioritise
+
+ them CITATION RealeC26 \l 1033 (Reale et al., 2026). A traceability matrix with evidence, learner needs, requirements, design feature and evaluation check was established and a traceability chain was created that enabled the ability to follow the evidence up and down from the Must requirements. The initial set of proposals 
+
+were
+
+ modified as needed.
+
+
+
+The artefact was a clickable wireframe and a set of rules documented, not working software. It included a brief introduction to the diagnostic, a summary of the profile, simple explanations of each recommendation, module pathways and feedback screens CITATION KhazenM23 \p 5 \l 1033 (Khazen et al., 2023). The decision of Rule Based Adaptation was made to allow the rules to be inspected and explained. The design was split into three layers, presentation, adaptation (scoring, profile assignment and rules) and data and content (profile definitions, a small catalogue of modules). The same rules and parameters were used to code and scale the diagnostic answers as used for the profiles, which allowed for comparison of a persona with a profile prior to assigning the persona to the closest profile CITATION 21 \p 51 \l 1033 (Лазурик et al., 2021). Recommendation rules were only suggested and not definite until the completed profile analysis confirmed the recommendation.
+
+
+
+
+
+3.9 Evaluation Procedures
+
+
+
+Five to eight adult volunteers (aged 18 or above as confirmed at consent) were used to evaluate the study. When respondents were asked about their own practices, no one provided a response because of 
+
+fictionalisation
+
+. The tasks involved were to finish the diagnostic as a persona, read the profile summary, and explain the reason for the recommendation of the first module, and complete a brief check and interpret the feedback CITATION FanT21 \p 14 \l 1033 (Fan et al., 2021). Scripted persona answers caused the screens to 
+
+run
+
+ and the path was traced along the rules that were recorded. Participants then filled in an online questionnaire comprising of the 10 SUS items, relevance and clarity items and open questions.
+
+
+
+The total number of hits (Standard SUS scoring) was used. Odd items get the response minus 1, even items get 5 minus the response, the total is multiplied by 
+
+2.5
+
+ and 
+
+the final result
+
+ is a score out of 100 and not a percentage of usability. There were no criteria that were set in a 
+
+favour
+
+ way, the time of the data collection, a mean SUS of 68 or higher was required, at least 80% of persona tasks had to be completed without the support of the facilitators, and the median score for the added relevance and clarity items had to be 4 or higher out of 5 points. It was formative targets, NOT statistical tests. Open comments were thematically 
+
+analysed
+
+ and 
+
+were connected with
+
+ requirements. One or two cybersecurity-education experts performed a review with a brief checklist of criteria related to the clarity of the rules, their relevance and alignment with NIST guidance CITATION OffenbergerS19 \p 5 \l 1033 (Offenberger et al., 2019). The usability, perceived relevance, design quality and clarity of recommendations were assessed. No evaluation of learning gain or 
+
+behaviour
+
+ change.
+
+
+
+
+
+3.10 Ethical Considerations and Data Management
+
+
+
+Ethical consideration had not been considered or approved from the outset and no participant information was gathered prior to approval. Participants were provided with an information 
+
+sheet
+
+ and the informed consent was obtained and the participants were able to withdraw before data was 
+
+anonymised
+
+ CITATION TrowlerV19 \p 84 \l 1033 (Trowler et al., 2019). The responses were anonymous, with access to them restricted and on secure storage at the University, which was set to be erased at the end of the retention period defined by the University policy. The data set is a secondary and public data set and used under its 
+
+licence
+
+ with attribution. 
+
+In order to
+
+ no longer show individual responses, the youngest age band starts with 17 years, and the adult status isn't confirmed CITATION JancewiczB24 \p 682 \l 1033 (Jancewicz & Wrotek, 2024). The results are presented at group level with groups of less than five suppressed and the one for ‘Northern Borders’ not reported separately.
+
+
+
+
+
+3.11 Methodological Limitations and Chapter Summary
+
+
+
+All the indicators are self-reports and are subject to social-desirability and recall bias. The sample of the six universities of Bihar and IGNOU, which is non-probabilistic, is not generalizable, even if it is intended for students from the UK CITATION BubouG20 \p 16 \l 1033 (Bubou & Job, 2020). No validated questionnaire, many constructs are based on one item, and some response scales do not fit very well their statements. Clustering always comes back with groups and, therefore, profiles are 
+
+exploratory
+
+. 5-8 of the evaluators were not supportive of 
+
+generalisation
+
+ CITATION PuustinenM18 \p 191 \l 1033 (Puustinen et al., 2018). Reproducibility was assured by keeping the scripts, preparation logs, random seeds and library versions. This chapter has outlined a clear pathway for evidence to prototype. The data analysis 
+
+reported
+
+ in the next chapter.
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+References
+
+
+
+
+
+Brickley, J. C., Thakur, K., & Krantz, M. (2026). Predictors of Phishing Detection Confidence among Defense Engineering Professionals. Journal of Computer and Communications, 14(3), 196–219. https://doi.org/10.4236/jcc.2026.143010 
+
+
+
+
+
+Brown, P. A., & Anderson, R. (2022). A methodology for preprocessing structured big data in the behavioral sciences. Behavior Research Methods, 55(4), 1818–1838. https://doi.org/10.3758/s13428-022-01895-4 
+
+
+
+
+
+
+
+Bubou
+
+, G. M., & Job, G. C. (2020). Individual innovativeness, self-efficacy and e-learning readiness of students of Yenagoa study 
+
+centre
+
+, National Open University of Nigeria. Journal of Research in Innovative Teaching & Learning, 15(1), 2–22. https://doi.org/10.1108/jrit-12-2019-0079 
+
+
+
+
+
+Fan, T., Song, J., & Guan, Z. (2021). Integrating diagnostic assessment into curriculum: a theoretical framework and teaching practices. Language Testing in Asia, 11(1). https://doi.org/10.1186/s40468-020-00117-y 
+
+
+
+
+
+Green, D. S., Burke, T., Maitland, S. B., & Lipps, G. (2024). Evaluating the measurement invariance of 
+
+the parenting
+
+ practices scale in the Caribbean. Discover Psychology, 4(1). https://doi.org/10.1007/s44202-024-00163-0 
+
+
+
+
+
+Halliday, S., Taylor, A., Turnbull, D., & Gregory, T. (2022). The Relationship Between Traditional and Cyber Bullying Victimization in Early Adolescence and Emotional Wellbeing: A Cross-Sectional, Population-Based Study. International Journal of Bullying Prevention, 6(2), 110–123. https://doi.org/10.1007/s42380-022-00144-8 
+
+
+
+
+
+Hayman, R. (2016). Some LIS Faculty Indicate Reservations about Open Access. Evidence Based Library and Information Practice, 11(3), 96–98. https://doi.org/10.18438/b8890b 
+
+
+
+
+
+Jancewicz, B., & 
+
+Wrotek
+
+, M. (2024). A 
+
+thermosurvey
+
+ dataset: Older adults’ experiences and adaptation to urban heat and climate change. Scientific Data, 11(1), 677. https://doi.org/10.1038/s41597-024-03509-4 
+
+
+
+
+
+Karrenbauer, C., Brauner, T., König, C. M., & Breitner, M. H. (2023). Design, development, and evaluation of an individual digital study assistant for higher education students. Educational Technology Research and Development, 71(5), 2047–2071. https://doi.org/10.1007/s11423-023-10255-8 
+
+
+
+
+
+Khazen, M., 
+
+Mirica
+
+, M., Carlile, N., 
+
+Groisser
+
+, A., & Schiff, G. D. (2023). Developing a Framework and Electronic Tool for Communicating Diagnostic Uncertainty in Primary Care. JAMA Network Open, 6(3). https://doi.org/10.1001/jamanetworkopen.2023.2218 
+
+
+
+
+
+Leite, J., Arora, A., 
+
+Gargova
+
+, S., Luz, J., Sampaio, G., Roberts, I., Scarton, C., & 
+
+Bontcheva
+
+, K. (2025). A Multilingual, Large-Scale Study of the Interplay between LLM Safeguards, 
+
+Personalisation
+
+, and Disinformation. In ArXiv.org. https://doi.org/10.48550/arxiv.2510.12993 
+
+
+
+
+
+
+
+Livoreil
+
+, B., Glanville, J., Haddaway, N., Bayliss, H., Bethel, A., Lachapelle, F. F. D., Robalino, S., 
+
+Savilaakso
+
+, S., Zhou, W., Petrokofsky, G., & Frampton, G. K. (2017). Systematic searching for environmental evidence using multiple tools and sources. Environmental Evidence, 6(1). https://doi.org/10.1186/s13750-017-0099-6 
+
+
+
+
+
+Offenberger, S., Herman, G., Petérson, P. A., Sherman, A. T., Golaszewski, E., 
+
+Scheponik
+
+, T., & Oliva, L. (2019). Initial Validation of the Cybersecurity Concept Inventory: Pilot Testing and Expert Review. Maryland Shared Open Access Repository (USMAI Consortium), 1–9. https://doi.org/10.1109/fie43999.2019.9028652 
+
+
+
+
+
+Phelps, N. (2025). Implications of Different Encodings of Binned Data when Clustering. Journal of Classification, 43(1), 146–174. https://doi.org/10.1007/s00357-025-09522-5 
+
+
+
+
+
+Puustinen, M., 
+
+Säntti
+
+, J., Koski, A., & Tammi, T. (2018). Teaching: A practical or research-based profession? Teacher candidates’ approaches to research-based teacher education. Teaching and Teacher Education, 74, 170–179. https://doi.org/10.1016/j.tate.2018.05.004 
+
+
+
+
+
+Reale, C., Latella, E., Bauguess, H., Soares, A., Schilling, L. M., & Morse, B. (2026). Implementation of the 
+
+MoSCoW
+
+ method to prioritize features for a Decision Aid Navigator (DEAN) system: A case report (Preprint). https://doi.org/10.2196/preprints.30427 
+
+
+
+
+
+
+
+Trowler
+
+, V., Allan, R. L., & Din, R. R. (2019). “To secure a better future”: the affordances and constraints of complex familial and social factors encoded in higher education students’ narratives of engagement. Widening Participation and Lifelong Learning, 21(3), 81–98. https://doi.org/10.5456/wpll.21.3.81 
+
+
+
+
+
+Uchendu, B., Nurse, J. R. C., Bada, M., & Furnell, S. (2021). Developing a cyber security culture: Current practices and future needs. 
+
+arXiv
+
+ (Cornell University), 109, 102387. https://doi.org/10.1016/j.cose.2021.102387 
+
+
+
+
+
+Wagner, J., Hinton, L., 
+
+McCordic
+
+, C., Owuor, S., 
+
+Caprón
+
+, G., & Arellano, S. G. (2019). Do Urban Food Deserts Exist in the Global South? An Analysis of Nairobi and Mexico City. Sustainability, 11(7), 1963. https://doi.org/10.3390/su11071963 
+
+
+
+
+
+Yahya, Muh. Z., Nurhaliza, S., Fathan, M. A., Rizal, M. E., & A, A. H. (2025). 
+
+Perbandingan
+
+ 
+
+Ukuran
+
+ Jarak pada 
+
+Analisis
+
+ 
+
+Kluster
+
+ Hirarki. Leibniz 
+
+Jurnal
+
+ Matematika, 5(2), 93–111. https://doi.org/10.59632/leibniz.v5i02.538 
+
+
+
+
+
+
+
+Лазурик
+
+, В. Т., 
+
+Styervoyedov
+
+, N., & 
+
+Varlamova
+
+, N. (2021). Information processing 
+
+psychodiagnostic
+
+ system: designing and implementation. Eastern-European Journal of Enterprise Technologies, 2, 45–54. https://doi.org/10.15587/1729-4061.2021.230042 
+
+
+
