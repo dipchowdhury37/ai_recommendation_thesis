@@ -14,5 +14,8 @@
     "research-prototype"
   ],
   "author": "MSc Candidate",
-  "license": "CC-BY-4.0"
+  "license": "CC-BY-4.0",
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  }
 }
